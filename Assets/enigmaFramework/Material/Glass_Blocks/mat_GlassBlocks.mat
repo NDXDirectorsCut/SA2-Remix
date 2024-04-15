@@ -88,6 +88,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: d41dc5e525ac8bb4f8c3fb1c557a27a9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2DLOD_fc9ea579156c461092c66c7f80ab7233_Texture_1_Texture2D:
+        m_Texture: {fileID: 8400000, guid: 254d75074da818f4aa950628b5a2c101, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Transmission_Texture:
         m_Texture: {fileID: 2800000, guid: 2f5a21ff806eb2f488ab4134257ed7ad, type: 3}
         m_Scale: {x: 1, y: 1}

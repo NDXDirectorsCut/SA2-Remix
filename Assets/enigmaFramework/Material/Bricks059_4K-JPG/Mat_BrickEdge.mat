@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_BrickEdge
-  m_Shader: {fileID: -6465566751694194690, guid: ec6ae2dea150f4249bea23c76711413b, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ccfd6185ad90b8844b89564ca833087b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -36,6 +36,34 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Array:
+        m_Texture: {fileID: 18700000, guid: 6a16697118b436dcba28636092e3c47d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Blend_Height:
+        m_Texture: {fileID: 2800000, guid: 73ee3737b9c9b94a9b3780617aab300a, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Diffuse:
+        m_Texture: {fileID: 2800000, guid: 6a16697118b436dcba28636092e3c47d, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Metallic:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Normal:
+        m_Texture: {fileID: 2800000, guid: f165d5ff89f019d9d8a2d8b830efdda7, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Roughness:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Blend_Texture:
+        m_Texture: {fileID: 2800000, guid: d3e01632e5dbc5aac961ddf081eb2d2a, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -88,6 +116,22 @@ Material:
         m_Texture: {fileID: 2800000, guid: 9e2b52f6a5d9dda7e8906e89731de5d0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2D:
+        m_Texture: {fileID: 2800000, guid: eba1e291e2839a06fa04d824275943bd, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
+    - _WorldTexture_150d28ee5686496bb1e6c2e0421cca7f_BlendTexture_1317438860_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _var6AngleProjection_4dacf769238f44f6848928a51d5c9769_BlendTexture_4053851711_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 73ee3737b9c9b94a9b3780617aab300a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _var6AngleProjection_4dacf769238f44f6848928a51d5c9769_TextureBlend_4053851711_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _Amplitude: 5
@@ -97,6 +141,10 @@ Material:
     - _Amplitude_4: 0
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
+    - _Base_Blend_Strength: 5
+    - _Base_Normal_Strength: 2
+    - _Base_Parallax_Strength: 0
+    - _Blend_Strength: 5
     - _BumpScale: 1
     - _Clipping_Multiplier: 0.9
     - _Cutoff: 0.426
@@ -108,6 +156,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _Multiplier: 0.5
+    - _Normal_Strength: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -119,6 +168,9 @@ Material:
     - _Visualize_Edge: 0
     - _ZWrite: 1
     m_Colors:
+    - _Base_Blend_Remap: {r: 1, g: 0, b: 0, a: 0}
+    - _Blend_Remap: {r: 0.8, g: -0.3, b: 0, a: 0}
     - _Color: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Tiling: {r: 0.1, g: 0.1, b: 0, a: 0}
   m_BuildTextureStacks: []

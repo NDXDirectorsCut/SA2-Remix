@@ -24,5 +24,7 @@ public class EnigmaAnimator : MonoBehaviour
 
         animator.SetFloat("Velocity Magnitude",enigmaPhysics.rBody.velocity.magnitude);
         animator.SetInteger("Character State",enigmaPhysics.characterState);
+        animator.SetFloat("Turning",enigmaPhysics.primaryAxis.x);
+        
     }
 }
