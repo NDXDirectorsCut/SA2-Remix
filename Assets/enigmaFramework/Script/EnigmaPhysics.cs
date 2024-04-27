@@ -23,7 +23,7 @@ public class EnigmaPhysics : MonoBehaviour
         [Range(0,2)]
         public float raycastLength;
         public LayerMask raycastLayers;
-        RaycastHit hit;
+        public RaycastHit hit;
         public bool interpolateNormals;
         [Range(0,90)]
         public float angleCutoff;
@@ -41,6 +41,7 @@ public class EnigmaPhysics : MonoBehaviour
             public AnimationCurve accelerationCurve;
             public float groundDeceleration;
             public float turnRate;
+            public float turnCoefficient;
             float accelCap;
             [Space(5)]
             public float brakeSpeed;
@@ -50,7 +51,7 @@ public class EnigmaPhysics : MonoBehaviour
             public float airBrakeSpeed;
             public float airDeceleration;
     [System.NonSerialized]
-    public Vector3 forwardReference;
+    public Vector3 forwardReference;    
 
     // Start is called before the first frame update
     void Start()
@@ -73,7 +74,7 @@ public class EnigmaPhysics : MonoBehaviour
         Vector3 tempNormal = referenceVector;
         float dl = Time.fixedDeltaTime;
         // /nnDebug.DrawRay(transform.position+transform.up*col.center.y*1.75f+transform.forward*.05f,-transform.up * col.center.y*2*raycastLength,Color.magenta);
-        if(Physics.Raycast(transform.position+transform.up*col.center.y*1.75f,-transform.up,out hit,col.center.y*2*raycastLength,raycastLayers) != false)
+        if(Physics.Raycast(rBody.position+transform.up*col.center.y*1.75f,-transform.up,out hit,col.center.y*2*raycastLength,raycastLayers) != false)
         {
             
             if(interpolateNormals == true)
@@ -92,6 +93,7 @@ public class EnigmaPhysics : MonoBehaviour
             
         }        
 
+        grounded = hit.transform != null ? true : false;
 
         switch(characterState)
         {
@@ -107,6 +109,46 @@ public class EnigmaPhysics : MonoBehaviour
                     characterState = 2;
                     goto case 2;
                 }
+
+                accelCap = groundStartAcceleration * 29.33f + accelerationOffset;
+                
+
+                point = Vector3.Lerp(point,hit.point,Mathf.Clamp(1 - Mathf.Pow(1 - pointLerp, dl * 60 ),0,1));
+                Vector3 localPoint = rBody.transform.InverseTransformPoint(point); localPoint.x = 0; localPoint.z = 0;
+                point = rBody.transform.TransformPoint(localPoint);
+
+                rBody.velocity += primaryAxis * Time.deltaTime * groundStartAcceleration * 36 * (1-(rBody.velocity.magnitude/accelCap));
+
+                moved = primaryAxis.sqrMagnitude != 0 ? true : false;
+                movedStarted = primaryAxis.sqrMagnitude > .1f && rBody.velocity.sqrMagnitude < .1f ? true : false; 
+
+                normalRight = Vector3.Cross(normal,rBody.velocity.normalized).normalized;
+                normalForward = Vector3.Cross(normalRight,normal).normalized;
+
+                rBody.velocity = normalForward * rBody.velocity.magnitude;
+                float turnAngle = Vector3.SignedAngle(primaryAxis,rBody.velocity,normal);
+                rBody.velocity = Quaternion.AngleAxis(-turnAngle * Time.fixedDeltaTime * turnRate,normal) * rBody.velocity;
+
+                rBody.position = point;
+                rBody.transform.up = normal;
+
+                if(moved == false)
+                {
+                    rBody.velocity += rBody.velocity * groundDeceleration * 6 *Time.fixedDeltaTime * Mathf.Clamp(rBody.velocity.magnitude,0,1);
+                    if(rBody.velocity.sqrMagnitude<1f)
+                            rBody.velocity = Vector3.Lerp(rBody.velocity,Vector3.zero,0.3f);
+                        if(rBody.velocity.sqrMagnitude<0.05f)
+                        {
+                            rBody.velocity = Vector3.zero;
+                        }
+                }
+
+                if(rBody.velocity.sqrMagnitude != 0)
+                    forwardReference = normalForward;
+                else
+                    forwardReference = Vector3.ProjectOnPlane(forwardReference,normal);
+
+                /*
                 accelCap = groundStartAcceleration * 29.33f + accelerationOffset;
                 
                 point = Vector3.Lerp(point,hit.point,Mathf.Clamp(1 - Mathf.Pow(1 - pointLerp, dl * 60 ),0,1));
@@ -157,7 +199,18 @@ public class EnigmaPhysics : MonoBehaviour
                     characterState = 1;
                     goto case 1;
                 }
-                normal = referenceVector;
+                rBody.velocity += -referenceVector * gravitationalPull * Time.deltaTime;
+                normal = Vector3.RotateTowards(normal,referenceVector,1.25f*Time.deltaTime,0).normalized;
+
+                normalRight = Vector3.Cross(normal,rBody.velocity.normalized).normalized;
+                normalForward = Vector3.Cross(normalRight,normal).normalized;
+
+                if(rBody.velocity.sqrMagnitude != 0)
+                    forwardReference = normalForward;
+                else
+                    forwardReference = Vector3.ProjectOnPlane(forwardReference,normal);
+
+                rBody.transform.up = normal;
                 point = transform.position;
                 break;
             case 3: // Scripted

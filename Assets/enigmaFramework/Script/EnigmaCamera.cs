@@ -50,7 +50,7 @@ public class EnigmaCamera : MonoBehaviour
     void FixedUpdate()
     {
         Application.targetFrameRate = targetFramerate;
-        referenceVector = enigmaPhysics.normal;
+        referenceVector = Vector3.up;
         float dl = Time.fixedDeltaTime;
         if(mouseX != mouseX || mouseY != mouseY)
         {
@@ -71,10 +71,9 @@ public class EnigmaCamera : MonoBehaviour
             verticalV3.x = Mathf.Lerp(verticalV3.x,angleCutoff.x,.5f);
         }
         verticalV3.x = Mathf.Clamp(verticalV3.x,-90,90);
-        //verticalRot = Quaternion.FromToRotation(Vector3.up,referenceVector) * verticalRot;
         horizontalV3 += new Vector3(0,mouseX*speed,0);
-        // /Debug.Log(mouseX);
-        Quaternion horizontalQ = Quaternion.FromToRotation(Vector3.up,referenceVector) * Quaternion.Euler(horizontalV3); Quaternion verticalQ = Quaternion.Euler(verticalV3);
+        
+        Quaternion horizontalQ = Quaternion.Euler(horizontalV3); Quaternion verticalQ = Quaternion.Euler(verticalV3);
         Quaternion finalRot = horizontalQ * verticalQ;
         transform.rotation = finalRot;
 
@@ -91,32 +90,5 @@ public class EnigmaCamera : MonoBehaviour
             currentBuffer = 0;
         }
         transform.rotation = Quaternion.LookRotation((lookPos - transform.position).normalized,referenceVector);
-        //transform.position = (diff * (transform.position - orbitPos)) + orbitPos;
-        //transform.forward = (lookPos - transform.position).normalized;
-        //transform.rotation = finalRot;
-        
-        /*Quaternion rot = Quaternion.AngleAxis(mouseX*speed,Vector3.up) * Quaternion.AngleAxis(-mouseY*speed,transform.right);
-        //rot = Quaternion.Euler(rot.eulerAngles);
-        //Debug.Log(mouseX + " " + Input.GetAxisRaw("Mouse X")/ deltaDeviance + " " + (1-inputSmoothness));
-        Quaternion hor = Quaternion.AngleAxis(mouseX*(.2f/dl)*speed,Vector3.up) * Quaternion.identity;
-        
-
-        //Debug.Log(rot);
-        transform.forward = (lookPos - transform.position).normalized;
-        
-        if(Physics.Raycast(orbitPos,-transform.forward,out hit,distance,layers))
-        {
-            transform.position = hit.point+ transform.forward*currentBuffer;
-            currentBuffer = Mathf.Lerp(currentBuffer,collisionBuffer,bufferLerp / (Time.deltaTime/0.01666666f));
-        }
-        else
-        {
-            transform.position = orbitPos - transform.forward * distance;
-            currentBuffer = 0;
-        }
-        
-        transform.position = (rot * (transform.position - orbitPos)) + orbitPos;
-        transform.forward = (lookPos - transform.position).normalized;
-        */
     }
 }
