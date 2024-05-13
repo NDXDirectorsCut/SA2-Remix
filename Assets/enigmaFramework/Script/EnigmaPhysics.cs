@@ -116,13 +116,14 @@ public class EnigmaPhysics : MonoBehaviour
                 }
 
                 float slopeAngle = Vector3.SignedAngle(referenceVector,normal,-Vector3.Cross(forwardReference,normal));
-                //Debug.Log(slopeCap+1);
+                float slopeCap =  (Mathf.Abs(slopeAngle) * 0.106f + 2.3f);
+                Debug.Log(slopeCap);
 
                 //Debug.Log(slopeCap + " " + slopeAngle);
                 float finalCap = accelCap;
 
                 float accelRatio = Mathf.Clamp(Vector3.Angle(forwardReference,referenceVector)/90,0,1);
-                Debug.Log(accelRatio);
+                //Debug.Log(accelRatio);
                 //Debug.Log(slopeCap+accelCap);
 
                 StartCoroutine(StartSpeed());
@@ -148,11 +149,10 @@ public class EnigmaPhysics : MonoBehaviour
                             rBody.velocity = Vector3.zero;
                         }
                 }
+                
+                rBody.velocity += -Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)) * Time.fixedDeltaTime;
                 rBody.velocity = Vector3.ProjectOnPlane(rBody.velocity,normal);
-                Debug.DrawRay(transform.position,rBody.velocity, Color.magenta);
-                rBody.velocity += -Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(slopeAngle) * Time.fixedDeltaTime;
-                Debug.DrawRay(transform.position + -Vector3.Cross(forwardReference,normal) * .1f,rBody.velocity, Color.cyan);
-                Debug.DrawRay(transform.position + -Vector3.Cross(forwardReference,normal) * .1f,-Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(slopeAngle), Color.red);
+                Debug.DrawRay(transform.position + -Vector3.Cross(forwardReference,normal) * .1f,-Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)), Color.red);
 
                 if(rBody.velocity.sqrMagnitude != 0)
                     forwardReference = rBody.velocity.normalized;
@@ -173,7 +173,7 @@ public class EnigmaPhysics : MonoBehaviour
                 rBody.velocity += primaryAxis * airAcceleration * Time.deltaTime;
                 normal = Vector3.RotateTowards(normal,referenceVector,1.25f*Time.deltaTime,0).normalized;
 
-                normalRight = Vector3.Cross(normal,rBody.velocity.normalized).normalized;
+                normalRight = Vector3.Cross(normal,forwardReference).normalized;
                 normalForward = Vector3.Cross(normalRight,normal).normalized;
 
                 if(rBody.velocity.sqrMagnitude != 0)

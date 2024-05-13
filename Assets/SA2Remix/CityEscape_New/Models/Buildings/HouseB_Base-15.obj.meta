@@ -3,7 +3,127 @@ guid: 824537e74d51e7943a598c89e01b264d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_builparts_ks2_door01
+    second: {fileID: 2100000, guid: 5ed2be62915ac17489b89af560dfa980, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_builparts_ks2_loof01
+    second: {fileID: 2100000, guid: e3f05da3879695f49bb738b094f02b4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_builparts_ks2_showwin02
+    second: {fileID: 2100000, guid: 1c9ca055f7895264ba447e404cb2a50c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_builparts_ks2_stairs01
+    second: {fileID: 2100000, guid: ba3a9601e33fbec48ba5aa42d1e9572f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_builparts_ks2_window01
+    second: {fileID: 2100000, guid: bcdf80957c31aa94b9be1f35d6bd27d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_builparts_yc1_storename01
+    second: {fileID: 2100000, guid: 6b2692d2dd412c2418ac97cced560db3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_builparts_yc1_storeroof01
+    second: {fileID: 2100000, guid: a1a21b5dd773607409572b3d18b7420a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_glass_ks2_glass01
+    second: {fileID: 2100000, guid: 5fe29b0275c89754683c4efcfdf31fc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_ground_ks2_tile01
+    second: {fileID: 2100000, guid: 0abe14f39d06ee140bcf69d98c8e9f32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_plant_hh_potflower
+    second: {fileID: 2100000, guid: 297d571779282944bb46771b4815b371, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_plant_sk_flowerZ01
+    second: {fileID: 2100000, guid: 0a3c857f179efe2488a49ecc02a7c8a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_plant_sk_flowerz02
+    second: {fileID: 2100000, guid: 8602d01ece5a9d2409c4b24b55caea13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_plant_sk_flowerz04
+    second: {fileID: 2100000, guid: ea8b85d8be2132648a8c86890a708909, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_plant_sk_flowerz05
+    second: {fileID: 2100000, guid: ea8b85d8be2132648a8c86890a708909, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_rock_ay1_potplant01
+    second: {fileID: 2100000, guid: 5812e569e5e36324daae358d0b54dd71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_wall_ay1_concreat01
+    second: {fileID: 2100000, guid: c083beccaafb09249a0287578cf00850, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_wall_ay1_tile02
+    second: {fileID: 2100000, guid: 138d112c2034d4947beb0a907fcfadfd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_wall_ks2_brick02_dif
+    second: {fileID: 2100000, guid: 6f43269727ff0ed46847fc89d886bf40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_wall_ks2_builwall02
+    second: {fileID: 2100000, guid: bda99f456220384439f2d31866ae2070, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_wall_ks2_builwall04
+    second: {fileID: 2100000, guid: d88caddff6499fd44b1cd84f0037b2d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_wall_ks2_builwall05
+    second: {fileID: 2100000, guid: 0fb9c665c191eec458e194022acb4446, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_wall_ks2_builwall06
+    second: {fileID: 2100000, guid: 77753e615c326f6449255e6f85e81181, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_wall_ks2_builwall07
+    second: {fileID: 2100000, guid: e8d17d423f404ed4489df4897e02e675, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_wall_tk1_wall02
+    second: {fileID: 2100000, guid: 789e83efaea0b494fa1c69ae28093969, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -37,7 +157,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1

@@ -104,6 +104,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Flip_Red_Channel: 0
     - _Fresnel_Diffuse_Tint: 0
     - _Fresnel_Power: 1
     - _Fresnel_Roughness: 4
@@ -114,7 +115,7 @@ Material:
     - _Metallic: 0
     - _Metallic_Invert: 0
     - _Mode: 0
-    - _Normal_Strength: -1
+    - _Normal_Strength: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Position_Influence: 0
