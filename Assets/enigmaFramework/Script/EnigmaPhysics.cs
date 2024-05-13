@@ -149,9 +149,10 @@ public class EnigmaPhysics : MonoBehaviour
                         }
                 }
                 rBody.velocity = Vector3.ProjectOnPlane(rBody.velocity,normal);
-
+                Debug.DrawRay(transform.position,rBody.velocity, Color.magenta);
                 rBody.velocity += -Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(slopeAngle) * Time.fixedDeltaTime;
-                Debug.DrawRay(transform.position,-Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)), Color.cyan);
+                Debug.DrawRay(transform.position + -Vector3.Cross(forwardReference,normal) * .1f,rBody.velocity, Color.cyan);
+                Debug.DrawRay(transform.position + -Vector3.Cross(forwardReference,normal) * .1f,-Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(slopeAngle), Color.red);
 
                 if(rBody.velocity.sqrMagnitude != 0)
                     forwardReference = rBody.velocity.normalized;
