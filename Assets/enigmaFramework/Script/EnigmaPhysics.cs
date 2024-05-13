@@ -28,9 +28,9 @@ public class EnigmaPhysics : MonoBehaviour
         [Range(0,90)]
         public float angleCutoff;
         public bool grounded;
-        
+
         public int characterState = 0;
-    
+
     [Header("Movement")]
         bool moved,movedStarted;
         [System.NonSerialized]
@@ -39,7 +39,7 @@ public class EnigmaPhysics : MonoBehaviour
         [Header("Grounded")]
             public float startSpeed;
             public float speedCap;
-            public float slopeIntensity;
+            public AnimationCurve slopeIntensity;
             public float groundAcceleration;
             public float accelCap;
             public AnimationCurve accelerationCurve;
@@ -49,12 +49,12 @@ public class EnigmaPhysics : MonoBehaviour
             [Space(5)]
             public float brakeSpeed;
 
-        [Header("Air")] 
+        [Header("Air")]
             public float airAcceleration;
             public float airBrakeSpeed;
             public float airDeceleration;
     [System.NonSerialized]
-    public Vector3 forwardReference;    
+    public Vector3 forwardReference;
     Vector3 prevFloorPos;
 
     // Start is called before the first frame update
@@ -65,7 +65,7 @@ public class EnigmaPhysics : MonoBehaviour
         normalRight = Vector3.Cross(normal,normalForward);
         point = transform.position;
         forwardReference = transform.forward;
-        
+
         if(GetComponent<Rigidbody>() != null)
             rBody = GetComponent<Rigidbody>();
         if(GetComponent<CapsuleCollider>() != null)
@@ -75,13 +75,13 @@ public class EnigmaPhysics : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+
         Vector3 tempNormal = referenceVector;
         float dl = Time.fixedDeltaTime;
         // /nnDebug.DrawRay(transform.position+transform.up*col.center.y*1.75f+transform.forward*.05f,-transform.up * col.center.y*2*raycastLength,Color.magenta);
         if(Physics.Raycast(rBody.position+transform.up*col.center.y*1.75f,-transform.up,out hit,col.center.y*2*raycastLength,raycastLayers) != false)
         {
-            
+
             if(interpolateNormals == true)
             {
                 tempNormal = InterpolateNormal(hit).normalized;
@@ -95,8 +95,8 @@ public class EnigmaPhysics : MonoBehaviour
                 normal = Vector3.Lerp(normal,tempNormal,1 - Mathf.Pow(1 - normalLerp, dl * 60));
                 Debug.DrawRay(hit.point,normal,Color.magenta);
             }
-            
-        }        
+
+        }
 
         grounded = hit.transform != null ? true : false;
 
@@ -116,18 +116,13 @@ public class EnigmaPhysics : MonoBehaviour
                 }
 
                 float slopeAngle = Vector3.SignedAngle(referenceVector,normal,-Vector3.Cross(forwardReference,normal));
-                float slopeCap =  (slopeAngle*6) * 0.106f + 2.3f;
-
-                
-
-                
-
                 //Debug.Log(slopeCap+1);
-    
-                //Debug.Log(slopeCap + " " + slopeAngle);
-                float finalCap = accelCap + slopeCap*6;
 
-                float accelRatio = Mathf.Clamp(Vector3.Angle(rBody.velocity,Vector3.ProjectOnPlane(-referenceVector,normal))/90,0,1);
+                //Debug.Log(slopeCap + " " + slopeAngle);
+                float finalCap = accelCap;
+
+                float accelRatio = Mathf.Clamp(Vector3.Angle(forwardReference,referenceVector)/90,0,1);
+                Debug.Log(accelRatio);
                 //Debug.Log(slopeCap+accelCap);
 
                 StartCoroutine(StartSpeed());
@@ -138,26 +133,26 @@ public class EnigmaPhysics : MonoBehaviour
                 Vector3 localPoint = rBody.transform.InverseTransformPoint(point); localPoint.x = 0; localPoint.z = 0;
                 point = rBody.transform.TransformPoint(localPoint);
 
-                rBody.velocity += primaryAxis.normalized * groundAcceleration * Time.fixedDeltaTime * accelerationCurve.Evaluate(rBody.velocity.magnitude/finalCap);
-                
+                rBody.velocity += primaryAxis.normalized * groundAcceleration * accelRatio * Time.fixedDeltaTime * accelerationCurve.Evaluate(rBody.velocity.magnitude/finalCap);
+
                 float turnAngle = Vector3.SignedAngle(primaryAxis,rBody.velocity,normal);
                 rBody.velocity = Quaternion.AngleAxis(-turnAngle * Time.fixedDeltaTime * turnRate,normal) * rBody.velocity;
 
                 if(moved == false)
                 {
-                    rBody.velocity += rBody.velocity * groundDeceleration *Time.fixedDeltaTime * Mathf.Clamp(rBody.velocity.magnitude,0,1);
+                    rBody.velocity += rBody.velocity * groundDeceleration * Time.fixedDeltaTime * Mathf.Clamp(rBody.velocity.magnitude,0,1);
                     if(rBody.velocity.sqrMagnitude<1f)
-                            rBody.velocity = Vector3.Lerp(rBody.velocity,Vector3.zero,0.3f);
-                        if(rBody.velocity.sqrMagnitude<0.05f)
+                            rBody.velocity = Vector3.Lerp(rBody.velocity,Vector3.zero,0.3f*accelRatio);
+                        if(rBody.velocity.sqrMagnitude<0.05f && Mathf.Abs(slopeAngle) < 45f)
                         {
                             rBody.velocity = Vector3.zero;
                         }
                 }
-                
-                rBody.velocity += -Vector3.ProjectOnPlane(referenceVector,normal) * slopeIntensity * Time.fixedDeltaTime * accelerationCurve.Evaluate(   rBody.velocity.magnitude/ (slopeCap*6+1)          );
-                Debug.DrawRay(transform.position,-Vector3.ProjectOnPlane(referenceVector,normal) * slopeIntensity * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6+1)), Color.cyan);
-
                 rBody.velocity = Vector3.ProjectOnPlane(rBody.velocity,normal);
+
+                rBody.velocity += -Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(slopeAngle) * Time.fixedDeltaTime;
+                Debug.DrawRay(transform.position,-Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)), Color.cyan);
+
                 if(rBody.velocity.sqrMagnitude != 0)
                     forwardReference = rBody.velocity.normalized;
                 else
@@ -165,7 +160,6 @@ public class EnigmaPhysics : MonoBehaviour
 
                 rBody.position = point;
                 rBody.transform.up = normal;
-
 
                 break;
             case 2: // Airborne
@@ -218,7 +212,7 @@ public class EnigmaPhysics : MonoBehaviour
             case 2:
                 if(oldState == 1)
                 {
-                    
+
                     //physBody.velocity = physBody.velocity.normalized * physBody.velocity.magnitude * groundToAirTransition + floorVelocity;
                 }
                 break;
@@ -233,7 +227,7 @@ public class EnigmaPhysics : MonoBehaviour
             Debug.Log("Start Speed!");
             rBody.velocity = primaryAxis.normalized * startSpeed;
 
-             
+
         }
         yield return null;
     }
@@ -245,7 +239,7 @@ public class EnigmaPhysics : MonoBehaviour
         if (meshCollider == null || meshCollider.sharedMesh == null)
         {
             return iHit.normal;
-            
+
         }
 
         Mesh mesh = meshCollider.sharedMesh;
@@ -254,7 +248,7 @@ public class EnigmaPhysics : MonoBehaviour
         {
             return iHit.normal;
         }
-        
+
         Vector3[] normals = mesh.normals;
         int[] triangles = mesh.triangles;
 
@@ -267,12 +261,12 @@ public class EnigmaPhysics : MonoBehaviour
         // n.dx on Discord or NDXDirectorsCut on Twitter
 
         //Debug.Log(scale);
-        
+
         // Extract local space normals of the triangle we hit
         Vector3 n0 = normals[triangles[iHit.triangleIndex * 3 + 0]];
         Vector3 n1 = normals[triangles[iHit.triangleIndex * 3 + 1]];
         Vector3 n2 = normals[triangles[iHit.triangleIndex * 3 + 2]];
-        
+
         Vector3 scaleAlt = new Vector3(1/scale.x,1/scale.y,1/scale.z);
         //Debug.Log(triangles[iHit.triangleIndex * 3 + 0]);
         //Debug.DrawRay(Vector3.Scale(mesh.vertices[triangles[iHit.triangleIndex * 3 + 0]],iHit.transform.lossyScale) + iHit.transform.position,Vector3.Scale(n0.normalized,scaleAlt).normalized,Color.red);
@@ -285,7 +279,7 @@ public class EnigmaPhysics : MonoBehaviour
         n0 = Vector3.Scale(n0,scaleAlt);
         n1 = Vector3.Scale(n1,scaleAlt);
         n2 = Vector3.Scale(n2,scaleAlt);
-        
+
         //Debug.DrawRay(iHit.point,n0,Color.red);
         //Debug.DrawRay(iHit.point,n1,Color.green);
         //Debug.DrawRay(iHit.point,n2,Color.blue);
@@ -294,14 +288,14 @@ public class EnigmaPhysics : MonoBehaviour
         // Use barycentric coordinate to interpolate normal
         Vector3 interpolatedNormal = n0 * baryCenter.x + n1 * baryCenter.y + n2 * baryCenter.z;
         //interpolatedNormal = Vector3.Scale(interpolatedNormal,scale);
-        
+
         // normalize the interpolated normal
         interpolatedNormal = interpolatedNormal.normalized;
-        
-        
+
+
         // Transform local space normals to world space
         Transform hitTransform = iHit.collider.transform;
-        
+
         interpolatedNormal = hitTransform.TransformDirection(interpolatedNormal);
         return interpolatedNormal;
     }
