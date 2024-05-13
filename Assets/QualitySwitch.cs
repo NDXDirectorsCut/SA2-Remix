@@ -21,5 +21,22 @@ public class QualitySwitch : MonoBehaviour
         {
             QualitySettings.SetQualityLevel(1,true);
         }
+        if(Input.GetKey(KeyCode.Keypad4))
+        {
+            Time.fixedDeltaTime = 1/120f;
+        }
+        if(Input.GetKey(KeyCode.Keypad5))
+        {
+            Time.fixedDeltaTime = 1/60f;
+        }
+        if(Input.GetKey(KeyCode.Keypad6))
+        {
+            Time.fixedDeltaTime = 1/15f;
+        }
+        if(Input.GetKey(KeyCode.KeypadPlus))
+        {
+            Time.fixedDeltaTime = 1/480f;
+        }
+
     }
 }

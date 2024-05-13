@@ -21,7 +21,8 @@ public class TestScript : MonoBehaviour
             float time = Time.time;
             Vector3 dir = new Vector3(Mathf.Cos(time),0,Mathf.Sin(time));
             Debug.DrawRay(Vector3.zero,dir.normalized,Color.red);
-            physBody.Move(physBody.position+dir*speed*dl,Quaternion.identity);
+            transform.position += dir * speed * dl;
+            //physBody.Move(physBody.position+dir*speed*dl,Quaternion.identity);
         }
 
     }
@@ -34,8 +35,8 @@ public class TestScript : MonoBehaviour
             float dl = Time.fixedDeltaTime;
             float time = Time.time;
             Vector3 dir = new Vector3(Mathf.Cos(time),0,Mathf.Sin(time));
-            Debug.DrawRay(Vector3.zero,dir.normalized,Color.red);
-            physBody.Move(physBody.position+dir*dl*speed,Quaternion.identity);
+            Debug.DrawRay(Vector3.zero,dir.normalized,Color.green);
+            physBody.Move(physBody.position+dir*speed*dl,Quaternion.identity);//transform.position += dir * speed * dl;
         }
     }
 }

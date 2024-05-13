@@ -1708,6 +1708,7 @@ GameObject:
   - component: {fileID: 8150134741459572654}
   - component: {fileID: 6985334706526861801}
   - component: {fileID: 1076649840599486746}
+  - component: {fileID: 1662277740505934160}
   m_Layer: 3
   m_Name: EnigmaCharacter
   m_TagString: Untagged
@@ -1808,15 +1809,17 @@ MonoBehaviour:
   angleCutoff: 61
   grounded: 1
   characterState: 1
-  primaryAxis: {x: 0, y: 0, z: 0}
-  gravitationalPull: 0.48
-  groundStartAcceleration: 0.3
-  accelerationOffset: 18
+  weight: 32
+  startSpeed: 0.3
+  speedCap: 96
+  slopeIntensity: 0
+  groundAcceleration: 2.88
+  accelCap: 26.82
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.75
       value: 1
       inSlope: -0
       outSlope: -0
@@ -1827,19 +1830,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -2
-      outSlope: -2
+      inSlope: -11.37735
+      outSlope: -11.37735
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.03731346
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  groundDeceleration: -0.36
-  turnRate: 5
+  groundDeceleration: -2.16
+  turnRate: 8
+  turnCoefficient: 0
   brakeSpeed: -1.08
-  airAcceleration: 0.186
+  airAcceleration: 6.96
   airBrakeSpeed: -1.02
   airDeceleration: -0.168
 --- !u!114 &1076649840599486746
@@ -1856,6 +1860,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputReference: 1
   referenceObject: {fileID: 8270541407613433723}
+--- !u!114 &1662277740505934160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916707478080960160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cea9516374a2f4a9172f6ccd52eacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialJumpForce: 9.96
+  jumpTimer: 1
+  additiveJumpForce: 28
+  animator: {fileID: 8789175451376545850}
 --- !u!1 &7403397615591216391
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,6 +3302,10 @@ PrefabInstance:
     - target: {fileID: 5692065187503645208, guid: be2403a6c099d2140874a40d05422c85, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692065187503645208, guid: be2403a6c099d2140874a40d05422c85, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

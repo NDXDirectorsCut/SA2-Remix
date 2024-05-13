@@ -40,14 +40,14 @@ public class EnigmaCamera : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         //Application.targetFrameRate = 120;
     }
-
+    /*
     void Update()
     {
         deltaDeviance = Time.deltaTime / Time.fixedDeltaTime;
         //Application.targetFrameRate = 120;
-    }
+    }*/
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Application.targetFrameRate = targetFramerate;
         referenceVector = Vector3.up;

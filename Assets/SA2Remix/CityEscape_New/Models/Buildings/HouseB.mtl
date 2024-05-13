@@ -1,0 +1,137 @@
+# Blender 4.1.1 MTL File: 'CER.blend'
+# www.blender.org
+
+newmtl cte_builparts_ks2_door01
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+Pr 0.552786
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_door01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_door01_dif.png
+
+newmtl cte_builparts_ks2_loof01
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+Pr 0.552786
+Pm 1.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_loof01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_loof01_dif.png
+
+newmtl cte_builparts_ks2_pillar01
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+Pr 0.552786
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_pillar01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_pillar01_dif.png
+
+newmtl cte_builparts_ks2_stairs01
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+Pr 0.552786
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_stairs01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_stairs01_dif.png
+
+newmtl cte_builparts_ks2_window01
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+Pr 0.552786
+Pm 1.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_window01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_window01_dif.png
+
+newmtl cte_ground_ks2_tile02
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+Pr 0.552786
+Pm 1.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_tile02_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_tile02_dif.png
+
+newmtl cte_wall_ks2_brick02_dif
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+Pr 0.552786
+Pm 1.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_brick02_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_brick02_dif.png
+
+newmtl cte_wall_ks2_builwall05
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+Pr 0.552786
+Pm 1.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_builwall05_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_builwall05_dif.png
+
+newmtl cte_wall_ks2_builwall07
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+Pr 0.552786
+Pm 1.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_builwall07_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_builwall07_dif.png
