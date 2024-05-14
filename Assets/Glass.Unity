@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028343, g: 0.2257136, b: 0.30692205, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3547,7 +3547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 7824f4df4c3904a4ca40269248fadc50, type: 2}
+  sharedProfile: {fileID: 11400000, guid: a8da692b89cc4304e8a315db7542152a, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
@@ -5121,6 +5121,34 @@ PrefabInstance:
     - target: {fileID: 3021661704799610091, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
+      propertyPath: angleCutoff
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
+      propertyPath: lerpSpeed.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
+      propertyPath: lerpSpeed.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
+      propertyPath: lerpSpeed.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
+      propertyPath: lerpSpeed.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
+      propertyPath: lerpSpeed.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
+      propertyPath: lerpSpeed.m_Curve.Array.data[1].tangentMode
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 3971826176687267611, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: m_AnchorMax.y

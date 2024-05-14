@@ -66,9 +66,10 @@ public class EnigmaCamera : MonoBehaviour
 
         transform.position = (Quaternion.AxisAngle(referenceVector,mouseX*speed*Time.deltaTime) * (transform.position-lookPos)) + lookPos;
         transform.forward = Quaternion.AxisAngle(referenceVector,mouseX*speed*Time.deltaTime) * transform.forward;
-        Debug.DrawRay(transform.position,transform.forward,Color.red);
+        Debug.DrawRay(transform.position,transform.forward,Color.magenta);
         Debug.DrawRay(transform.position,Vector3.ProjectOnPlane(transform.forward,referenceVector),Color.blue);
-        if( Vector3.Angle(transform.forward,Vector3.ProjectOnPlane(transform.forward,referenceVector)) < angleCutoff)
+        float yAngle = Vector3.SignedAngle(transform.forward,Vector3.ProjectOnPlane(transform.forward,referenceVector),transform.right);
+        if( Mathf.Abs(yAngle) < angleCutoff)
         {
             Debug.Log("Under");
             transform.position = (Quaternion.AxisAngle(transform.right,mouseY*speed*Time.deltaTime) * (transform.position-lookPos)) + lookPos;
@@ -76,7 +77,12 @@ public class EnigmaCamera : MonoBehaviour
         }
         else
         {
-
+            if(yAngle > 0)
+                transform.forward = Vector3.Lerp(transform.forward,Quaternion.AxisAngle(transform.right,angleCutoff) * Vector3.ProjectOnPlane(transform.forward,referenceVector),2*Time.deltaTime);
+            else
+                transform.forward = Vector3.Lerp(transform.forward,Quaternion.AxisAngle(transform.right,-angleCutoff) * Vector3.ProjectOnPlane(transform.forward,referenceVector),2*Time.deltaTime);
+            Debug.DrawRay(transform.position,Quaternion.AxisAngle(transform.right,angleCutoff) * Vector3.ProjectOnPlane(transform.forward,referenceVector).normalized,Color.green);
+            Debug.DrawRay(transform.position,Quaternion.AxisAngle(transform.right,-angleCutoff) * Vector3.ProjectOnPlane(transform.forward,referenceVector).normalized,Color.red);
         }
 
         /*
@@ -91,13 +97,13 @@ public class EnigmaCamera : MonoBehaviour
         }
         verticalV3.x = Mathf.Clamp(verticalV3.x,-90,90);
         horizontalV3 += new Vector3(0,mouseX*speed,0);
-        
+
         Quaternion horizontalQ = Quaternion.Euler(horizontalV3); Quaternion verticalQ = Quaternion.Euler(verticalV3);
         Quaternion finalRot = horizontalQ * verticalQ;
         transform.rotation = finalRot;
         */
         RaycastHit hit;
-        
+
         if(Physics.Raycast(orbitPos,-transform.forward,out hit,distance,layers))
         {
             transform.position = hit.point+ transform.forward*currentBuffer;
