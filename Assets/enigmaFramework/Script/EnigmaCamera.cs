@@ -67,9 +67,15 @@ public class EnigmaCamera : MonoBehaviour
         transform.position = (Quaternion.AxisAngle(referenceVector,mouseX*speed*Time.deltaTime) * (transform.position-lookPos)) + lookPos;
         transform.forward = Quaternion.AxisAngle(referenceVector,mouseX*speed*Time.deltaTime) * transform.forward;
         Debug.DrawRay(transform.position,transform.forward,Color.magenta);
-        Debug.DrawRay(transform.position,Vector3.ProjectOnPlane(transform.forward,referenceVector),Color.blue);
-        float yAngle = Vector3.SignedAngle(transform.forward,Vector3.ProjectOnPlane(transform.forward,referenceVector),transform.right);
-        if( Mathf.Abs(yAngle) < angleCutoff)
+        //Debug.DrawRay(transform.position,Vector3.ProjectOnPlane(transform.forward,referenceVector),Color.blue);
+
+		Vector3 planeForward = Vector3.ProjectOnPlane(transform.forward,referenceVector).normalized;
+		Debug.DrawRay(transform.position,planeForward,Color.blue);
+		Debug.DrawRay(transform.position,Quaternion.AngleAxis(angleCutoff,transform.right) * planeForward,Color.red);
+            Debug.DrawRay(transform.position,Quaternion.AngleAxis(-angleCutoff,transform.right) * planeForward,Color.green);
+        float yAngle = Vector3.SignedAngle(transform.forward,planeForward,transform.right);
+	Debug.Log(yAngle);
+        if( Mathf.Abs(yAngle) <= angleCutoff)
         {
             Debug.Log("Under");
             transform.position = (Quaternion.AxisAngle(transform.right,mouseY*speed*Time.deltaTime) * (transform.position-lookPos)) + lookPos;
@@ -78,11 +84,14 @@ public class EnigmaCamera : MonoBehaviour
         else
         {
             if(yAngle > 0)
-                transform.forward = Vector3.Lerp(transform.forward,Quaternion.AxisAngle(transform.right,angleCutoff) * Vector3.ProjectOnPlane(transform.forward,referenceVector),2*Time.deltaTime);
-            else
-                transform.forward = Vector3.Lerp(transform.forward,Quaternion.AxisAngle(transform.right,-angleCutoff) * Vector3.ProjectOnPlane(transform.forward,referenceVector),2*Time.deltaTime);
-            Debug.DrawRay(transform.position,Quaternion.AxisAngle(transform.right,angleCutoff) * Vector3.ProjectOnPlane(transform.forward,referenceVector).normalized,Color.green);
-            Debug.DrawRay(transform.position,Quaternion.AxisAngle(transform.right,-angleCutoff) * Vector3.ProjectOnPlane(transform.forward,referenceVector).normalized,Color.red);
+		{
+                transform.forward = Vector3.RotateTowards(transform.forward,Quaternion.AngleAxis(angleCutoff,transform.right) * planeForward,.2f*Time.deltaTime,0);
+		}
+		else
+		{
+                transform.forward = Vector3.RotateTowards(transform.forward,Quaternion.AngleAxis(-angleCutoff,transform.right) * planeForward,.2f*Time.deltaTime,0);
+            }
+		
         }
 
         /*
