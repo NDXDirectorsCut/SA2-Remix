@@ -117,7 +117,6 @@ public class EnigmaPhysics : MonoBehaviour
 
                 float slopeAngle = Vector3.SignedAngle(referenceVector,normal,-Vector3.Cross(forwardReference,normal));
                 float slopeCap =  (Mathf.Abs(slopeAngle) * 0.106f + 2.3f);
-                Debug.Log(slopeCap);
 
                 //Debug.Log(slopeCap + " " + slopeAngle);
                 float finalCap = accelCap;
@@ -173,8 +172,7 @@ public class EnigmaPhysics : MonoBehaviour
                 rBody.velocity += primaryAxis * airAcceleration * Time.deltaTime;
                 normal = Vector3.RotateTowards(normal,referenceVector,1.25f*Time.deltaTime,0).normalized;
 
-                normalRight = Vector3.Cross(normal,forwardReference).normalized;
-                normalForward = Vector3.Cross(normalRight,normal).normalized;
+                normalForward = Vector3.ProjectOnPlane(rBody.velocity,normal);
 
                 if(rBody.velocity.sqrMagnitude != 0)
                     forwardReference = normalForward;

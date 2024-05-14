@@ -1812,7 +1812,48 @@ MonoBehaviour:
   weight: 32
   startSpeed: 0.3
   speedCap: 96
-  slopeIntensity: 0
+  slopeIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.0000003447587
+      outSlope: 0.0000003447587
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 44
+      value: 0.000015169382
+      inSlope: -0.0045433454
+      outSlope: -0.0045433454
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 45
+      value: 27.1913
+      inSlope: 0.94803315
+      outSlope: 0.94803315
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07577981
+    - serializedVersion: 3
+      time: 90
+      value: 39.49416
+      inSlope: 0.05894353
+      outSlope: 0.05894353
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.22273576
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   groundAcceleration: 2.88
   accelCap: 26.82
   accelerationCurve:
@@ -2014,10 +2055,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceVector: {x: 0, y: 1, z: 0}
+  lerpSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   lookTarget: {fileID: 8095155698502950339}
   offset: {x: 0, y: 0.6666667, z: 0}
   orbitTarget: {fileID: 8095155698502950339}
-  angleCutoff: {x: -80, y: 80}
+  angleCutoff: 80
   distance: 3
   collisionBuffer: 0.1
   layers:
