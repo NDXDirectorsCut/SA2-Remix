@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.20410839, g: 0.23710233, b: 0.33063123, a: 1}
+  m_IndirectSpecularColor: {r: 0.20417129, g: 0.23708849, b: 0.3305935, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3121,7 +3121,8 @@ MonoBehaviour:
   animator: {fileID: 1754307097}
   triggerTime: 0
   holdTime: 0
-  rollDeceleration: 0
+  topSpeed: 60
+  rollDeceleration: 5
 --- !u!1 &1292003126
 GameObject:
   m_ObjectHideFlags: 0
@@ -5282,7 +5283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: facingSpeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: inputSmoothness
@@ -5306,30 +5307,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: lerpSpeed.m_Curve.Array.data[0].inSlope
-      value: -0.0015068932
+      value: 0.0064695226
       objectReference: {fileID: 0}
     - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: lerpSpeed.m_Curve.Array.data[1].inSlope
-      value: 0.009834515
+      value: 0.00042928793
       objectReference: {fileID: 0}
     - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: lerpSpeed.m_Curve.Array.data[0].outSlope
-      value: -0.0015068932
+      value: 0.0064695226
       objectReference: {fileID: 0}
     - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: lerpSpeed.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
+      value: 0.43333334
       objectReference: {fileID: 0}
     - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: lerpSpeed.m_Curve.Array.data[1].outSlope
-      value: 0.009834515
+      value: 0.00042928793
       objectReference: {fileID: 0}
     - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: lerpSpeed.m_Curve.Array.data[0].outWeight
-      value: 1
+      value: 0.12916666
       objectReference: {fileID: 0}
     - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: lerpSpeed.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
+      propertyPath: lerpSpeed.m_Curve.Array.data[1].tangentMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3971826176687267611, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}

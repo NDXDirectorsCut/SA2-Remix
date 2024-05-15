@@ -44,6 +44,7 @@ public class JumpAction : MonoBehaviour
         rBody.velocity += enigmaPhysics.normal * iJumpForce;
         
         animator.CrossFadeInFixedTime("Spin",.25f,0,0);
+	  animator.SetBool("Scripted Animation",true);
 
         int i = 0;
 
@@ -65,6 +66,7 @@ public class JumpAction : MonoBehaviour
             }
             yield return new WaitForFixedUpdate();
         }
+	  animator.SetBool("Scripted Animation", false);
         //yield return null;
     }
 

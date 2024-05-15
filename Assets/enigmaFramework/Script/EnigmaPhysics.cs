@@ -55,6 +55,8 @@ public class EnigmaPhysics : MonoBehaviour
             public float airDeceleration;
     [System.NonSerialized]
     public Vector3 forwardReference;
+    [System.NonSerialized]
+    public Vector3 slopeForce;
     Vector3 prevFloorPos;
 
     // Start is called before the first frame update
@@ -149,9 +151,10 @@ public class EnigmaPhysics : MonoBehaviour
                         }
                 }
                 
-                rBody.velocity += -Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)) * Time.fixedDeltaTime;
+		    slopeForce = -Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)) * Time.fixedDeltaTime; 
+                rBody.velocity += slopeForce;
                 rBody.velocity = Vector3.ProjectOnPlane(rBody.velocity,normal);
-                Debug.DrawRay(transform.position + -Vector3.Cross(forwardReference,normal) * .1f,-Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)), Color.red);
+                //Debug.DrawRay(transform.position + -Vector3.Cross(forwardReference,normal) * .1f,-Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)), Color.red);
 
                 if(rBody.velocity.sqrMagnitude != 0)
                     forwardReference = rBody.velocity.normalized;
