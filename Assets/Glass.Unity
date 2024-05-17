@@ -5283,7 +5283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: facingSpeed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3271470072322021373, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: inputSmoothness

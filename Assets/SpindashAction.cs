@@ -10,6 +10,7 @@ public class SpindashAction : MonoBehaviour
     public float triggerTime;
     public float holdTime;
     public float topSpeed;
+    public float minSpeed;
     public float rollDeceleration;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,26 @@ public class SpindashAction : MonoBehaviour
 
     IEnumerator Spindash()
     {
-        yield return new WaitForFixedUpdate();
+	  Vector3 pos = transform.position;
+	  float startTime = Time.time;
+	  animator.CrossFadeInFixedTime("Ground Spin",.25f,0,0);
+        animator.SetBool("Scripted Animation",true);
+	  float time = 0;
+	  while(Input.GetKey(KeyCode.LeftShift))
+	  {
+		time = Mathf.Clamp((Time.time-startTime)/holdTime,0,1);
+		//transform.position = Vector3.Lerp(transform.position,pos,1/3f);
+		rBody.velocity = Vector3.zero;
+		enigmaPhysics.forwardReference = enigmaPhysics.primaryAxis;
+		yield return new WaitForFixedUpdate();
+	  }
+        float speed = Mathf.Lerp(minSpeed,topSpeed,time);
+	  if(Input.GetKeyUp(KeyCode.LeftShift))
+	  {
+	  	StartCoroutine(Roll(speed,rollDeceleration));
+	  }
+
+        
     }
 
     IEnumerator Roll(float rollSpeed,float rollDecel)
@@ -53,7 +73,7 @@ public class SpindashAction : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
-            StartCoroutine(Roll(topSpeed,rollDeceleration));
+            StartCoroutine(Spindash());
         }
     }
 }
