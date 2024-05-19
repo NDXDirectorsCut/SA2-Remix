@@ -22,6 +22,8 @@ public class EnigmaPhysics : MonoBehaviour
         public Vector3 normalRight {get; set;}
         [Range(0,2)]
         public float raycastLength;
+        [System.NonSerialized]
+        public float activeRayLen;
         public LayerMask raycastLayers;
         public RaycastHit hit;
         public bool interpolateNormals;
@@ -67,7 +69,7 @@ public class EnigmaPhysics : MonoBehaviour
         normalRight = Vector3.Cross(normal,normalForward);
         point = transform.position;
         forwardReference = transform.forward;
-
+        activeRayLen = raycastLength;
         if(GetComponent<Rigidbody>() != null)
             rBody = GetComponent<Rigidbody>();
         if(GetComponent<CapsuleCollider>() != null)
@@ -81,7 +83,7 @@ public class EnigmaPhysics : MonoBehaviour
         Vector3 tempNormal = referenceVector;
         float dl = Time.fixedDeltaTime;
         // /nnDebug.DrawRay(transform.position+transform.up*col.center.y*1.75f+transform.forward*.05f,-transform.up * col.center.y*2*raycastLength,Color.magenta);
-        if(Physics.Raycast(rBody.position+transform.up*col.center.y*1.75f,-transform.up,out hit,col.center.y*2*raycastLength,raycastLayers) != false)
+        if(Physics.Raycast(rBody.position+transform.up*col.center.y*1.75f,-transform.up,out hit,col.center.y*2*activeRayLen,raycastLayers) != false)
         {
 
             if(interpolateNormals == true)
@@ -119,6 +121,7 @@ public class EnigmaPhysics : MonoBehaviour
 
                 float slopeAngle = Vector3.SignedAngle(referenceVector,normal,-Vector3.Cross(forwardReference,normal));
                 float slopeCap =  (Mathf.Abs(slopeAngle) * 0.106f + 2.3f);
+                activeRayLen = Mathf.Lerp(activeRayLen,raycastLength,.1f * Time.deltaTime);
 
                 //Debug.Log(slopeCap + " " + slopeAngle);
                 float finalCap = accelCap;
@@ -136,6 +139,11 @@ public class EnigmaPhysics : MonoBehaviour
                 point = rBody.transform.TransformPoint(localPoint);
 
                 rBody.velocity += primaryAxis.normalized * groundAcceleration * accelRatio * Time.fixedDeltaTime * accelerationCurve.Evaluate(rBody.velocity.magnitude/finalCap);
+                if(rBody.velocity.magnitude/finalCap > 1)
+                {
+                    rBody.velocity -= rBody.velocity * groundAcceleration * accelRatio * Time.fixedDeltaTime * .125f;
+                }
+                //Debug.DrawRay(transform.position,primaryAxis.normalized * groundAcceleration * accelRatio * Time.fixedDeltaTime * accelerationCurve.Evaluate(rBody.velocity.magnitude/finalCap),Color.green);
 
                 float turnAngle = Vector3.SignedAngle(primaryAxis,rBody.velocity,normal);
                 rBody.velocity = Quaternion.AngleAxis(-turnAngle * Time.fixedDeltaTime * turnRate,normal) * rBody.velocity;
@@ -151,9 +159,10 @@ public class EnigmaPhysics : MonoBehaviour
                         }
                 }
                 
-		    slopeForce = -Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)) * Time.fixedDeltaTime; 
+		        slopeForce = -Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)) * Time.fixedDeltaTime; 
                 rBody.velocity += slopeForce;
                 rBody.velocity = Vector3.ProjectOnPlane(rBody.velocity,normal);
+                rBody.velocity = Vector3.ClampMagnitude(rBody.velocity,speedCap);
                 //Debug.DrawRay(transform.position + -Vector3.Cross(forwardReference,normal) * .1f,-Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)), Color.red);
 
                 if(rBody.velocity.sqrMagnitude != 0)
@@ -163,6 +172,12 @@ public class EnigmaPhysics : MonoBehaviour
 
                 rBody.position = point;
                 rBody.transform.up = normal;
+
+                if(Mathf.Abs(slopeAngle) > 45 && rBody.velocity.magnitude<5)
+                {
+                    grounded = false; characterState = 2;
+                    normal = Vector3.up;
+                }
 
                 break;
             case 2: // Airborne
@@ -174,6 +189,7 @@ public class EnigmaPhysics : MonoBehaviour
                 rBody.velocity += -referenceVector.normalized * weight * Time.fixedDeltaTime;
                 rBody.velocity += primaryAxis * airAcceleration * Time.deltaTime;
                 normal = Vector3.RotateTowards(normal,referenceVector,1.25f*Time.deltaTime,0).normalized;
+                activeRayLen = Mathf.Lerp(activeRayLen,raycastLength,.1f * Time.deltaTime);
 
                 normalForward = Vector3.ProjectOnPlane(rBody.velocity,normal);
 

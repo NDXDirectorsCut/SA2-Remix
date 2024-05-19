@@ -21,24 +21,29 @@ public class SpindashAction : MonoBehaviour
 
     IEnumerator Spindash()
     {
-	  Vector3 pos = transform.position;
-	  float startTime = Time.time;
-	  animator.CrossFadeInFixedTime("Ground Spin",.25f,0,0);
-        animator.SetBool("Scripted Animation",true);
-	  float time = 0;
-	  while(Input.GetKey(KeyCode.LeftShift))
-	  {
-		time = Mathf.Clamp((Time.time-startTime)/holdTime,0,1);
-		//transform.position = Vector3.Lerp(transform.position,pos,1/3f);
-		rBody.velocity = Vector3.zero;
-		enigmaPhysics.forwardReference = enigmaPhysics.primaryAxis;
-		yield return new WaitForFixedUpdate();
-	  }
-        float speed = Mathf.Lerp(minSpeed,topSpeed,time);
-	  if(Input.GetKeyUp(KeyCode.LeftShift))
-	  {
-	  	StartCoroutine(Roll(speed,rollDeceleration));
-	  }
+        StopCoroutine(Roll(0,0));
+	    Vector3 pos = transform.position;
+        float velocity = rBody.velocity.magnitude;
+	    float startTime = Time.time;
+	    animator.CrossFadeInFixedTime("Spindash",.25f,0,0);
+        
+	    float time = 0;
+	    while(Input.GetKey(KeyCode.LeftShift))
+	    {
+            animator.SetBool("Scripted Animation",true);
+            time = Mathf.Clamp((Time.time-startTime)/holdTime,0,1);
+
+            //transform.position = Vector3.Lerp(transform.position,pos,1/3f);
+            rBody.velocity = Vector3.Lerp(rBody.velocity,Vector3.zero,.8f);
+            if(enigmaPhysics.primaryAxis.magnitude > .1f)
+                enigmaPhysics.forwardReference = enigmaPhysics.primaryAxis;
+            yield return new WaitForFixedUpdate();
+	    }
+        float speed = velocity > .2f ? Mathf.Lerp(velocity,topSpeed,time) : Mathf.Lerp(minSpeed,topSpeed,time) ;
+	    if(Input.GetKeyUp(KeyCode.LeftShift))
+	    {
+	        StartCoroutine(Roll(speed,rollDeceleration));
+	    }
 
         
     }
@@ -52,15 +57,15 @@ public class SpindashAction : MonoBehaviour
         while(enigmaPhysics.characterState == 1 && rBody.velocity.magnitude > .25f)
         {
             activeSpeed -= rollDecel * Time.fixedDeltaTime;
-		//Add gravity
-		Vector3 slopeVector = -Vector3.ProjectOnPlane(enigmaPhysics.referenceVector,enigmaPhysics.normal).normalized;
-		Vector3 rightVector = Vector3.Cross(enigmaPhysics.normal,enigmaPhysics.forwardReference);
-		float veloRatio = Mathf.Clamp(Vector3.SignedAngle(rightVector,slopeVector,enigmaPhysics.normal)/90,-1,1);
-		//Debug.Log(veloRatio);
-		Debug.DrawRay(transform.position,rightVector,Color.blue);
-		Debug.DrawRay(transform.position,slopeVector * enigmaPhysics.slopeForce.magnitude * veloRatio,Color.red);
-		activeSpeed -= enigmaPhysics.slopeForce.magnitude * veloRatio;
-		//Debug.Log(veloRatio);
+            //Add gravity
+            Vector3 slopeVector = -Vector3.ProjectOnPlane(enigmaPhysics.referenceVector,enigmaPhysics.normal).normalized;
+            Vector3 rightVector = Vector3.Cross(enigmaPhysics.normal,enigmaPhysics.forwardReference);
+            float veloRatio = Mathf.Clamp(Vector3.SignedAngle(rightVector,slopeVector,enigmaPhysics.normal)/90,-1,1);
+            //Debug.Log(veloRatio);
+            Debug.DrawRay(transform.position,rightVector,Color.blue);
+            Debug.DrawRay(transform.position,slopeVector * enigmaPhysics.slopeForce.magnitude * veloRatio,Color.red);
+            activeSpeed -= enigmaPhysics.slopeForce.magnitude * veloRatio;
+            //Debug.Log(veloRatio);
 
             rBody.velocity = enigmaPhysics.forwardReference * activeSpeed;
             yield return new WaitForFixedUpdate();
@@ -71,7 +76,7 @@ public class SpindashAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.LeftShift) && enigmaPhysics.characterState == 1)
         {
             StartCoroutine(Spindash());
         }
