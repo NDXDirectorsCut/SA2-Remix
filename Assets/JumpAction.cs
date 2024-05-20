@@ -39,7 +39,7 @@ public class JumpAction : MonoBehaviour
         jumping = true;
 
         enigmaPhysics.characterState = 2; enigmaPhysics.grounded = false;
-        origRL = enigmaPhysics.raycastLength; enigmaPhysics.raycastLength = 0;
+        origRL = enigmaPhysics.activeRayLen; enigmaPhysics.activeRayLen= 0;
         Debug.Log(origRL);
         rBody.velocity += enigmaPhysics.normal * iJumpForce;
         
@@ -54,12 +54,12 @@ public class JumpAction : MonoBehaviour
             if(Input.GetButtonUp("Jump"))
             {
                 jumping = false;
-                enigmaPhysics.raycastLength = origRL;
+                enigmaPhysics.activeRayLen = origRL;
                 break;
             }
             if(Time.time - initialJumpTime > 0.1f)
             {
-                enigmaPhysics.raycastLength = origRL;
+                enigmaPhysics.activeRayLen = origRL;
                 rBody.velocity += enigmaPhysics.normal * additiveJumpForce * Time.deltaTime;
                 i++;
                 Debug.Log("Additive Jump " + i);

@@ -12,6 +12,8 @@ public class SpindashAction : MonoBehaviour
     public float topSpeed;
     public float minSpeed;
     public float rollDeceleration;
+    bool holding; float startHold;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +23,8 @@ public class SpindashAction : MonoBehaviour
 
     IEnumerator Spindash()
     {
-        StopCoroutine(Roll(0,0));
 	    Vector3 pos = transform.position;
-        float velocity = rBody.velocity.magnitude;
+          float velocity = rBody.velocity.magnitude;
 	    float startTime = Time.time;
 	    animator.CrossFadeInFixedTime("Spindash",.25f,0,0);
         
@@ -39,7 +40,7 @@ public class SpindashAction : MonoBehaviour
                 enigmaPhysics.forwardReference = enigmaPhysics.primaryAxis;
             yield return new WaitForFixedUpdate();
 	    }
-        float speed = velocity > .2f ? Mathf.Lerp(velocity,topSpeed,time) : Mathf.Lerp(minSpeed,topSpeed,time) ;
+          float speed = velocity > .2f ? Mathf.Lerp(velocity,topSpeed,time) : Mathf.Lerp(minSpeed,topSpeed,time) ;
 	    if(Input.GetKeyUp(KeyCode.LeftShift))
 	    {
 	        StartCoroutine(Roll(speed,rollDeceleration));
@@ -56,6 +57,11 @@ public class SpindashAction : MonoBehaviour
         animator.SetBool("Scripted Animation",true);
         while(enigmaPhysics.characterState == 1 && rBody.velocity.magnitude > .25f)
         {
+		if(Input.GetKeyDown(KeyCode.LeftShift))
+		{
+			StopAllCoroutines();
+			animator.SetBool("Scripted Animation",false);
+		}
             activeSpeed -= rollDecel * Time.fixedDeltaTime;
             //Add gravity
             Vector3 slopeVector = -Vector3.ProjectOnPlane(enigmaPhysics.referenceVector,enigmaPhysics.normal).normalized;
@@ -76,9 +82,21 @@ public class SpindashAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift) && enigmaPhysics.characterState == 1)
+	  if(holding == false)
+		startHold = Time.time;
+        if(Input.GetKeyDown(KeyCode.LeftShift))
         {
-            StartCoroutine(Spindash());
+            holding = true;
+		startHold = Time.time;
         }
+	  if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            holding = false;
+        }
+	  if(Time.time - startHold >= triggerTime && enigmaPhysics.characterState == 1 && holding == true)
+	  {
+		StartCoroutine(Spindash());
+		holding = false;
+	  }
     }
 }
