@@ -1709,6 +1709,9 @@ GameObject:
   - component: {fileID: 6985334706526861801}
   - component: {fileID: 1076649840599486746}
   - component: {fileID: 1662277740505934160}
+  - component: {fileID: 4739374752543034529}
+  - component: {fileID: 8186471746170805766}
+  - component: {fileID: 486620764796693052}
   m_Layer: 3
   m_Name: EnigmaCharacter
   m_TagString: Untagged
@@ -1732,6 +1735,7 @@ Transform:
   - {fileID: 8095155698502950339}
   - {fileID: 2290379386662487539}
   - {fileID: 6951633629292137349}
+  - {fileID: 6541539174313082519}
   m_Father: {fileID: 655068033391423108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2487137719414018486
@@ -1917,6 +1921,51 @@ MonoBehaviour:
   jumpTimer: 1
   additiveJumpForce: 28
   animator: {fileID: 8789175451376545850}
+--- !u!114 &4739374752543034529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916707478080960160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a920aa030715e4ea2c0d905dd79237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8789175451376545850}
+  triggerTime: 0.25
+  holdTime: 0.5
+  topSpeed: 60
+  minSpeed: 5
+  rollDeceleration: 10
+--- !u!114 &8186471746170805766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916707478080960160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad17bf4d897daf4a86131208bfabe40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  airDashForce: 0
+  homingForce: 0
+  homingRange: 0
+--- !u!114 &486620764796693052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916707478080960160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e9780d0ce9253459977b0c60db8d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7403397615591216391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,6 +2002,137 @@ Transform:
   - {fileID: 3282432762133061911}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8214697147834089376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6541539174313082519}
+  - component: {fileID: 33278984460728606}
+  - component: {fileID: 4949161567935341885}
+  - component: {fileID: 6436423868564556757}
+  m_Layer: 3
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6541539174313082519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214697147834089376}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1832546598811638590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &33278984460728606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214697147834089376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310bd9f48a29c8d49b8f4d5e8565ce9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailCap: {fileID: 0}
+  trailEnd: {fileID: 0}
+  edgeLoop: {fileID: -2432090755550338912, guid: 165816c7a7a2e11458c65f98273c492f, type: 3}
+  lifetime: 1
+  percentageCutoff: 0
+  smoothLerp: 0
+  stopOnCollide: 0
+  collisionRadius: 0
+  sizeOverLifetime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  rate: 0
+  startSpeed: 0
+  force: {x: 0, y: 0, z: 0}
+--- !u!33 &4949161567935341885
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214697147834089376}
+  m_Mesh: {fileID: 0}
+--- !u!23 &6436423868564556757
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214697147834089376}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 76a013151690da441b48e81371affbaf, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8270541407613433723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,30 +2235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceVector: {x: 0, y: 1, z: 0}
-  lerpSpeed:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   lookTarget: {fileID: 8095155698502950339}
   offset: {x: 0, y: 0.6666667, z: 0}
   orbitTarget: {fileID: 8095155698502950339}
@@ -2089,8 +2245,35 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   bufferLerp: 0.1
-  speed: 3
-  inputSmoothness: 0.9
+  speed: 90
+  facingSpeed: 0
+  faceTime: 0
+  useTransformForward: 0
+  lerpSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.114893675
+      inSlope: 0.0064695226
+      outSlope: 0.0064695226
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.12916666
+    - serializedVersion: 3
+      time: 90
+      value: 1
+      inSlope: 0.00042928793
+      outSlope: 0.00042928793
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.43333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  inputSmoothness: 0.8
   targetFramerate: 60
 --- !u!114 &1075695154675849449
 MonoBehaviour:

@@ -173,10 +173,10 @@ public class EnigmaPhysics : MonoBehaviour
                 rBody.position = point;
                 rBody.transform.up = normal;
 
-                if(Mathf.Abs(slopeAngle) > 45 && rBody.velocity.magnitude<5)
+                if(Mathf.Abs(slopeAngle) > 60 && rBody.velocity.magnitude<5)
                 {
                     grounded = false; characterState = 2;
-                    normal = Vector3.up;
+                    activeRayLen = 0;
                 }
 
                 break;
@@ -188,8 +188,8 @@ public class EnigmaPhysics : MonoBehaviour
                 }
                 rBody.velocity += -referenceVector.normalized * weight * Time.fixedDeltaTime;
                 rBody.velocity += primaryAxis * airAcceleration * Time.deltaTime;
-                normal = Vector3.RotateTowards(normal,referenceVector,1.25f*Time.deltaTime,0).normalized;
-                activeRayLen = Mathf.Lerp(activeRayLen,raycastLength,.1f * Time.deltaTime);
+                normal = Vector3.RotateTowards(normal,referenceVector,2f*Time.deltaTime,0).normalized;
+                activeRayLen = Mathf.Lerp(activeRayLen,raycastLength,2 * Time.deltaTime);
 
                 normalForward = Vector3.ProjectOnPlane(rBody.velocity,normal);
 

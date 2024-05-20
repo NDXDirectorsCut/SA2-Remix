@@ -5,20 +5,23 @@ using UnityEngine;
 public class HomingAttackAction : MonoBehaviour
 {
 	EnigmaPhysics enigmaPhysics;
+	public float airDashForce;
+	public float homingForce;
+	public float homingRange;
 
-	IEnumerator HomingAttack(float range)
+	IEnumerator HomingCheck(float range)
 	{
-	
+		yield return null;
 	}
 
 	IEnumerator HomeIn(Transform target, float force)
 	{
-		
+		yield return null;
 	}
 
 	IEnumerator AirDash(float force)
 	{
-		
+		yield return null;
 	}
     // Start is called before the first frame update
     void Start()
@@ -29,9 +32,9 @@ public class HomingAttackAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(enigmaPhysics.characterState == 2)
-	  {
-		
-	  }
+    	if(enigmaPhysics.characterState == 2)
+		{
+			HomingCheck(homingRange);
+		}
     }
 }
