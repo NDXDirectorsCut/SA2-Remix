@@ -189,11 +189,11 @@ public class EnigmaPhysics : MonoBehaviour
                 rBody.velocity += -referenceVector.normalized * weight * Time.fixedDeltaTime;
                 rBody.velocity += primaryAxis * airAcceleration * Time.deltaTime;
                 normal = Vector3.RotateTowards(normal,referenceVector,2f*Time.deltaTime,0).normalized;
-                activeRayLen = Mathf.Lerp(activeRayLen,raycastLength,2 * Time.deltaTime);
-
+                activeRayLen = Mathf.Lerp(activeRayLen,raycastLength, 2f * Time.deltaTime);
+		    
                 normalForward = Vector3.ProjectOnPlane(rBody.velocity,normal);
 
-                if(rBody.velocity.sqrMagnitude != 0)
+                if(rBody.velocity.sqrMagnitude != 0 && normalForward.sqrMagnitude != 0)
                     forwardReference = normalForward;
                 else
                     forwardReference = Vector3.ProjectOnPlane(forwardReference,normal);

@@ -33,14 +33,14 @@ public class JumpAction : MonoBehaviour
         float origRL;
         bool jumping;
 
-        Debug.Log("Initial Jump");
+        //Debug.Log("Initial Jump");
 
         initialJumpTime = Time.time;
         jumping = true;
 
         enigmaPhysics.characterState = 2; enigmaPhysics.grounded = false;
         origRL = enigmaPhysics.activeRayLen; enigmaPhysics.activeRayLen= 0;
-        Debug.Log(origRL);
+        //Debug.Log(origRL);
         rBody.velocity += enigmaPhysics.normal * iJumpForce;
         
         animator.CrossFadeInFixedTime("Spin",.25f,0,0);
@@ -48,9 +48,9 @@ public class JumpAction : MonoBehaviour
 
         int i = 0;
 
-        while(Time.time - initialJumpTime < jTimer && jumping == true)
+        while(Time.time - initialJumpTime < jTimer && jumping == true && enigmaPhysics.characterState == 2)
         {
-            Debug.Log(origRL);
+            //Debug.Log(origRL);
             if(Input.GetButtonUp("Jump"))
             {
                 jumping = false;
@@ -62,7 +62,7 @@ public class JumpAction : MonoBehaviour
                 enigmaPhysics.activeRayLen = origRL;
                 rBody.velocity += enigmaPhysics.normal * additiveJumpForce * Time.deltaTime;
                 i++;
-                Debug.Log("Additive Jump " + i);
+                //Debug.Log("Additive Jump " + i);
             }
             yield return new WaitForFixedUpdate();
         }
