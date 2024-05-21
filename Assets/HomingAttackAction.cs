@@ -5,12 +5,12 @@ using UnityEngine;
 public class HomingAttackAction : MonoBehaviour
 {
 	EnigmaPhysics enigmaPhysics;
+	JumpAction jumpScript;
 	public Animator animator;
 	public float airDashForce;
 	public float homingForce;
 	public float homingTurn;
 	public float homingRange;
-	Vector3[] directions = new Vector3[100];
 
 	IEnumerator HomingCheck(float range)
 	{
@@ -27,7 +27,6 @@ public class HomingAttackAction : MonoBehaviour
         	    if(hitCol.tag == "Homing")
 		    {
 			Vector3 hitDir = Vector3.ProjectOnPlane(-(transform.position - hitCol.transform.position).normalized,enigmaPhysics.referenceVector);
-			directions[i] = hitDir;
 			float hitAngle = Vector3.Angle(hitDir,enigmaPhysics.primaryAxis);
 			if(hitAngle<maxAngle)
 			{
@@ -46,6 +45,7 @@ public class HomingAttackAction : MonoBehaviour
 		else
 		{
 			//target.position += Vector3.up*2;
+			enigmaPhysics.rBody.velocity = Vector3.zero;
 			StartCoroutine(HomeIn(target,homingForce,homingTurn));
 			Debug.Log(target);
 		}
@@ -54,19 +54,36 @@ public class HomingAttackAction : MonoBehaviour
 
 	IEnumerator HomeIn(Transform target, float force, float turn)
 	{
-		enigmaPhysics.rBody.velocity = enigmaPhysics.forwardReference * force;
+		animator.CrossFadeInFixedTime("Spin",.25f,0,0);
+	  	animator.SetBool("Scripted Animation",true);
+		
+		enigmaPhysics.rBody.velocity = enigmaPhysics.forwardReference.normalized * force;
 		while(target != null)
 		{
 			Collider col = target.GetComponent<Collider>();
-			if(Vector3.Distance(transform.position,col.ClosestPoint(transform.position))<.2f)
-			{
-				target = null;
-				yield return null;
-			}
+			float clampedDist = Mathf.Clamp(Vector3.Distance(transform.position,col.ClosestPoint(transform.position+transform.up*.5f)),0,1);
 			Vector3 hitDir = -(transform.position - target.position).normalized;
 			Vector3 crossVector = Vector3.Cross(enigmaPhysics.rBody.velocity,hitDir);
 			float angle = Vector3.SignedAngle(enigmaPhysics.rBody.velocity,hitDir,crossVector);
-			enigmaPhysics.rBody.velocity = Quaternion.AngleAxis(angle*turn*Time.fixedDeltaTime,crossVector) * enigmaPhysics.rBody.velocity;
+
+			Debug.DrawRay(col.ClosestPoint(transform.position+transform.up*.5f),-hitDir,Color.blue);
+			Debug.Log(clampedDist);
+			if(clampedDist<.8f)
+			{
+				transform.position = col.ClosestPoint(transform.position+transform.up*.5f);
+				target = null;
+				animator.SetBool("Scripted Animation",false);
+				enigmaPhysics.rBody.velocity = Vector3.zero;
+				if(jumpScript != null)
+				{
+					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce));
+				}
+				StopAllCoroutines();
+				yield return null;
+			}
+			
+			//float clampedDist = Mathf.Clamp(Vector3.Distance(transform.position,target.position),0,1);
+			enigmaPhysics.rBody.velocity = Quaternion.AngleAxis(angle*turn*Time.fixedDeltaTime * clampedDist,crossVector) * enigmaPhysics.rBody.velocity * clampedDist;
 			
 			yield return new WaitForFixedUpdate();
 		}
@@ -77,13 +94,14 @@ public class HomingAttackAction : MonoBehaviour
 	{
 		animator.CrossFadeInFixedTime("Spin",.25f,0,0);
 	  	animator.SetBool("Scripted Animation",true);
-		enigmaPhysics.rBody.velocity = enigmaPhysics.forwardReference.normalized * force;
+		enigmaPhysics.rBody.velocity = new Vector3(0,enigmaPhysics.rBody.velocity.y,0)	 + enigmaPhysics.forwardReference.normalized * force;
 		yield return null;
 	}
     // Start is called before the first frame update
     void Start()
     {
         enigmaPhysics = GetComponent<EnigmaPhysics>();
+		jumpScript = GetComponent<JumpAction>();
     }
 
     // Update is called once per frame
@@ -94,15 +112,8 @@ public class HomingAttackAction : MonoBehaviour
 		if(Input.GetButtonDown("Jump"))
 		{
 			StartCoroutine(HomingCheck(homingRange));
-			for(int i = 0;i<directions.Length;i++)
-			{
-				directions[i] = Vector3.zero;
-			}
 		}
-		for(int i = 0;i<directions.Length;i++)
-		{
-			Debug.DrawRay(transform.position,directions[i].normalized * 2, Color.magenta);
-		}
+
 		float angle = Vector3.SignedAngle(enigmaPhysics.forwardReference,enigmaPhysics.primaryAxis,enigmaPhysics.referenceVector);
 		Vector3 checkDir = Quaternion.AngleAxis(angle,enigmaPhysics.referenceVector) * enigmaPhysics.forwardReference;
 		Debug.DrawRay(transform.position,checkDir,Color.cyan);

@@ -85,7 +85,7 @@ public class EnigmaPhysics : MonoBehaviour
         // /nnDebug.DrawRay(transform.position+transform.up*col.center.y*1.75f+transform.forward*.05f,-transform.up * col.center.y*2*raycastLength,Color.magenta);
         if(Physics.Raycast(rBody.position+transform.up*col.center.y*1.75f,-transform.up,out hit,col.center.y*2*activeRayLen,raycastLayers) != false)
         {
-
+            //grounded = Physics.CheckCapsule(rBody.position-(transform.up*(raycastLength/2))+transform.up*.525f,rBody.position+transform.up*.5f,.05f,raycastLayers);
             if(interpolateNormals == true)
             {
                 tempNormal = InterpolateNormal(hit).normalized;
@@ -102,7 +102,7 @@ public class EnigmaPhysics : MonoBehaviour
 
         }
 
-        grounded = hit.transform != null ? true : false;
+        grounded = hit.transform != null ? true : false; 
 
         switch(characterState)
         {
@@ -121,8 +121,7 @@ public class EnigmaPhysics : MonoBehaviour
 
                 float slopeAngle = Vector3.SignedAngle(referenceVector,normal,-Vector3.Cross(forwardReference,normal));
                 float slopeCap =  (Mathf.Abs(slopeAngle) * 0.106f + 2.3f);
-                activeRayLen = Mathf.Lerp(activeRayLen,raycastLength,.1f * Time.deltaTime);
-
+                activeRayLen = Mathf.Lerp(activeRayLen,raycastLength,1.25f * Time.deltaTime);
                 //Debug.Log(slopeCap + " " + slopeAngle);
                 float finalCap = accelCap;
 
@@ -189,6 +188,11 @@ public class EnigmaPhysics : MonoBehaviour
                 rBody.velocity += -referenceVector.normalized * weight * Time.fixedDeltaTime;
                 rBody.velocity += primaryAxis * airAcceleration * Time.deltaTime;
                 normal = Vector3.RotateTowards(normal,referenceVector,2f*Time.deltaTime,0).normalized;
+
+                Vector3 pos = transform.position + transform.up * .5f;
+                transform.position = (Quaternion.FromToRotation(transform.up,normal) * (transform.position-pos)) + pos;
+                transform.up = Quaternion.FromToRotation(transform.up,normal) * transform.up;
+
                 activeRayLen = Mathf.Lerp(activeRayLen,raycastLength, 2f * Time.deltaTime);
 		    
                 normalForward = Vector3.ProjectOnPlane(rBody.velocity,normal);
@@ -198,7 +202,7 @@ public class EnigmaPhysics : MonoBehaviour
                 else
                     forwardReference = Vector3.ProjectOnPlane(forwardReference,normal);
 
-                rBody.transform.up = normal;
+                //rBody.transform.up = normal;
                 point = transform.position;
                 break;
             case 3: // Scripted

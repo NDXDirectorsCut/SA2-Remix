@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Glass.Unity
+    guid: 0743dca3fdf899c40bc463ace256f612
   m_configObjects: {}

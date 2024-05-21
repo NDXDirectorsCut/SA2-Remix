@@ -27,7 +27,7 @@ public class JumpAction : MonoBehaviour
         }
     }
 
-    IEnumerator Jump(float iJumpForce, float jTimer,float aJumpForce)
+    public IEnumerator Jump(float iJumpForce, float jTimer,float aJumpForce)
     {
         float initialJumpTime;
         float origRL;
@@ -39,12 +39,12 @@ public class JumpAction : MonoBehaviour
         jumping = true;
 
         enigmaPhysics.characterState = 2; enigmaPhysics.grounded = false;
-        origRL = enigmaPhysics.activeRayLen; enigmaPhysics.activeRayLen= 0;
+        origRL = enigmaPhysics.activeRayLen; enigmaPhysics.activeRayLen = 0.7f;
         //Debug.Log(origRL);
         rBody.velocity += enigmaPhysics.normal * iJumpForce;
         
         animator.CrossFadeInFixedTime("Spin",.25f,0,0);
-	  animator.SetBool("Scripted Animation",true);
+	    animator.SetBool("Scripted Animation",true);
 
         int i = 0;
 
@@ -59,7 +59,7 @@ public class JumpAction : MonoBehaviour
             }
             if(Time.time - initialJumpTime > 0.1f)
             {
-                enigmaPhysics.activeRayLen = origRL;
+                //enigmaPhysics.activeRayLen = origRL;
                 rBody.velocity += enigmaPhysics.normal * additiveJumpForce * Time.deltaTime;
                 i++;
                 //Debug.Log("Additive Jump " + i);

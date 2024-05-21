@@ -98,5 +98,7 @@ public class SpindashAction : MonoBehaviour
 		StartCoroutine(Spindash());
 		holding = false;
 	  }
+      if(enigmaPhysics.characterState != 1 )
+        StopAllCoroutines();
     }
 }
