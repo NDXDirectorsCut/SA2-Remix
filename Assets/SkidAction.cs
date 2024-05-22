@@ -4,15 +4,47 @@ using UnityEngine;
 
 public class SkidAction : MonoBehaviour
 {
+    EnigmaPhysics enigmaPhysics;
+    public Animator animator;
+    public GameObject effect;
+    InputPlayer plInput;
+    //InputAI aiInput;
+    public float skidDeceleration;
+    public float requiredAngle;
     // Start is called before the first frame update
     void Start()
     {
-        
+        enigmaPhysics = GetComponent<EnigmaPhysics>();
+	  plInput = GetComponent<InputPlayer>();
+	  //aiInput = GetComponent<InputAI>();w
+    }
+	
+    IEnumerator Skid(float deceleration)
+    {
+	animator.CrossFadeInFixedTime("Skid",.25f,0,0);
+	animator.SetBool("Scripted Animation",true);
+	effect.SetActive(true);
+	while(enigmaPhysics.characterState == 1 && enigmaPhysics.rBody.velocity.magnitude > .1f)
+	{
+	   if(plInput != null)
+		plInput.canMove = false;
+	   //if(aiInput != null)
+	//	aiInput.canMove = false;
+	   float gravityMultiplier = 1-Mathf.Clamp(Vector3.Angle(enigmaPhysics.referenceVector,enigmaPhysics.normal)/90,0,1); 
+	   enigmaPhysics.rBody.velocity -= enigmaPhysics.rBody.velocity * skidDeceleration * gravityMultiplier * Time.fixedDeltaTime * Mathf.Clamp(enigmaPhysics.rBody.velocity.magnitude,0,1);
+	   yield return new WaitForFixedUpdate();
+	}
+	   plInput.canMove = true;
+	   effect.SetActive(false);
+	   animator.SetBool("Scripted Animation",false);
+	   yield return null;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+	 float angle = Vector3.Angle(enigmaPhysics.rBody.velocity,enigmaPhysics.primaryAxis);
+       if(angle > requiredAngle && enigmaPhysics.characterState == 1)
+		StartCoroutine(Skid(skidDeceleration));
     }
 }

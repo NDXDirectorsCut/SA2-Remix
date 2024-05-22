@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputPlayer : MonoBehaviour
 {
     EnigmaPhysics enigmaPhysics;
+    public bool canMove;
     public enum InputReference { Transform, TransformGrounded, Spline}
     public InputReference inputReference;
     public GameObject referenceObject;
@@ -19,9 +20,15 @@ public class InputPlayer : MonoBehaviour
 
     void Update()
     {
+	if(canMove == true) 
+	{
         hor = Input.GetAxisRaw("Horizontal");
         ver = Input.GetAxisRaw("Vertical");
-        
+      }
+	else
+	{
+	  hor = 0; ver = 0;
+	}
         switch(inputReference)
         {
             case InputReference.Transform:

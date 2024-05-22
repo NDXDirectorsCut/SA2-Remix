@@ -1,0 +1,3703 @@
+# Blender 3.6.4
+# www.blender.org
+mtllib HalfPipe.mtl
+o HalfPipe
+v -1.000000 0.000000 1.000000
+v -0.980785 -0.195090 1.000000
+v -0.923880 -0.382683 1.000000
+v -0.831470 -0.555570 1.000000
+v -0.707107 -0.707107 1.000000
+v -0.555570 -0.831470 1.000000
+v -0.382683 -0.923880 1.000000
+v -0.195090 -0.980785 1.000000
+v 0.000000 -1.000000 1.000000
+v 0.195090 -0.980785 1.000000
+v 0.382683 -0.923880 1.000000
+v 0.555570 -0.831470 1.000000
+v 0.707107 -0.707107 1.000000
+v 0.831470 -0.555570 1.000000
+v 0.923880 -0.382683 1.000000
+v 0.980785 -0.195090 1.000000
+v 1.000000 0.000000 1.000000
+v -1.000000 0.000000 -1.000000
+v -0.980785 -0.195090 -1.000000
+v -0.923880 -0.382683 -1.000000
+v -0.831470 -0.555570 -1.000000
+v -0.707107 -0.707107 -1.000000
+v -0.555570 -0.831470 -1.000000
+v -0.382683 -0.923879 -1.000000
+v -0.195090 -0.980785 -1.000000
+v 0.000000 -1.000000 -1.000000
+v 0.195090 -0.980785 -1.000000
+v 0.382683 -0.923879 -1.000000
+v 0.555570 -0.831470 -1.000000
+v 0.707107 -0.707107 -1.000000
+v 0.831470 -0.555570 -1.000000
+v 0.923880 -0.382683 -1.000000
+v 0.980785 -0.195090 -1.000000
+v 1.000000 0.000000 -1.000000
+v -0.800000 0.000000 1.000000
+v -0.784628 -0.156072 1.000000
+v -0.739104 -0.306147 1.000000
+v -0.665176 -0.444456 1.000000
+v -0.565685 -0.565685 1.000000
+v -0.444456 -0.665176 1.000000
+v -0.306147 -0.739104 1.000000
+v -0.156072 -0.784628 1.000000
+v 0.000000 -0.800000 1.000000
+v 0.156072 -0.784628 1.000000
+v 0.306147 -0.739104 1.000000
+v 0.444456 -0.665176 1.000000
+v 0.565685 -0.565685 1.000000
+v 0.665176 -0.444456 1.000000
+v 0.739104 -0.306147 1.000000
+v 0.784628 -0.156072 1.000000
+v 0.800000 0.000000 1.000000
+v -0.800000 0.000000 -1.000000
+v -0.784628 -0.156072 -1.000000
+v -0.739104 -0.306147 -1.000000
+v -0.665176 -0.444456 -1.000000
+v -0.565685 -0.565685 -1.000000
+v -0.444456 -0.665176 -1.000000
+v -0.306147 -0.739104 -1.000000
+v -0.156072 -0.784628 -1.000000
+v 0.000000 -0.800000 -1.000000
+v 0.156072 -0.784628 -1.000000
+v 0.306147 -0.739104 -1.000000
+v 0.444456 -0.665176 -1.000000
+v 0.565685 -0.565685 -1.000000
+v 0.665176 -0.444456 -1.000000
+v 0.739104 -0.306147 -1.000000
+v 0.784628 -0.156072 -1.000000
+v 0.800000 0.000000 -1.000000
+v 0.555570 -0.831470 0.882353
+v 0.555570 -0.831470 0.764706
+v 0.555570 -0.831470 0.647059
+v 0.555570 -0.831470 0.529412
+v 0.555570 -0.831470 0.411765
+v 0.555570 -0.831470 0.294118
+v 0.555570 -0.831470 0.176471
+v 0.555570 -0.831470 0.058824
+v 0.555570 -0.831470 -0.058824
+v 0.555570 -0.831470 -0.176471
+v 0.555570 -0.831470 -0.294118
+v 0.555570 -0.831470 -0.411765
+v 0.555570 -0.831470 -0.529412
+v 0.555570 -0.831470 -0.647059
+v 0.555570 -0.831469 -0.764706
+v 0.555570 -0.831469 -0.882353
+v 0.707107 -0.707107 -0.882353
+v 0.707107 -0.707107 -0.764706
+v 0.707107 -0.707107 -0.647059
+v 0.707107 -0.707107 -0.529412
+v 0.707107 -0.707107 -0.411765
+v 0.707107 -0.707107 -0.294118
+v 0.707107 -0.707107 -0.176471
+v 0.707107 -0.707107 -0.058824
+v 0.707107 -0.707107 0.058823
+v 0.707107 -0.707107 0.176471
+v 0.707107 -0.707107 0.294118
+v 0.707107 -0.707107 0.411765
+v 0.707107 -0.707107 0.529412
+v 0.707107 -0.707107 0.647059
+v 0.707107 -0.707107 0.764706
+v 0.707107 -0.707107 0.882353
+v 0.831470 -0.555570 -0.882353
+v 0.831470 -0.555570 -0.764706
+v 0.831470 -0.555570 -0.647059
+v 0.831470 -0.555570 -0.529412
+v 0.831470 -0.555570 -0.411765
+v 0.831470 -0.555570 -0.294118
+v 0.831470 -0.555570 -0.176471
+v 0.831470 -0.555570 -0.058824
+v 0.831470 -0.555570 0.058823
+v 0.831470 -0.555570 0.176471
+v 0.831470 -0.555570 0.294118
+v 0.831470 -0.555570 0.411765
+v 0.831470 -0.555570 0.529412
+v 0.831470 -0.555570 0.647059
+v 0.831470 -0.555570 0.764706
+v 0.831470 -0.555570 0.882353
+v -1.000000 0.000000 -0.882353
+v -1.000000 0.000000 -0.764706
+v -1.000000 0.000000 -0.647059
+v -1.000000 0.000000 -0.529412
+v -1.000000 0.000000 -0.411765
+v -1.000000 0.000000 -0.294118
+v -1.000000 0.000000 -0.176471
+v -1.000000 0.000000 -0.058824
+v -1.000000 0.000000 0.058824
+v -1.000000 0.000000 0.176471
+v -1.000000 0.000000 0.294118
+v -1.000000 0.000000 0.411765
+v -1.000000 0.000000 0.529412
+v -1.000000 0.000000 0.647059
+v -1.000000 0.000000 0.764706
+v -1.000000 0.000000 0.882353
+v 0.923880 -0.382683 -0.882353
+v 0.923880 -0.382683 -0.764706
+v 0.923880 -0.382683 -0.647059
+v 0.923880 -0.382683 -0.529412
+v 0.923880 -0.382683 -0.411765
+v 0.923880 -0.382684 -0.294118
+v 0.923880 -0.382684 -0.176471
+v 0.923880 -0.382684 -0.058824
+v 0.923880 -0.382684 0.058823
+v 0.923880 -0.382684 0.176471
+v 0.923880 -0.382684 0.294118
+v 0.923880 -0.382684 0.411765
+v 0.923880 -0.382684 0.529412
+v 0.923880 -0.382683 0.647059
+v 0.923880 -0.382683 0.764706
+v 0.923880 -0.382683 0.882353
+v -0.980785 -0.195090 -0.882353
+v -0.980785 -0.195090 -0.764706
+v -0.980785 -0.195090 -0.647059
+v -0.980785 -0.195090 -0.529412
+v -0.980785 -0.195090 -0.411765
+v -0.980785 -0.195090 -0.294118
+v -0.980785 -0.195090 -0.176471
+v -0.980785 -0.195090 -0.058824
+v -0.980785 -0.195090 0.058824
+v -0.980785 -0.195090 0.176471
+v -0.980785 -0.195090 0.294118
+v -0.980785 -0.195090 0.411765
+v -0.980785 -0.195090 0.529412
+v -0.980785 -0.195090 0.647059
+v -0.980785 -0.195090 0.764706
+v -0.980785 -0.195090 0.882353
+v 0.980785 -0.195090 -0.882353
+v 0.980785 -0.195090 -0.764706
+v 0.980785 -0.195090 -0.647059
+v 0.980785 -0.195090 -0.529412
+v 0.980785 -0.195090 -0.411765
+v 0.980785 -0.195090 -0.294118
+v 0.980785 -0.195090 -0.176471
+v 0.980785 -0.195090 -0.058824
+v 0.980785 -0.195090 0.058824
+v 0.980785 -0.195090 0.176471
+v 0.980785 -0.195090 0.294118
+v 0.980785 -0.195090 0.411765
+v 0.980785 -0.195090 0.529412
+v 0.980785 -0.195090 0.647059
+v 0.980785 -0.195090 0.764706
+v 0.980785 -0.195090 0.882353
+v -0.923880 -0.382683 -0.882353
+v -0.923880 -0.382683 -0.764706
+v -0.923880 -0.382683 -0.647059
+v -0.923880 -0.382683 -0.529412
+v -0.923880 -0.382683 -0.411765
+v -0.923880 -0.382684 -0.294118
+v -0.923880 -0.382684 -0.176471
+v -0.923880 -0.382684 -0.058824
+v -0.923880 -0.382684 0.058823
+v -0.923880 -0.382684 0.176471
+v -0.923880 -0.382684 0.294118
+v -0.923880 -0.382684 0.411765
+v -0.923880 -0.382684 0.529412
+v -0.923880 -0.382683 0.647059
+v -0.923880 -0.382683 0.764706
+v -0.923880 -0.382683 0.882353
+v 1.000000 0.000000 -0.882353
+v 1.000000 0.000000 -0.764706
+v 1.000000 0.000000 -0.647059
+v 1.000000 0.000000 -0.529412
+v 1.000000 0.000000 -0.411765
+v 1.000000 0.000000 -0.294118
+v 1.000000 0.000000 -0.176471
+v 1.000000 0.000000 -0.058824
+v 1.000000 0.000000 0.058824
+v 1.000000 0.000000 0.176471
+v 1.000000 0.000000 0.294118
+v 1.000000 0.000000 0.411765
+v 1.000000 0.000000 0.529412
+v 1.000000 0.000000 0.647059
+v 1.000000 0.000000 0.764706
+v 1.000000 0.000000 0.882353
+v -0.831470 -0.555570 -0.882353
+v -0.831470 -0.555570 -0.764706
+v -0.831470 -0.555570 -0.647059
+v -0.831470 -0.555570 -0.529412
+v -0.831470 -0.555570 -0.411765
+v -0.831470 -0.555570 -0.294118
+v -0.831470 -0.555570 -0.176471
+v -0.831470 -0.555570 -0.058824
+v -0.831470 -0.555570 0.058823
+v -0.831470 -0.555570 0.176471
+v -0.831470 -0.555570 0.294118
+v -0.831470 -0.555570 0.411765
+v -0.831470 -0.555570 0.529412
+v -0.831470 -0.555570 0.647059
+v -0.831470 -0.555570 0.764706
+v -0.831470 -0.555570 0.882353
+v -0.707107 -0.707107 -0.882353
+v -0.707107 -0.707107 -0.764706
+v -0.707107 -0.707107 -0.647059
+v -0.707107 -0.707107 -0.529412
+v -0.707107 -0.707107 -0.411765
+v -0.707107 -0.707107 -0.294118
+v -0.707107 -0.707107 -0.176471
+v -0.707107 -0.707107 -0.058824
+v -0.707107 -0.707107 0.058823
+v -0.707107 -0.707107 0.176471
+v -0.707107 -0.707107 0.294118
+v -0.707107 -0.707107 0.411765
+v -0.707107 -0.707107 0.529412
+v -0.707107 -0.707107 0.647059
+v -0.707107 -0.707107 0.764706
+v -0.707107 -0.707107 0.882353
+v -0.555570 -0.831470 -0.882353
+v -0.555570 -0.831470 -0.764706
+v -0.555570 -0.831470 -0.647059
+v -0.555570 -0.831470 -0.529412
+v -0.555570 -0.831470 -0.411765
+v -0.555570 -0.831470 -0.294118
+v -0.555570 -0.831470 -0.176471
+v -0.555570 -0.831470 -0.058824
+v -0.555570 -0.831470 0.058823
+v -0.555570 -0.831470 0.176471
+v -0.555570 -0.831470 0.294118
+v -0.555570 -0.831470 0.411765
+v -0.555570 -0.831470 0.529412
+v -0.555570 -0.831470 0.647059
+v -0.555570 -0.831470 0.764706
+v -0.555570 -0.831470 0.882353
+v -0.382683 -0.923879 -0.882353
+v -0.382683 -0.923879 -0.764706
+v -0.382683 -0.923880 -0.647059
+v -0.382683 -0.923880 -0.529412
+v -0.382683 -0.923880 -0.411765
+v -0.382683 -0.923880 -0.294118
+v -0.382683 -0.923880 -0.176471
+v -0.382683 -0.923880 -0.058824
+v -0.382683 -0.923880 0.058823
+v -0.382683 -0.923880 0.176471
+v -0.382683 -0.923880 0.294118
+v -0.382683 -0.923880 0.411765
+v -0.382683 -0.923880 0.529412
+v -0.382683 -0.923880 0.647059
+v -0.382683 -0.923880 0.764706
+v -0.382683 -0.923880 0.882353
+v -0.195090 -0.980785 -0.882353
+v -0.195090 -0.980785 -0.764706
+v -0.195090 -0.980785 -0.647059
+v -0.195090 -0.980785 -0.529412
+v -0.195090 -0.980785 -0.411765
+v -0.195090 -0.980785 -0.294118
+v -0.195090 -0.980785 -0.176471
+v -0.195090 -0.980785 -0.058824
+v -0.195090 -0.980785 0.058823
+v -0.195090 -0.980785 0.176471
+v -0.195090 -0.980785 0.294118
+v -0.195090 -0.980785 0.411765
+v -0.195090 -0.980785 0.529412
+v -0.195090 -0.980785 0.647059
+v -0.195090 -0.980785 0.764706
+v -0.195090 -0.980785 0.882353
+v 0.000000 -1.000000 -0.882353
+v 0.000000 -1.000000 -0.764706
+v 0.000000 -1.000000 -0.647059
+v 0.000000 -1.000000 -0.529412
+v 0.000000 -1.000000 -0.411765
+v 0.000000 -1.000000 -0.294118
+v 0.000000 -1.000000 -0.176471
+v 0.000000 -1.000000 -0.058824
+v 0.000000 -1.000000 0.058823
+v 0.000000 -1.000000 0.176471
+v 0.000000 -1.000000 0.294118
+v 0.000000 -1.000000 0.411765
+v 0.000000 -1.000000 0.529412
+v 0.000000 -1.000000 0.647059
+v 0.000000 -1.000000 0.764706
+v 0.000000 -1.000000 0.882353
+v 0.195090 -0.980785 -0.882353
+v 0.195090 -0.980785 -0.764706
+v 0.195090 -0.980785 -0.647059
+v 0.195090 -0.980785 -0.529412
+v 0.195090 -0.980785 -0.411765
+v 0.195090 -0.980785 -0.294118
+v 0.195090 -0.980785 -0.176471
+v 0.195090 -0.980785 -0.058824
+v 0.195090 -0.980785 0.058823
+v 0.195090 -0.980785 0.176471
+v 0.195090 -0.980785 0.294118
+v 0.195090 -0.980785 0.411765
+v 0.195090 -0.980785 0.529412
+v 0.195090 -0.980785 0.647059
+v 0.195090 -0.980785 0.764706
+v 0.195090 -0.980785 0.882353
+v 0.382683 -0.923879 -0.882353
+v 0.382683 -0.923879 -0.764706
+v 0.382683 -0.923880 -0.647059
+v 0.382683 -0.923880 -0.529412
+v 0.382683 -0.923880 -0.411765
+v 0.382683 -0.923880 -0.294118
+v 0.382683 -0.923880 -0.176471
+v 0.382683 -0.923880 -0.058824
+v 0.382683 -0.923880 0.058823
+v 0.382683 -0.923880 0.176471
+v 0.382683 -0.923880 0.294118
+v 0.382683 -0.923880 0.411765
+v 0.382683 -0.923880 0.529412
+v 0.382683 -0.923880 0.647059
+v 0.382683 -0.923880 0.764706
+v 0.382683 -0.923880 0.882353
+v 0.444456 -0.665176 0.882353
+v 0.444456 -0.665176 0.764706
+v 0.444456 -0.665176 0.647059
+v 0.444456 -0.665176 0.529412
+v 0.444456 -0.665176 0.411765
+v 0.444456 -0.665176 0.294118
+v 0.444456 -0.665176 0.176471
+v 0.444456 -0.665176 0.058824
+v 0.444456 -0.665176 -0.058824
+v 0.444456 -0.665176 -0.176471
+v 0.444456 -0.665176 -0.294118
+v 0.444456 -0.665176 -0.411765
+v 0.444456 -0.665176 -0.529412
+v 0.444456 -0.665176 -0.647059
+v 0.444456 -0.665176 -0.764706
+v 0.444456 -0.665176 -0.882353
+v 0.565685 -0.565685 -0.882353
+v 0.565685 -0.565685 -0.764706
+v 0.565685 -0.565685 -0.647059
+v 0.565685 -0.565685 -0.529412
+v 0.565685 -0.565685 -0.411765
+v 0.565685 -0.565685 -0.294118
+v 0.565685 -0.565685 -0.176471
+v 0.565685 -0.565685 -0.058824
+v 0.565685 -0.565685 0.058823
+v 0.565685 -0.565685 0.176471
+v 0.565685 -0.565685 0.294118
+v 0.565685 -0.565685 0.411765
+v 0.565685 -0.565685 0.529412
+v 0.565685 -0.565685 0.647059
+v 0.565685 -0.565686 0.764706
+v 0.565685 -0.565685 0.882353
+v 0.665176 -0.444456 -0.882353
+v 0.665176 -0.444456 -0.764706
+v 0.665176 -0.444456 -0.647059
+v 0.665176 -0.444456 -0.529412
+v 0.665176 -0.444456 -0.411765
+v 0.665176 -0.444456 -0.294118
+v 0.665176 -0.444456 -0.176471
+v 0.665176 -0.444456 -0.058824
+v 0.665176 -0.444456 0.058823
+v 0.665176 -0.444456 0.176471
+v 0.665176 -0.444456 0.294118
+v 0.665176 -0.444456 0.411765
+v 0.665176 -0.444456 0.529412
+v 0.665176 -0.444456 0.647059
+v 0.665176 -0.444456 0.764706
+v 0.665176 -0.444456 0.882353
+v -0.800000 0.000000 -0.882353
+v -0.800000 0.000000 -0.764706
+v -0.800000 0.000000 -0.647059
+v -0.800000 0.000000 -0.529412
+v -0.800000 0.000000 -0.411765
+v -0.800000 0.000000 -0.294118
+v -0.800000 0.000000 -0.176471
+v -0.800000 0.000000 -0.058824
+v -0.800000 0.000000 0.058824
+v -0.800000 0.000000 0.176471
+v -0.800000 0.000000 0.294118
+v -0.800000 0.000000 0.411765
+v -0.800000 0.000000 0.529412
+v -0.800000 0.000000 0.647059
+v -0.800000 0.000000 0.764706
+v -0.800000 0.000000 0.882353
+v 0.739104 -0.306147 -0.882353
+v 0.739104 -0.306147 -0.764706
+v 0.739104 -0.306147 -0.647059
+v 0.739104 -0.306147 -0.529412
+v 0.739104 -0.306147 -0.411765
+v 0.739104 -0.306147 -0.294118
+v 0.739104 -0.306147 -0.176471
+v 0.739104 -0.306147 -0.058824
+v 0.739104 -0.306147 0.058823
+v 0.739104 -0.306147 0.176471
+v 0.739104 -0.306147 0.294118
+v 0.739104 -0.306147 0.411765
+v 0.739104 -0.306147 0.529412
+v 0.739104 -0.306147 0.647059
+v 0.739104 -0.306147 0.764706
+v 0.739104 -0.306147 0.882353
+v -0.784628 -0.156072 -0.882353
+v -0.784628 -0.156072 -0.764706
+v -0.784628 -0.156072 -0.647059
+v -0.784628 -0.156072 -0.529412
+v -0.784628 -0.156072 -0.411765
+v -0.784628 -0.156072 -0.294118
+v -0.784628 -0.156072 -0.176471
+v -0.784628 -0.156072 -0.058824
+v -0.784628 -0.156072 0.058824
+v -0.784628 -0.156072 0.176471
+v -0.784628 -0.156072 0.294118
+v -0.784628 -0.156072 0.411765
+v -0.784628 -0.156072 0.529412
+v -0.784628 -0.156072 0.647059
+v -0.784628 -0.156072 0.764706
+v -0.784628 -0.156072 0.882353
+v 0.784628 -0.156072 -0.882353
+v 0.784628 -0.156072 -0.764706
+v 0.784628 -0.156072 -0.647059
+v 0.784628 -0.156072 -0.529412
+v 0.784628 -0.156072 -0.411765
+v 0.784628 -0.156072 -0.294118
+v 0.784628 -0.156072 -0.176471
+v 0.784628 -0.156072 -0.058824
+v 0.784628 -0.156072 0.058824
+v 0.784628 -0.156072 0.176471
+v 0.784628 -0.156072 0.294118
+v 0.784628 -0.156072 0.411765
+v 0.784628 -0.156072 0.529412
+v 0.784628 -0.156072 0.647059
+v 0.784628 -0.156072 0.764706
+v 0.784628 -0.156072 0.882353
+v -0.739104 -0.306147 -0.882353
+v -0.739104 -0.306147 -0.764706
+v -0.739104 -0.306147 -0.647059
+v -0.739104 -0.306147 -0.529412
+v -0.739104 -0.306147 -0.411765
+v -0.739104 -0.306147 -0.294118
+v -0.739104 -0.306147 -0.176471
+v -0.739104 -0.306147 -0.058824
+v -0.739104 -0.306147 0.058823
+v -0.739104 -0.306147 0.176471
+v -0.739104 -0.306147 0.294118
+v -0.739104 -0.306147 0.411765
+v -0.739104 -0.306147 0.529412
+v -0.739104 -0.306147 0.647059
+v -0.739104 -0.306147 0.764706
+v -0.739104 -0.306147 0.882353
+v 0.800000 0.000000 -0.882353
+v 0.800000 0.000000 -0.764706
+v 0.800000 0.000000 -0.647059
+v 0.800000 0.000000 -0.529412
+v 0.800000 0.000000 -0.411765
+v 0.800000 0.000000 -0.294118
+v 0.800000 0.000000 -0.176471
+v 0.800000 0.000000 -0.058824
+v 0.800000 0.000000 0.058824
+v 0.800000 0.000000 0.176471
+v 0.800000 0.000000 0.294118
+v 0.800000 0.000000 0.411765
+v 0.800000 0.000000 0.529412
+v 0.800000 0.000000 0.647059
+v 0.800000 0.000000 0.764706
+v 0.800000 0.000000 0.882353
+v -0.665176 -0.444456 -0.882353
+v -0.665176 -0.444456 -0.764706
+v -0.665176 -0.444456 -0.647059
+v -0.665176 -0.444456 -0.529412
+v -0.665176 -0.444456 -0.411765
+v -0.665176 -0.444456 -0.294118
+v -0.665176 -0.444456 -0.176471
+v -0.665176 -0.444456 -0.058824
+v -0.665176 -0.444456 0.058823
+v -0.665176 -0.444456 0.176471
+v -0.665176 -0.444456 0.294118
+v -0.665176 -0.444456 0.411765
+v -0.665176 -0.444456 0.529412
+v -0.665176 -0.444456 0.647059
+v -0.665176 -0.444456 0.764706
+v -0.665176 -0.444456 0.882353
+v -0.565685 -0.565685 -0.882353
+v -0.565685 -0.565685 -0.764706
+v -0.565685 -0.565685 -0.647059
+v -0.565685 -0.565685 -0.529412
+v -0.565685 -0.565685 -0.411765
+v -0.565685 -0.565685 -0.294118
+v -0.565685 -0.565685 -0.176471
+v -0.565685 -0.565685 -0.058824
+v -0.565685 -0.565685 0.058823
+v -0.565685 -0.565685 0.176471
+v -0.565685 -0.565685 0.294118
+v -0.565685 -0.565685 0.411765
+v -0.565685 -0.565685 0.529412
+v -0.565685 -0.565685 0.647059
+v -0.565685 -0.565686 0.764706
+v -0.565685 -0.565685 0.882353
+v -0.444456 -0.665176 -0.882353
+v -0.444456 -0.665176 -0.764706
+v -0.444456 -0.665176 -0.647059
+v -0.444456 -0.665176 -0.529412
+v -0.444456 -0.665176 -0.411765
+v -0.444456 -0.665176 -0.294118
+v -0.444456 -0.665176 -0.176471
+v -0.444456 -0.665176 -0.058824
+v -0.444456 -0.665176 0.058823
+v -0.444456 -0.665176 0.176471
+v -0.444456 -0.665176 0.294118
+v -0.444456 -0.665176 0.411765
+v -0.444456 -0.665176 0.529412
+v -0.444456 -0.665176 0.647059
+v -0.444456 -0.665176 0.764706
+v -0.444456 -0.665176 0.882353
+v -0.306147 -0.739104 -0.882353
+v -0.306147 -0.739104 -0.764706
+v -0.306147 -0.739104 -0.647059
+v -0.306147 -0.739104 -0.529412
+v -0.306147 -0.739104 -0.411765
+v -0.306147 -0.739104 -0.294118
+v -0.306147 -0.739104 -0.176471
+v -0.306147 -0.739104 -0.058824
+v -0.306147 -0.739104 0.058823
+v -0.306147 -0.739104 0.176471
+v -0.306147 -0.739104 0.294118
+v -0.306147 -0.739104 0.411765
+v -0.306147 -0.739104 0.529412
+v -0.306147 -0.739104 0.647059
+v -0.306147 -0.739104 0.764706
+v -0.306147 -0.739104 0.882353
+v -0.156072 -0.784628 -0.882353
+v -0.156072 -0.784628 -0.764706
+v -0.156072 -0.784628 -0.647059
+v -0.156072 -0.784628 -0.529412
+v -0.156072 -0.784628 -0.411765
+v -0.156072 -0.784628 -0.294118
+v -0.156072 -0.784628 -0.176471
+v -0.156072 -0.784628 -0.058824
+v -0.156072 -0.784628 0.058823
+v -0.156072 -0.784628 0.176471
+v -0.156072 -0.784628 0.294118
+v -0.156072 -0.784628 0.411765
+v -0.156072 -0.784628 0.529412
+v -0.156072 -0.784628 0.647059
+v -0.156072 -0.784628 0.764706
+v -0.156072 -0.784628 0.882353
+v 0.000000 -0.800000 -0.882353
+v 0.000000 -0.800000 -0.764706
+v 0.000000 -0.800000 -0.647059
+v 0.000000 -0.800000 -0.529412
+v 0.000000 -0.800000 -0.411765
+v 0.000000 -0.800000 -0.294118
+v 0.000000 -0.800000 -0.176471
+v 0.000000 -0.800000 -0.058824
+v 0.000000 -0.800000 0.058823
+v 0.000000 -0.800000 0.176471
+v 0.000000 -0.800000 0.294118
+v 0.000000 -0.800000 0.411765
+v 0.000000 -0.800000 0.529412
+v 0.000000 -0.800000 0.647059
+v 0.000000 -0.800000 0.764706
+v 0.000000 -0.800000 0.882353
+v 0.156072 -0.784628 -0.882353
+v 0.156072 -0.784628 -0.764706
+v 0.156072 -0.784628 -0.647059
+v 0.156072 -0.784628 -0.529412
+v 0.156072 -0.784628 -0.411765
+v 0.156072 -0.784628 -0.294118
+v 0.156072 -0.784628 -0.176471
+v 0.156072 -0.784628 -0.058824
+v 0.156072 -0.784628 0.058823
+v 0.156072 -0.784628 0.176471
+v 0.156072 -0.784628 0.294118
+v 0.156072 -0.784628 0.411765
+v 0.156072 -0.784628 0.529412
+v 0.156072 -0.784628 0.647059
+v 0.156072 -0.784628 0.764706
+v 0.156072 -0.784628 0.882353
+v 0.306147 -0.739104 -0.882353
+v 0.306147 -0.739104 -0.764706
+v 0.306147 -0.739104 -0.647059
+v 0.306147 -0.739104 -0.529412
+v 0.306147 -0.739104 -0.411765
+v 0.306147 -0.739104 -0.294118
+v 0.306147 -0.739104 -0.176471
+v 0.306147 -0.739104 -0.058824
+v 0.306147 -0.739104 0.058823
+v 0.306147 -0.739104 0.176471
+v 0.306147 -0.739104 0.294118
+v 0.306147 -0.739104 0.411765
+v 0.306147 -0.739104 0.529412
+v 0.306147 -0.739104 0.647059
+v 0.306147 -0.739104 0.764706
+v 0.306147 -0.739104 0.882353
+vn 0.7071 -0.7071 -0.0000
+vn 0.5556 -0.8315 -0.0000
+vn 0.8315 -0.5556 -0.0000
+vn 0.9239 -0.3827 -0.0000
+vn -0.9808 -0.1951 -0.0000
+vn -0.9952 -0.0980 -0.0000
+vn 0.9808 -0.1951 -0.0000
+vn -0.9239 -0.3827 -0.0000
+vn 0.9952 -0.0980 -0.0000
+vn -0.8315 -0.5556 -0.0000
+vn -0.7071 -0.7071 -0.0000
+vn -0.5556 -0.8315 -0.0000
+vn -0.3827 -0.9239 -0.0000
+vn -0.1951 -0.9808 -0.0000
+vn -0.0000 -1.0000 -0.0000
+vn 0.1951 -0.9808 -0.0000
+vn 0.3827 -0.9239 -0.0000
+vn -0.7071 0.7071 -0.0000
+vn -0.5556 0.8315 -0.0000
+vn -0.8315 0.5556 -0.0000
+vn -0.9239 0.3827 -0.0000
+vn 0.9808 0.1951 -0.0000
+vn 0.9952 0.0980 -0.0000
+vn -0.9808 0.1951 -0.0000
+vn 0.9239 0.3827 -0.0000
+vn -0.9952 0.0980 -0.0000
+vn 0.8315 0.5556 -0.0000
+vn 0.7071 0.7071 -0.0000
+vn 0.5556 0.8315 -0.0000
+vn 0.3827 0.9239 -0.0000
+vn 0.1951 0.9808 -0.0000
+vn -0.0000 1.0000 -0.0000
+vn -0.1951 0.9808 -0.0000
+vn -0.3827 0.9239 -0.0000
+vn -0.0000 -0.0000 -1.0000
+vn -0.0000 -0.0000 1.0000
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+vt -nan -nan
+s 1
+f 85/1/1 84/2/2 29/3/2 30/4/1
+f 101/5/3 85/6/1 30/7/1 31/8/3
+f 133/9/4 101/10/3 31/11/3 32/12/4
+f 149/13/5 117/14/6 18/15/6 19/16/5
+f 165/17/7 133/18/4 32/19/4 33/20/7
+f 181/21/8 149/22/5 19/23/5 20/24/8
+f 197/25/9 165/26/7 33/27/7 34/28/9
+f 213/29/10 181/30/8 20/31/8 21/32/10
+f 229/33/11 213/34/10 21/35/10 22/36/11
+f 245/37/12 229/38/11 22/39/11 23/40/12
+f 261/41/13 245/42/12 23/43/12 24/44/13
+f 277/45/14 261/46/13 24/47/13 25/48/14
+f 293/49/15 277/50/14 25/51/14 26/52/15
+f 309/53/16 293/54/15 26/55/15 27/56/16
+f 325/57/17 309/58/16 27/59/16 28/60/17
+f 84/61/2 325/62/17 28/63/17 29/64/2
+f 357/65/18 64/66/18 63/67/19 356/68/19
+f 373/69/20 65/70/20 64/71/18 357/72/18
+f 405/73/21 66/74/21 65/75/20 373/76/20
+f 421/77/22 53/78/22 52/79/23 389/80/23
+f 437/81/24 67/82/24 66/83/21 405/84/21
+f 453/85/25 54/86/25 53/87/22 421/88/22
+f 469/89/26 68/90/26 67/91/24 437/92/24
+f 485/93/27 55/94/27 54/95/25 453/96/25
+f 501/97/28 56/98/28 55/99/27 485/100/27
+f 517/101/29 57/102/29 56/103/28 501/104/28
+f 533/105/30 58/106/30 57/107/29 517/108/29
+f 549/109/31 59/110/31 58/111/30 533/112/30
+f 565/113/32 60/114/32 59/115/31 549/116/31
+f 581/117/33 61/118/33 60/119/32 565/120/32
+f 597/121/34 62/122/34 61/123/33 581/124/33
+f 356/125/19 63/126/19 62/127/34 597/128/34
+f 22/129/35 56/130/35 57/131/35 23/132/35
+f 9/133/36 43/134/36 42/135/36 8/136/36
+f 23/137/35 57/138/35 58/139/35 24/140/35
+f 10/141/36 44/142/36 43/143/36 9/144/36
+f 117/145/32 389/146/32 52/147/32 18/148/32
+f 24/149/35 58/150/35 59/151/35 25/152/35
+f 11/153/36 45/154/36 44/155/36 10/156/36
+f 25/157/35 59/158/35 60/159/35 26/160/35
+f 12/161/36 46/162/36 45/163/36 11/164/36
+f 26/165/35 60/166/35 61/167/35 27/168/35
+f 13/169/36 47/170/36 46/171/36 12/172/36
+f 27/173/35 61/174/35 62/175/35 28/176/35
+f 14/177/36 48/178/36 47/179/36 13/180/36
+f 28/181/35 62/182/35 63/183/35 29/184/35
+f 15/185/36 49/186/36 48/187/36 14/188/36
+f 212/189/32 484/190/32 51/191/32 17/192/32
+f 2/193/36 36/194/36 35/195/36 1/196/36
+f 29/197/35 63/198/35 64/199/35 30/200/35
+f 16/201/36 50/202/36 49/203/36 15/204/36
+f 3/205/36 37/206/36 36/207/36 2/208/36
+f 30/209/35 64/210/35 65/211/35 31/212/35
+f 17/213/36 51/214/36 50/215/36 16/216/36
+f 4/217/36 38/218/36 37/219/36 3/220/36
+f 31/221/35 65/222/35 66/223/35 32/224/35
+f 18/225/35 52/226/35 53/227/35 19/228/35
+f 5/229/36 39/230/36 38/231/36 4/232/36
+f 32/233/35 66/234/35 67/235/35 33/236/35
+f 19/237/35 53/238/35 54/239/35 20/240/35
+f 6/241/36 40/242/36 39/243/36 5/244/36
+f 33/245/35 67/246/35 68/247/35 34/248/35
+f 20/249/35 54/250/35 55/251/35 21/252/35
+f 7/253/36 41/254/36 40/255/36 6/256/36
+f 21/257/35 55/258/35 56/259/35 22/260/35
+f 8/261/36 42/262/36 41/263/36 7/264/36
+f 34/265/32 68/266/32 469/267/32 197/268/32
+f 197/269/32 469/270/32 470/271/32 198/272/32
+f 198/273/32 470/274/32 471/275/32 199/276/32
+f 199/277/32 471/278/32 472/279/32 200/280/32
+f 200/281/32 472/282/32 473/283/32 201/284/32
+f 201/285/32 473/286/32 474/287/32 202/288/32
+f 202/289/32 474/290/32 475/291/32 203/292/32
+f 203/293/32 475/294/32 476/295/32 204/296/32
+f 204/297/32 476/298/32 477/299/32 205/300/32
+f 205/301/32 477/302/32 478/303/32 206/304/32
+f 206/305/32 478/306/32 479/307/32 207/308/32
+f 207/309/32 479/310/32 480/311/32 208/312/32
+f 208/313/32 480/314/32 481/315/32 209/316/32
+f 209/317/32 481/318/32 482/319/32 210/320/32
+f 210/321/32 482/322/32 483/323/32 211/324/32
+f 211/325/32 483/326/32 484/327/32 212/328/32
+f 1/329/32 35/330/32 404/331/32 132/332/32
+f 132/333/32 404/334/32 403/335/32 131/336/32
+f 131/337/32 403/338/32 402/339/32 130/340/32
+f 130/341/32 402/342/32 401/343/32 129/344/32
+f 129/345/32 401/346/32 400/347/32 128/348/32
+f 128/349/32 400/350/32 399/351/32 127/352/32
+f 127/353/32 399/354/32 398/355/32 126/356/32
+f 126/357/32 398/358/32 397/359/32 125/360/32
+f 125/361/32 397/362/32 396/363/32 124/364/32
+f 124/365/32 396/366/32 395/367/32 123/368/32
+f 123/369/32 395/370/32 394/371/32 122/372/32
+f 122/373/32 394/374/32 393/375/32 121/376/32
+f 121/377/32 393/378/32 392/379/32 120/380/32
+f 120/381/32 392/382/32 391/383/32 119/384/32
+f 119/385/32 391/386/32 390/387/32 118/388/32
+f 118/389/32 390/390/32 389/391/32 117/392/32
+f 46/393/19 341/394/19 612/395/34 45/396/34
+f 341/397/19 342/398/19 611/399/34 612/400/34
+f 342/401/19 343/402/19 610/403/34 611/404/34
+f 343/405/19 344/406/19 609/407/34 610/408/34
+f 344/409/19 345/410/19 608/411/34 609/412/34
+f 345/413/19 346/414/19 607/415/34 608/416/34
+f 346/417/19 347/418/19 606/419/34 607/420/34
+f 347/421/19 348/422/19 605/423/34 606/424/34
+f 348/425/19 349/426/19 604/427/34 605/428/34
+f 349/429/19 350/430/19 603/431/34 604/432/34
+f 350/433/19 351/434/19 602/435/34 603/436/34
+f 351/437/19 352/438/19 601/439/34 602/440/34
+f 352/441/19 353/442/19 600/443/34 601/444/34
+f 353/445/19 354/446/19 599/447/34 600/448/34
+f 354/449/19 355/450/19 598/451/34 599/452/34
+f 355/453/19 356/454/19 597/455/34 598/456/34
+f 45/457/34 612/458/34 596/459/33 44/460/33
+f 612/461/34 611/462/34 595/463/33 596/464/33
+f 611/465/34 610/466/34 594/467/33 595/468/33
+f 610/469/34 609/470/34 593/471/33 594/472/33
+f 609/473/34 608/474/34 592/475/33 593/476/33
+f 608/477/34 607/478/34 591/479/33 592/480/33
+f 607/481/34 606/482/34 590/483/33 591/484/33
+f 606/485/34 605/486/34 589/487/33 590/488/33
+f 605/489/34 604/490/34 588/491/33 589/492/33
+f 604/493/34 603/494/34 587/495/33 588/496/33
+f 603/497/34 602/498/34 586/499/33 587/500/33
+f 602/501/34 601/502/34 585/503/33 586/504/33
+f 601/505/34 600/506/34 584/507/33 585/508/33
+f 600/509/34 599/510/34 583/511/33 584/512/33
+f 599/513/34 598/514/34 582/515/33 583/516/33
+f 598/517/34 597/518/34 581/519/33 582/520/33
+f 44/521/33 596/522/33 580/523/32 43/524/32
+f 596/525/33 595/526/33 579/527/32 580/528/32
+f 595/529/33 594/530/33 578/531/32 579/532/32
+f 594/533/33 593/534/33 577/535/32 578/536/32
+f 593/537/33 592/538/33 576/539/32 577/540/32
+f 592/541/33 591/542/33 575/543/32 576/544/32
+f 591/545/33 590/546/33 574/547/32 575/548/32
+f 590/549/33 589/550/33 573/551/32 574/552/32
+f 589/553/33 588/554/33 572/555/32 573/556/32
+f 588/557/33 587/558/33 571/559/32 572/560/32
+f 587/561/33 586/562/33 570/563/32 571/564/32
+f 586/565/33 585/566/33 569/567/32 570/568/32
+f 585/569/33 584/570/33 568/571/32 569/572/32
+f 584/573/33 583/574/33 567/575/32 568/576/32
+f 583/577/33 582/578/33 566/579/32 567/580/32
+f 582/581/33 581/582/33 565/583/32 566/584/32
+f 43/585/32 580/586/32 564/587/31 42/588/31
+f 580/589/32 579/590/32 563/591/31 564/592/31
+f 579/593/32 578/594/32 562/595/31 563/596/31
+f 578/597/32 577/598/32 561/599/31 562/600/31
+f 577/601/32 576/602/32 560/603/31 561/604/31
+f 576/605/32 575/606/32 559/607/31 560/608/31
+f 575/609/32 574/610/32 558/611/31 559/612/31
+f 574/613/32 573/614/32 557/615/31 558/616/31
+f 573/617/32 572/618/32 556/619/31 557/620/31
+f 572/621/32 571/622/32 555/623/31 556/624/31
+f 571/625/32 570/626/32 554/627/31 555/628/31
+f 570/629/32 569/630/32 553/631/31 554/632/31
+f 569/633/32 568/634/32 552/635/31 553/636/31
+f 568/637/32 567/638/32 551/639/31 552/640/31
+f 567/641/32 566/642/32 550/643/31 551/644/31
+f 566/645/32 565/646/32 549/647/31 550/648/31
+f 42/649/31 564/650/31 548/651/30 41/652/30
+f 564/653/31 563/654/31 547/655/30 548/656/30
+f 563/657/31 562/658/31 546/659/30 547/660/30
+f 562/661/31 561/662/31 545/663/30 546/664/30
+f 561/665/31 560/666/31 544/667/30 545/668/30
+f 560/669/31 559/670/31 543/671/30 544/672/30
+f 559/673/31 558/674/31 542/675/30 543/676/30
+f 558/677/31 557/678/31 541/679/30 542/680/30
+f 557/681/31 556/682/31 540/683/30 541/684/30
+f 556/685/31 555/686/31 539/687/30 540/688/30
+f 555/689/31 554/690/31 538/691/30 539/692/30
+f 554/693/31 553/694/31 537/695/30 538/696/30
+f 553/697/31 552/698/31 536/699/30 537/700/30
+f 552/701/31 551/702/31 535/703/30 536/704/30
+f 551/705/31 550/706/31 534/707/30 535/708/30
+f 550/709/31 549/710/31 533/711/30 534/712/30
+f 41/713/30 548/714/30 532/715/29 40/716/29
+f 548/717/30 547/718/30 531/719/29 532/720/29
+f 547/721/30 546/722/30 530/723/29 531/724/29
+f 546/725/30 545/726/30 529/727/29 530/728/29
+f 545/729/30 544/730/30 528/731/29 529/732/29
+f 544/733/30 543/734/30 527/735/29 528/736/29
+f 543/737/30 542/738/30 526/739/29 527/740/29
+f 542/741/30 541/742/30 525/743/29 526/744/29
+f 541/745/30 540/746/30 524/747/29 525/748/29
+f 540/749/30 539/750/30 523/751/29 524/752/29
+f 539/753/30 538/754/30 522/755/29 523/756/29
+f 538/757/30 537/758/30 521/759/29 522/760/29
+f 537/761/30 536/762/30 520/763/29 521/764/29
+f 536/765/30 535/766/30 519/767/29 520/768/29
+f 535/769/30 534/770/30 518/771/29 519/772/29
+f 534/773/30 533/774/30 517/775/29 518/776/29
+f 40/777/29 532/778/29 516/779/28 39/780/28
+f 532/781/29 531/782/29 515/783/28 516/784/28
+f 531/785/29 530/786/29 514/787/28 515/788/28
+f 530/789/29 529/790/29 513/791/28 514/792/28
+f 529/793/29 528/794/29 512/795/28 513/796/28
+f 528/797/29 527/798/29 511/799/28 512/800/28
+f 527/801/29 526/802/29 510/803/28 511/804/28
+f 526/805/29 525/806/29 509/807/28 510/808/28
+f 525/809/29 524/810/29 508/811/28 509/812/28
+f 524/813/29 523/814/29 507/815/28 508/816/28
+f 523/817/29 522/818/29 506/819/28 507/820/28
+f 522/821/29 521/822/29 505/823/28 506/824/28
+f 521/825/29 520/826/29 504/827/28 505/828/28
+f 520/829/29 519/830/29 503/831/28 504/832/28
+f 519/833/29 518/834/29 502/835/28 503/836/28
+f 518/837/29 517/838/29 501/839/28 502/840/28
+f 39/841/28 516/842/28 500/843/27 38/844/27
+f 516/845/28 515/846/28 499/847/27 500/848/27
+f 515/849/28 514/850/28 498/851/27 499/852/27
+f 514/853/28 513/854/28 497/855/27 498/856/27
+f 513/857/28 512/858/28 496/859/27 497/860/27
+f 512/861/28 511/862/28 495/863/27 496/864/27
+f 511/865/28 510/866/28 494/867/27 495/868/27
+f 510/869/28 509/870/28 493/871/27 494/872/27
+f 509/873/28 508/874/28 492/875/27 493/876/27
+f 508/877/28 507/878/28 491/879/27 492/880/27
+f 507/881/28 506/882/28 490/883/27 491/884/27
+f 506/885/28 505/886/28 489/887/27 490/888/27
+f 505/889/28 504/890/28 488/891/27 489/892/27
+f 504/893/28 503/894/28 487/895/27 488/896/27
+f 503/897/28 502/898/28 486/899/27 487/900/27
+f 502/901/28 501/902/28 485/903/27 486/904/27
+f 38/905/27 500/906/27 468/907/25 37/908/25
+f 500/909/27 499/910/27 467/911/25 468/912/25
+f 499/913/27 498/914/27 466/915/25 467/916/25
+f 498/917/27 497/918/27 465/919/25 466/920/25
+f 497/921/27 496/922/27 464/923/25 465/924/25
+f 496/925/27 495/926/27 463/927/25 464/928/25
+f 495/929/27 494/930/27 462/931/25 463/932/25
+f 494/933/27 493/934/27 461/935/25 462/936/25
+f 493/937/27 492/938/27 460/939/25 461/940/25
+f 492/941/27 491/942/27 459/943/25 460/944/25
+f 491/945/27 490/946/27 458/947/25 459/948/25
+f 490/949/27 489/950/27 457/951/25 458/952/25
+f 489/953/27 488/954/27 456/955/25 457/956/25
+f 488/957/27 487/958/27 455/959/25 456/960/25
+f 487/961/27 486/962/27 454/963/25 455/964/25
+f 486/965/27 485/966/27 453/967/25 454/968/25
+f 51/969/26 484/970/26 452/971/24 50/972/24
+f 484/973/26 483/974/26 451/975/24 452/976/24
+f 483/977/26 482/978/26 450/979/24 451/980/24
+f 482/981/26 481/982/26 449/983/24 450/984/24
+f 481/985/26 480/986/26 448/987/24 449/988/24
+f 480/989/26 479/990/26 447/991/24 448/992/24
+f 479/993/26 478/994/26 446/995/24 447/996/24
+f 478/997/26 477/998/26 445/999/24 446/1000/24
+f 477/1001/26 476/1002/26 444/1003/24 445/1004/24
+f 476/1005/26 475/1006/26 443/1007/24 444/1008/24
+f 475/1009/26 474/1010/26 442/1011/24 443/1012/24
+f 474/1013/26 473/1014/26 441/1015/24 442/1016/24
+f 473/1017/26 472/1018/26 440/1019/24 441/1020/24
+f 472/1021/26 471/1022/26 439/1023/24 440/1024/24
+f 471/1025/26 470/1026/26 438/1027/24 439/1028/24
+f 470/1029/26 469/1030/26 437/1031/24 438/1032/24
+f 37/1033/25 468/1034/25 436/1035/22 36/1036/22
+f 468/1037/25 467/1038/25 435/1039/22 436/1040/22
+f 467/1041/25 466/1042/25 434/1043/22 435/1044/22
+f 466/1045/25 465/1046/25 433/1047/22 434/1048/22
+f 465/1049/25 464/1050/25 432/1051/22 433/1052/22
+f 464/1053/25 463/1054/25 431/1055/22 432/1056/22
+f 463/1057/25 462/1058/25 430/1059/22 431/1060/22
+f 462/1061/25 461/1062/25 429/1063/22 430/1064/22
+f 461/1065/25 460/1066/25 428/1067/22 429/1068/22
+f 460/1069/25 459/1070/25 427/1071/22 428/1072/22
+f 459/1073/25 458/1074/25 426/1075/22 427/1076/22
+f 458/1077/25 457/1078/25 425/1079/22 426/1080/22
+f 457/1081/25 456/1082/25 424/1083/22 425/1084/22
+f 456/1085/25 455/1086/25 423/1087/22 424/1088/22
+f 455/1089/25 454/1090/25 422/1091/22 423/1092/22
+f 454/1093/25 453/1094/25 421/1095/22 422/1096/22
+f 50/1097/24 452/1098/24 420/1099/21 49/1100/21
+f 452/1101/24 451/1102/24 419/1103/21 420/1104/21
+f 451/1105/24 450/1106/24 418/1107/21 419/1108/21
+f 450/1109/24 449/1110/24 417/1111/21 418/1112/21
+f 449/1113/24 448/1114/24 416/1115/21 417/1116/21
+f 448/1117/24 447/1118/24 415/1119/21 416/1120/21
+f 447/1121/24 446/1122/24 414/1123/21 415/1124/21
+f 446/1125/24 445/1126/24 413/1127/21 414/1128/21
+f 445/1129/24 444/1130/24 412/1131/21 413/1132/21
+f 444/1133/24 443/1134/24 411/1135/21 412/1136/21
+f 443/1137/24 442/1138/24 410/1139/21 411/1140/21
+f 442/1141/24 441/1142/24 409/1143/21 410/1144/21
+f 441/1145/24 440/1146/24 408/1147/21 409/1148/21
+f 440/1149/24 439/1150/24 407/1151/21 408/1152/21
+f 439/1153/24 438/1154/24 406/1155/21 407/1156/21
+f 438/1157/24 437/1158/24 405/1159/21 406/1160/21
+f 36/1161/22 436/1162/22 404/1163/23 35/1164/23
+f 436/1165/22 435/1166/22 403/1167/23 404/1168/23
+f 435/1169/22 434/1170/22 402/1171/23 403/1172/23
+f 434/1173/22 433/1174/22 401/1175/23 402/1176/23
+f 433/1177/22 432/1178/22 400/1179/23 401/1180/23
+f 432/1181/22 431/1182/22 399/1183/23 400/1184/23
+f 431/1185/22 430/1186/22 398/1187/23 399/1188/23
+f 430/1189/22 429/1190/22 397/1191/23 398/1192/23
+f 429/1193/22 428/1194/22 396/1195/23 397/1196/23
+f 428/1197/22 427/1198/22 395/1199/23 396/1200/23
+f 427/1201/22 426/1202/22 394/1203/23 395/1204/23
+f 426/1205/22 425/1206/22 393/1207/23 394/1208/23
+f 425/1209/22 424/1210/22 392/1211/23 393/1212/23
+f 424/1213/22 423/1214/22 391/1215/23 392/1216/23
+f 423/1217/22 422/1218/22 390/1219/23 391/1220/23
+f 422/1221/22 421/1222/22 389/1223/23 390/1224/23
+f 49/1225/21 420/1226/21 388/1227/20 48/1228/20
+f 420/1229/21 419/1230/21 387/1231/20 388/1232/20
+f 419/1233/21 418/1234/21 386/1235/20 387/1236/20
+f 418/1237/21 417/1238/21 385/1239/20 386/1240/20
+f 417/1241/21 416/1242/21 384/1243/20 385/1244/20
+f 416/1245/21 415/1246/21 383/1247/20 384/1248/20
+f 415/1249/21 414/1250/21 382/1251/20 383/1252/20
+f 414/1253/21 413/1254/21 381/1255/20 382/1256/20
+f 413/1257/21 412/1258/21 380/1259/20 381/1260/20
+f 412/1261/21 411/1262/21 379/1263/20 380/1264/20
+f 411/1265/21 410/1266/21 378/1267/20 379/1268/20
+f 410/1269/21 409/1270/21 377/1271/20 378/1272/20
+f 409/1273/21 408/1274/21 376/1275/20 377/1276/20
+f 408/1277/21 407/1278/21 375/1279/20 376/1280/20
+f 407/1281/21 406/1282/21 374/1283/20 375/1284/20
+f 406/1285/21 405/1286/21 373/1287/20 374/1288/20
+f 48/1289/20 388/1290/20 372/1291/18 47/1292/18
+f 388/1293/20 387/1294/20 371/1295/18 372/1296/18
+f 387/1297/20 386/1298/20 370/1299/18 371/1300/18
+f 386/1301/20 385/1302/20 369/1303/18 370/1304/18
+f 385/1305/20 384/1306/20 368/1307/18 369/1308/18
+f 384/1309/20 383/1310/20 367/1311/18 368/1312/18
+f 383/1313/20 382/1314/20 366/1315/18 367/1316/18
+f 382/1317/20 381/1318/20 365/1319/18 366/1320/18
+f 381/1321/20 380/1322/20 364/1323/18 365/1324/18
+f 380/1325/20 379/1326/20 363/1327/18 364/1328/18
+f 379/1329/20 378/1330/20 362/1331/18 363/1332/18
+f 378/1333/20 377/1334/20 361/1335/18 362/1336/18
+f 377/1337/20 376/1338/20 360/1339/18 361/1340/18
+f 376/1341/20 375/1342/20 359/1343/18 360/1344/18
+f 375/1345/20 374/1346/20 358/1347/18 359/1348/18
+f 374/1349/20 373/1350/20 357/1351/18 358/1352/18
+f 47/1353/18 372/1354/18 341/1355/19 46/1356/19
+f 372/1357/18 371/1358/18 342/1359/19 341/1360/19
+f 371/1361/18 370/1362/18 343/1363/19 342/1364/19
+f 370/1365/18 369/1366/18 344/1367/19 343/1368/19
+f 369/1369/18 368/1370/18 345/1371/19 344/1372/19
+f 368/1373/18 367/1374/18 346/1375/19 345/1376/19
+f 367/1377/18 366/1378/18 347/1379/19 346/1380/19
+f 366/1381/18 365/1382/18 348/1383/19 347/1384/19
+f 365/1385/18 364/1386/18 349/1387/19 348/1388/19
+f 364/1389/18 363/1390/18 350/1391/19 349/1392/19
+f 363/1393/18 362/1394/18 351/1395/19 350/1396/19
+f 362/1397/18 361/1398/18 352/1399/19 351/1400/19
+f 361/1401/18 360/1402/18 353/1403/19 352/1404/19
+f 360/1405/18 359/1406/18 354/1407/19 353/1408/19
+f 359/1409/18 358/1410/18 355/1411/19 354/1412/19
+f 358/1413/18 357/1414/18 356/1415/19 355/1416/19
+f 12/1417/2 11/1418/17 340/1419/17 69/1420/2
+f 69/1421/2 340/1422/17 339/1423/17 70/1424/2
+f 70/1425/2 339/1426/17 338/1427/17 71/1428/2
+f 71/1429/2 338/1430/17 337/1431/17 72/1432/2
+f 72/1433/2 337/1434/17 336/1435/17 73/1436/2
+f 73/1437/2 336/1438/17 335/1439/17 74/1440/2
+f 74/1441/2 335/1442/17 334/1443/17 75/1444/2
+f 75/1445/2 334/1446/17 333/1447/17 76/1448/2
+f 76/1449/2 333/1450/17 332/1451/17 77/1452/2
+f 77/1453/2 332/1454/17 331/1455/17 78/1456/2
+f 78/1457/2 331/1458/17 330/1459/17 79/1460/2
+f 79/1461/2 330/1462/17 329/1463/17 80/1464/2
+f 80/1465/2 329/1466/17 328/1467/17 81/1468/2
+f 81/1469/2 328/1470/17 327/1471/17 82/1472/2
+f 82/1473/2 327/1474/17 326/1475/17 83/1476/2
+f 83/1477/2 326/1478/17 325/1479/17 84/1480/2
+f 11/1481/17 10/1482/16 324/1483/16 340/1484/17
+f 340/1485/17 324/1486/16 323/1487/16 339/1488/17
+f 339/1489/17 323/1490/16 322/1491/16 338/1492/17
+f 338/1493/17 322/1494/16 321/1495/16 337/1496/17
+f 337/1497/17 321/1498/16 320/1499/16 336/1500/17
+f 336/1501/17 320/1502/16 319/1503/16 335/1504/17
+f 335/1505/17 319/1506/16 318/1507/16 334/1508/17
+f 334/1509/17 318/1510/16 317/1511/16 333/1512/17
+f 333/1513/17 317/1514/16 316/1515/16 332/1516/17
+f 332/1517/17 316/1518/16 315/1519/16 331/1520/17
+f 331/1521/17 315/1522/16 314/1523/16 330/1524/17
+f 330/1525/17 314/1526/16 313/1527/16 329/1528/17
+f 329/1529/17 313/1530/16 312/1531/16 328/1532/17
+f 328/1533/17 312/1534/16 311/1535/16 327/1536/17
+f 327/1537/17 311/1538/16 310/1539/16 326/1540/17
+f 326/1541/17 310/1542/16 309/1543/16 325/1544/17
+f 10/1545/16 9/1546/15 308/1547/15 324/1548/16
+f 324/1549/16 308/1550/15 307/1551/15 323/1552/16
+f 323/1553/16 307/1554/15 306/1555/15 322/1556/16
+f 322/1557/16 306/1558/15 305/1559/15 321/1560/16
+f 321/1561/16 305/1562/15 304/1563/15 320/1564/16
+f 320/1565/16 304/1566/15 303/1567/15 319/1568/16
+f 319/1569/16 303/1570/15 302/1571/15 318/1572/16
+f 318/1573/16 302/1574/15 301/1575/15 317/1576/16
+f 317/1577/16 301/1578/15 300/1579/15 316/1580/16
+f 316/1581/16 300/1582/15 299/1583/15 315/1584/16
+f 315/1585/16 299/1586/15 298/1587/15 314/1588/16
+f 314/1589/16 298/1590/15 297/1591/15 313/1592/16
+f 313/1593/16 297/1594/15 296/1595/15 312/1596/16
+f 312/1597/16 296/1598/15 295/1599/15 311/1600/16
+f 311/1601/16 295/1602/15 294/1603/15 310/1604/16
+f 310/1605/16 294/1606/15 293/1607/15 309/1608/16
+f 9/1609/15 8/1610/14 292/1611/14 308/1612/15
+f 308/1613/15 292/1614/14 291/1615/14 307/1616/15
+f 307/1617/15 291/1618/14 290/1619/14 306/1620/15
+f 306/1621/15 290/1622/14 289/1623/14 305/1624/15
+f 305/1625/15 289/1626/14 288/1627/14 304/1628/15
+f 304/1629/15 288/1630/14 287/1631/14 303/1632/15
+f 303/1633/15 287/1634/14 286/1635/14 302/1636/15
+f 302/1637/15 286/1638/14 285/1639/14 301/1640/15
+f 301/1641/15 285/1642/14 284/1643/14 300/1644/15
+f 300/1645/15 284/1646/14 283/1647/14 299/1648/15
+f 299/1649/15 283/1650/14 282/1651/14 298/1652/15
+f 298/1653/15 282/1654/14 281/1655/14 297/1656/15
+f 297/1657/15 281/1658/14 280/1659/14 296/1660/15
+f 296/1661/15 280/1662/14 279/1663/14 295/1664/15
+f 295/1665/15 279/1666/14 278/1667/14 294/1668/15
+f 294/1669/15 278/1670/14 277/1671/14 293/1672/15
+f 8/1673/14 7/1674/13 276/1675/13 292/1676/14
+f 292/1677/14 276/1678/13 275/1679/13 291/1680/14
+f 291/1681/14 275/1682/13 274/1683/13 290/1684/14
+f 290/1685/14 274/1686/13 273/1687/13 289/1688/14
+f 289/1689/14 273/1690/13 272/1691/13 288/1692/14
+f 288/1693/14 272/1694/13 271/1695/13 287/1696/14
+f 287/1697/14 271/1698/13 270/1699/13 286/1700/14
+f 286/1701/14 270/1702/13 269/1703/13 285/1704/14
+f 285/1705/14 269/1706/13 268/1707/13 284/1708/14
+f 284/1709/14 268/1710/13 267/1711/13 283/1712/14
+f 283/1713/14 267/1714/13 266/1715/13 282/1716/14
+f 282/1717/14 266/1718/13 265/1719/13 281/1720/14
+f 281/1721/14 265/1722/13 264/1723/13 280/1724/14
+f 280/1725/14 264/1726/13 263/1727/13 279/1728/14
+f 279/1729/14 263/1730/13 262/1731/13 278/1732/14
+f 278/1733/14 262/1734/13 261/1735/13 277/1736/14
+f 7/1737/13 6/1738/12 260/1739/12 276/1740/13
+f 276/1741/13 260/1742/12 259/1743/12 275/1744/13
+f 275/1745/13 259/1746/12 258/1747/12 274/1748/13
+f 274/1749/13 258/1750/12 257/1751/12 273/1752/13
+f 273/1753/13 257/1754/12 256/1755/12 272/1756/13
+f 272/1757/13 256/1758/12 255/1759/12 271/1760/13
+f 271/1761/13 255/1762/12 254/1763/12 270/1764/13
+f 270/1765/13 254/1766/12 253/1767/12 269/1768/13
+f 269/1769/13 253/1770/12 252/1771/12 268/1772/13
+f 268/1773/13 252/1774/12 251/1775/12 267/1776/13
+f 267/1777/13 251/1778/12 250/1779/12 266/1780/13
+f 266/1781/13 250/1782/12 249/1783/12 265/1784/13
+f 265/1785/13 249/1786/12 248/1787/12 264/1788/13
+f 264/1789/13 248/1790/12 247/1791/12 263/1792/13
+f 263/1793/13 247/1794/12 246/1795/12 262/1796/13
+f 262/1797/13 246/1798/12 245/1799/12 261/1800/13
+f 6/1801/12 5/1802/11 244/1803/11 260/1804/12
+f 260/1805/12 244/1806/11 243/1807/11 259/1808/12
+f 259/1809/12 243/1810/11 242/1811/11 258/1812/12
+f 258/1813/12 242/1814/11 241/1815/11 257/1816/12
+f 257/1817/12 241/1818/11 240/1819/11 256/1820/12
+f 256/1821/12 240/1822/11 239/1823/11 255/1824/12
+f 255/1825/12 239/1826/11 238/1827/11 254/1828/12
+f 254/1829/12 238/1830/11 237/1831/11 253/1832/12
+f 253/1833/12 237/1834/11 236/1835/11 252/1836/12
+f 252/1837/12 236/1838/11 235/1839/11 251/1840/12
+f 251/1841/12 235/1842/11 234/1843/11 250/1844/12
+f 250/1845/12 234/1846/11 233/1847/11 249/1848/12
+f 249/1849/12 233/1850/11 232/1851/11 248/1852/12
+f 248/1853/12 232/1854/11 231/1855/11 247/1856/12
+f 247/1857/12 231/1858/11 230/1859/11 246/1860/12
+f 246/1861/12 230/1862/11 229/1863/11 245/1864/12
+f 5/1865/11 4/1866/10 228/1867/10 244/1868/11
+f 244/1869/11 228/1870/10 227/1871/10 243/1872/11
+f 243/1873/11 227/1874/10 226/1875/10 242/1876/11
+f 242/1877/11 226/1878/10 225/1879/10 241/1880/11
+f 241/1881/11 225/1882/10 224/1883/10 240/1884/11
+f 240/1885/11 224/1886/10 223/1887/10 239/1888/11
+f 239/1889/11 223/1890/10 222/1891/10 238/1892/11
+f 238/1893/11 222/1894/10 221/1895/10 237/1896/11
+f 237/1897/11 221/1898/10 220/1899/10 236/1900/11
+f 236/1901/11 220/1902/10 219/1903/10 235/1904/11
+f 235/1905/11 219/1906/10 218/1907/10 234/1908/11
+f 234/1909/11 218/1910/10 217/1911/10 233/1912/11
+f 233/1913/11 217/1914/10 216/1915/10 232/1916/11
+f 232/1917/11 216/1918/10 215/1919/10 231/1920/11
+f 231/1921/11 215/1922/10 214/1923/10 230/1924/11
+f 230/1925/11 214/1926/10 213/1927/10 229/1928/11
+f 4/1929/10 3/1930/8 196/1931/8 228/1932/10
+f 228/1933/10 196/1934/8 195/1935/8 227/1936/10
+f 227/1937/10 195/1938/8 194/1939/8 226/1940/10
+f 226/1941/10 194/1942/8 193/1943/8 225/1944/10
+f 225/1945/10 193/1946/8 192/1947/8 224/1948/10
+f 224/1949/10 192/1950/8 191/1951/8 223/1952/10
+f 223/1953/10 191/1954/8 190/1955/8 222/1956/10
+f 222/1957/10 190/1958/8 189/1959/8 221/1960/10
+f 221/1961/10 189/1962/8 188/1963/8 220/1964/10
+f 220/1965/10 188/1966/8 187/1967/8 219/1968/10
+f 219/1969/10 187/1970/8 186/1971/8 218/1972/10
+f 218/1973/10 186/1974/8 185/1975/8 217/1976/10
+f 217/1977/10 185/1978/8 184/1979/8 216/1980/10
+f 216/1981/10 184/1982/8 183/1983/8 215/1984/10
+f 215/1985/10 183/1986/8 182/1987/8 214/1988/10
+f 214/1989/10 182/1990/8 181/1991/8 213/1992/10
+f 17/1993/9 16/1994/7 180/1995/7 212/1996/9
+f 212/1997/9 180/1998/7 179/1999/7 211/2000/9
+f 211/2001/9 179/2002/7 178/2003/7 210/2004/9
+f 210/2005/9 178/2006/7 177/2007/7 209/2008/9
+f 209/2009/9 177/2010/7 176/2011/7 208/2012/9
+f 208/2013/9 176/2014/7 175/2015/7 207/2016/9
+f 207/2017/9 175/2018/7 174/2019/7 206/2020/9
+f 206/2021/9 174/2022/7 173/2023/7 205/2024/9
+f 205/2025/9 173/2026/7 172/2027/7 204/2028/9
+f 204/2029/9 172/2030/7 171/2031/7 203/2032/9
+f 203/2033/9 171/2034/7 170/2035/7 202/2036/9
+f 202/2037/9 170/2038/7 169/2039/7 201/2040/9
+f 201/2041/9 169/2042/7 168/2043/7 200/2044/9
+f 200/2045/9 168/2046/7 167/2047/7 199/2048/9
+f 199/2049/9 167/2050/7 166/2051/7 198/2052/9
+f 198/2053/9 166/2054/7 165/2055/7 197/2056/9
+f 3/2057/8 2/2058/5 164/2059/5 196/2060/8
+f 196/2061/8 164/2062/5 163/2063/5 195/2064/8
+f 195/2065/8 163/2066/5 162/2067/5 194/2068/8
+f 194/2069/8 162/2070/5 161/2071/5 193/2072/8
+f 193/2073/8 161/2074/5 160/2075/5 192/2076/8
+f 192/2077/8 160/2078/5 159/2079/5 191/2080/8
+f 191/2081/8 159/2082/5 158/2083/5 190/2084/8
+f 190/2085/8 158/2086/5 157/2087/5 189/2088/8
+f 189/2089/8 157/2090/5 156/2091/5 188/2092/8
+f 188/2093/8 156/2094/5 155/2095/5 187/2096/8
+f 187/2097/8 155/2098/5 154/2099/5 186/2100/8
+f 186/2101/8 154/2102/5 153/2103/5 185/2104/8
+f 185/2105/8 153/2106/5 152/2107/5 184/2108/8
+f 184/2109/8 152/2110/5 151/2111/5 183/2112/8
+f 183/2113/8 151/2114/5 150/2115/5 182/2116/8
+f 182/2117/8 150/2118/5 149/2119/5 181/2120/8
+f 16/2121/7 15/2122/4 148/2123/4 180/2124/7
+f 180/2125/7 148/2126/4 147/2127/4 179/2128/7
+f 179/2129/7 147/2130/4 146/2131/4 178/2132/7
+f 178/2133/7 146/2134/4 145/2135/4 177/2136/7
+f 177/2137/7 145/2138/4 144/2139/4 176/2140/7
+f 176/2141/7 144/2142/4 143/2143/4 175/2144/7
+f 175/2145/7 143/2146/4 142/2147/4 174/2148/7
+f 174/2149/7 142/2150/4 141/2151/4 173/2152/7
+f 173/2153/7 141/2154/4 140/2155/4 172/2156/7
+f 172/2157/7 140/2158/4 139/2159/4 171/2160/7
+f 171/2161/7 139/2162/4 138/2163/4 170/2164/7
+f 170/2165/7 138/2166/4 137/2167/4 169/2168/7
+f 169/2169/7 137/2170/4 136/2171/4 168/2172/7
+f 168/2173/7 136/2174/4 135/2175/4 167/2176/7
+f 167/2177/7 135/2178/4 134/2179/4 166/2180/7
+f 166/2181/7 134/2182/4 133/2183/4 165/2184/7
+f 2/2185/5 1/2186/6 132/2187/6 164/2188/5
+f 164/2189/5 132/2190/6 131/2191/6 163/2192/5
+f 163/2193/5 131/2194/6 130/2195/6 162/2196/5
+f 162/2197/5 130/2198/6 129/2199/6 161/2200/5
+f 161/2201/5 129/2202/6 128/2203/6 160/2204/5
+f 160/2205/5 128/2206/6 127/2207/6 159/2208/5
+f 159/2209/5 127/2210/6 126/2211/6 158/2212/5
+f 158/2213/5 126/2214/6 125/2215/6 157/2216/5
+f 157/2217/5 125/2218/6 124/2219/6 156/2220/5
+f 156/2221/5 124/2222/6 123/2223/6 155/2224/5
+f 155/2225/5 123/2226/6 122/2227/6 154/2228/5
+f 154/2229/5 122/2230/6 121/2231/6 153/2232/5
+f 153/2233/5 121/2234/6 120/2235/6 152/2236/5
+f 152/2237/5 120/2238/6 119/2239/6 151/2240/5
+f 151/2241/5 119/2242/6 118/2243/6 150/2244/5
+f 150/2245/5 118/2246/6 117/2247/6 149/2248/5
+f 15/2249/4 14/2250/3 116/2251/3 148/2252/4
+f 148/2253/4 116/2254/3 115/2255/3 147/2256/4
+f 147/2257/4 115/2258/3 114/2259/3 146/2260/4
+f 146/2261/4 114/2262/3 113/2263/3 145/2264/4
+f 145/2265/4 113/2266/3 112/2267/3 144/2268/4
+f 144/2269/4 112/2270/3 111/2271/3 143/2272/4
+f 143/2273/4 111/2274/3 110/2275/3 142/2276/4
+f 142/2277/4 110/2278/3 109/2279/3 141/2280/4
+f 141/2281/4 109/2282/3 108/2283/3 140/2284/4
+f 140/2285/4 108/2286/3 107/2287/3 139/2288/4
+f 139/2289/4 107/2290/3 106/2291/3 138/2292/4
+f 138/2293/4 106/2294/3 105/2295/3 137/2296/4
+f 137/2297/4 105/2298/3 104/2299/3 136/2300/4
+f 136/2301/4 104/2302/3 103/2303/3 135/2304/4
+f 135/2305/4 103/2306/3 102/2307/3 134/2308/4
+f 134/2309/4 102/2310/3 101/2311/3 133/2312/4
+f 14/2313/3 13/2314/1 100/2315/1 116/2316/3
+f 116/2317/3 100/2318/1 99/2319/1 115/2320/3
+f 115/2321/3 99/2322/1 98/2323/1 114/2324/3
+f 114/2325/3 98/2326/1 97/2327/1 113/2328/3
+f 113/2329/3 97/2330/1 96/2331/1 112/2332/3
+f 112/2333/3 96/2334/1 95/2335/1 111/2336/3
+f 111/2337/3 95/2338/1 94/2339/1 110/2340/3
+f 110/2341/3 94/2342/1 93/2343/1 109/2344/3
+f 109/2345/3 93/2346/1 92/2347/1 108/2348/3
+f 108/2349/3 92/2350/1 91/2351/1 107/2352/3
+f 107/2353/3 91/2354/1 90/2355/1 106/2356/3
+f 106/2357/3 90/2358/1 89/2359/1 105/2360/3
+f 105/2361/3 89/2362/1 88/2363/1 104/2364/3
+f 104/2365/3 88/2366/1 87/2367/1 103/2368/3
+f 103/2369/3 87/2370/1 86/2371/1 102/2372/3
+f 102/2373/3 86/2374/1 85/2375/1 101/2376/3
+f 13/2377/1 12/2378/2 69/2379/2 100/2380/1
+f 100/2381/1 69/2382/2 70/2383/2 99/2384/1
+f 99/2385/1 70/2386/2 71/2387/2 98/2388/1
+f 98/2389/1 71/2390/2 72/2391/2 97/2392/1
+f 97/2393/1 72/2394/2 73/2395/2 96/2396/1
+f 96/2397/1 73/2398/2 74/2399/2 95/2400/1
+f 95/2401/1 74/2402/2 75/2403/2 94/2404/1
+f 94/2405/1 75/2406/2 76/2407/2 93/2408/1
+f 93/2409/1 76/2410/2 77/2411/2 92/2412/1
+f 92/2413/1 77/2414/2 78/2415/2 91/2416/1
+f 91/2417/1 78/2418/2 79/2419/2 90/2420/1
+f 90/2421/1 79/2422/2 80/2423/2 89/2424/1
+f 89/2425/1 80/2426/2 81/2427/2 88/2428/1
+f 88/2429/1 81/2430/2 82/2431/2 87/2432/1
+f 87/2433/1 82/2434/2 83/2435/2 86/2436/1
+f 86/2437/1 83/2438/2 84/2439/2 85/2440/1
