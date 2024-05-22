@@ -76,9 +76,10 @@ public class HomingAttackAction : MonoBehaviour
 				enigmaPhysics.rBody.velocity = Vector3.zero;
 				if(jumpScript != null)
 				{
-					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce));
+					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,0));
 				}
-				StopAllCoroutines();
+				//StopAllCoroutines();
+				
 				yield return null;
 			}
 			
@@ -107,20 +108,20 @@ public class HomingAttackAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    	if(enigmaPhysics.characterState == 2)
-	{
-		if(Input.GetButtonDown("Jump"))
+		if(enigmaPhysics.characterState == 2 && enigmaPhysics.grounded == false)
 		{
-			StartCoroutine(HomingCheck(homingRange));
-		}
+			if(Input.GetButtonDown("Jump"))
+			{
+				StartCoroutine(HomingCheck(homingRange));
+			}
 
-		float angle = Vector3.SignedAngle(enigmaPhysics.forwardReference,enigmaPhysics.primaryAxis,enigmaPhysics.referenceVector);
-		Vector3 checkDir = Quaternion.AngleAxis(angle,enigmaPhysics.referenceVector) * enigmaPhysics.forwardReference;
-		Debug.DrawRay(transform.position,checkDir,Color.cyan);
-	}
-	else
-	{
-		StopAllCoroutines();
-	}
+			float angle = Vector3.SignedAngle(enigmaPhysics.forwardReference,enigmaPhysics.primaryAxis,enigmaPhysics.referenceVector);
+			Vector3 checkDir = Quaternion.AngleAxis(angle,enigmaPhysics.referenceVector) * enigmaPhysics.forwardReference;
+			Debug.DrawRay(transform.position,checkDir,Color.cyan);
+		}
+		else
+		{
+			StopAllCoroutines();
+		}
     }
 }

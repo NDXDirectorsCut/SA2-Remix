@@ -11,6 +11,7 @@ public class SkidAction : MonoBehaviour
     //InputAI aiInput;
     public float skidDeceleration;
     public float requiredAngle;
+	public float minSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,30 +22,32 @@ public class SkidAction : MonoBehaviour
 	
     IEnumerator Skid(float deceleration)
     {
-	animator.CrossFadeInFixedTime("Skid",.25f,0,0);
-	animator.SetBool("Scripted Animation",true);
-	effect.SetActive(true);
-	while(enigmaPhysics.characterState == 1 && enigmaPhysics.rBody.velocity.magnitude > .1f)
-	{
-	   if(plInput != null)
-		plInput.canMove = false;
-	   //if(aiInput != null)
-	//	aiInput.canMove = false;
-	   float gravityMultiplier = 1-Mathf.Clamp(Vector3.Angle(enigmaPhysics.referenceVector,enigmaPhysics.normal)/90,0,1); 
-	   enigmaPhysics.rBody.velocity -= enigmaPhysics.rBody.velocity * skidDeceleration * gravityMultiplier * Time.fixedDeltaTime * Mathf.Clamp(enigmaPhysics.rBody.velocity.magnitude,0,1);
-	   yield return new WaitForFixedUpdate();
-	}
-	   plInput.canMove = true;
-	   effect.SetActive(false);
-	   animator.SetBool("Scripted Animation",false);
-	   yield return null;
+		animator.CrossFadeInFixedTime("Skid",.25f,0,0);
+		animator.SetBool("Scripted Animation",true);
+		GameObject currentEffect = Instantiate(effect,animator.transform.position,Quaternion.identity,animator.transform);
+		currentEffect.SetActive(true);
+		ParticleSystem particle = currentEffect.GetComponent<ParticleSystem>();
+		Destroy(currentEffect, particle.duration + particle.startLifetime);
+		while(enigmaPhysics.characterState == 1 && enigmaPhysics.rBody.velocity.magnitude > .1f)
+		{
+		if(plInput != null)
+			plInput.canMove = false;
+		//if(aiInput != null)
+		//	aiInput.canMove = false;
+		float gravityMultiplier = 1-Mathf.Clamp(Vector3.Angle(enigmaPhysics.referenceVector,enigmaPhysics.normal)/90,0,1); 
+		enigmaPhysics.rBody.velocity -= enigmaPhysics.rBody.velocity * skidDeceleration * gravityMultiplier * Time.fixedDeltaTime * Mathf.Clamp(enigmaPhysics.rBody.velocity.magnitude,0,1);
+		yield return new WaitForFixedUpdate();
+		}
+		plInput.canMove = true;
+		animator.SetBool("Scripted Animation",false);
+		yield return null;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 	 float angle = Vector3.Angle(enigmaPhysics.rBody.velocity,enigmaPhysics.primaryAxis);
-       if(angle > requiredAngle && enigmaPhysics.characterState == 1)
+       if(angle > requiredAngle && enigmaPhysics.characterState == 1 && enigmaPhysics.rBody.velocity.magnitude > minSpeed)
 		StartCoroutine(Skid(skidDeceleration));
     }
 }

@@ -23,6 +23,7 @@ public class SpindashAction : MonoBehaviour
 
     IEnumerator Spindash()
     {
+        enigmaPhysics.characterState = 3;
 	    Vector3 pos = transform.position;
           float velocity = rBody.velocity.magnitude;
 	    float startTime = Time.time;
@@ -51,17 +52,20 @@ public class SpindashAction : MonoBehaviour
 
     IEnumerator Roll(float rollSpeed,float rollDecel)
     {
+        enigmaPhysics.characterState = 3;
         float activeSpeed = rollSpeed;
         rBody.velocity = enigmaPhysics.forwardReference.normalized * activeSpeed;
         animator.CrossFadeInFixedTime("Ground Spin",.25f,0,0);
         animator.SetBool("Scripted Animation",true);
-        while(enigmaPhysics.characterState == 1 && rBody.velocity.magnitude > .25f)
+        while(enigmaPhysics.characterState == 3 && rBody.velocity.magnitude > .25f)
         {
-		if(Input.GetKeyDown(KeyCode.LeftShift))
-		{
-			StopAllCoroutines();
-			animator.SetBool("Scripted Animation",false);
-		}
+            if(Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                animator.SetBool("Scripted Animation",false);
+                enigmaPhysics.characterState = 1;
+                StopAllCoroutines();
+                
+            }
             activeSpeed -= rollDecel * Time.fixedDeltaTime;
             //Add gravity
             Vector3 slopeVector = -Vector3.ProjectOnPlane(enigmaPhysics.referenceVector,enigmaPhysics.normal).normalized;
@@ -77,6 +81,8 @@ public class SpindashAction : MonoBehaviour
             yield return new WaitForFixedUpdate();
     	  }
 	  animator.SetBool("Scripted Animation", false);
+      enigmaPhysics.characterState = enigmaPhysics.grounded == true? 1 : 2;
+      StopAllCoroutines();
     }
 
     // Update is called once per frame
@@ -98,7 +104,7 @@ public class SpindashAction : MonoBehaviour
 		StartCoroutine(Spindash());
 		holding = false;
 	  }
-      if(enigmaPhysics.characterState != 1 )
+      if(enigmaPhysics.grounded == false )
         StopAllCoroutines();
     }
 }

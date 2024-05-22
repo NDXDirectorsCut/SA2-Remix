@@ -50,10 +50,12 @@ public class JumpAction : MonoBehaviour
 
         while(Time.time - initialJumpTime < jTimer && jumping == true && enigmaPhysics.characterState == 2)
         {
+            
             //Debug.Log(origRL);
             if(Input.GetButtonUp("Jump"))
             {
                 jumping = false;
+                Debug.Log("Stop Jump");
                 enigmaPhysics.activeRayLen = origRL;
                 break;
             }
@@ -62,7 +64,7 @@ public class JumpAction : MonoBehaviour
                 //enigmaPhysics.activeRayLen = origRL;
                 rBody.velocity += enigmaPhysics.normal * additiveJumpForce * Time.deltaTime;
                 i++;
-                //Debug.Log("Additive Jump " + i);
+                Debug.Log("Additive Jump " + i);
             }
             yield return new WaitForFixedUpdate();
         }
