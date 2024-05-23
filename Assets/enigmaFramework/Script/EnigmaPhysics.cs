@@ -38,6 +38,7 @@ public class EnigmaPhysics : MonoBehaviour
         [System.NonSerialized]
         public Vector3 primaryAxis;
         public float weight;
+	public bool canTriggerAction;
         [Header("Grounded")]
             public float startSpeed;
             public float speedCap;
@@ -173,7 +174,7 @@ public class EnigmaPhysics : MonoBehaviour
                 rBody.position = point;
                 rBody.transform.up = normal;
 
-                if(Mathf.Abs(slopeAngle) > 90 && rBody.velocity.magnitude<5)
+                if(Mathf.Abs(slopeAngle) > 85 && rBody.velocity.magnitude<5)
                 {
                     grounded = false; characterState = 2;
                     activeRayLen = 0;

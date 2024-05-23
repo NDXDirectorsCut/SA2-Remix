@@ -7,6 +7,8 @@ public class HomingAttackAction : MonoBehaviour
 	EnigmaPhysics enigmaPhysics;
 	JumpAction jumpScript;
 	public Animator animator;
+	public GameObject trailEffect;
+	public GameObject ballEffect;
 	public float airDashForce;
 	public float homingForce;
 	public float homingTurn;
@@ -56,7 +58,12 @@ public class HomingAttackAction : MonoBehaviour
 	{
 		animator.CrossFadeInFixedTime("Spin",.25f,0,0);
 	  	animator.SetBool("Scripted Animation",true);
-		
+
+		GameObject currentEffect = Instantiate(trailEffect,animator.transform.position+animator.transform.up * .5f,Quaternion.identity,animator.transform);
+		GameObject curBall = Instantiate(ballEffect,animator.transform.position+animator.transform.up * .525f,Quaternion.identity,animator.transform);
+		curBall.SetActive(true);
+		currentEffect.SetActive(true);
+		ParticleSystem particle = curBall.GetComponent<ParticleSystem>();
 		enigmaPhysics.rBody.velocity = enigmaPhysics.forwardReference.normalized * force;
 		while(target != null)
 		{
@@ -65,7 +72,7 @@ public class HomingAttackAction : MonoBehaviour
 			Vector3 hitDir = -(transform.position - target.position).normalized;
 			Vector3 crossVector = Vector3.Cross(enigmaPhysics.rBody.velocity,hitDir);
 			float angle = Vector3.SignedAngle(enigmaPhysics.rBody.velocity,hitDir,crossVector);
-
+			enigmaPhysics.canTriggerAction = false;
 			Debug.DrawRay(col.ClosestPoint(transform.position+transform.up*.5f),-hitDir,Color.blue);
 			Debug.Log(clampedDist);
 			if(clampedDist<.8f)
@@ -73,6 +80,10 @@ public class HomingAttackAction : MonoBehaviour
 				transform.position = col.ClosestPoint(transform.position+transform.up*.5f);
 				target = null;
 				animator.SetBool("Scripted Animation",false);
+				enigmaPhysics.canTriggerAction = true;
+				currentEffect.GetComponent<TrailRenderer>().emitting = false;
+				particle.Stop();
+				Destroy(curBall,particle.startLifetime);
 				enigmaPhysics.rBody.velocity = Vector3.zero;
 				if(jumpScript != null)
 				{
@@ -110,7 +121,7 @@ public class HomingAttackAction : MonoBehaviour
     {
 		if(enigmaPhysics.characterState == 2 && enigmaPhysics.grounded == false)
 		{
-			if(Input.GetButtonDown("Jump"))
+			if(Input.GetButtonDown("Jump") && enigmaPhysics.canTriggerAction == true)
 			{
 				StartCoroutine(HomingCheck(homingRange));
 			}

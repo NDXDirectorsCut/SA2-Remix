@@ -30,6 +30,7 @@ public class SkidAction : MonoBehaviour
 		Destroy(currentEffect, particle.duration + particle.startLifetime);
 		while(enigmaPhysics.characterState == 1 && enigmaPhysics.rBody.velocity.magnitude > .1f)
 		{
+		enigmaPhysics.canTriggerAction = false;
 		if(plInput != null)
 			plInput.canMove = false;
 		//if(aiInput != null)
@@ -40,6 +41,7 @@ public class SkidAction : MonoBehaviour
 		}
 		plInput.canMove = true;
 		animator.SetBool("Scripted Animation",false);
+		enigmaPhysics.canTriggerAction = true;
 		yield return null;
     }
 
@@ -47,7 +49,7 @@ public class SkidAction : MonoBehaviour
     void FixedUpdate()
     {
 	 float angle = Vector3.Angle(enigmaPhysics.rBody.velocity,enigmaPhysics.primaryAxis);
-       if(angle > requiredAngle && enigmaPhysics.characterState == 1 && enigmaPhysics.rBody.velocity.magnitude > minSpeed)
+       if(angle > requiredAngle && enigmaPhysics.characterState == 1 && enigmaPhysics.rBody.velocity.magnitude > minSpeed && enigmaPhysics.canTriggerAction == true)
 		StartCoroutine(Skid(skidDeceleration));
     }
 }

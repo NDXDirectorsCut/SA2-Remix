@@ -7,6 +7,8 @@ public class SpindashAction : MonoBehaviour
     EnigmaPhysics enigmaPhysics;
     Rigidbody rBody;
     public Animator animator;
+    public GameObject trailEffect;
+    public GameObject ballEffect;
     public float triggerTime;
     public float holdTime;
     public float topSpeed;
@@ -23,12 +25,11 @@ public class SpindashAction : MonoBehaviour
 
     IEnumerator Spindash()
     {
-        enigmaPhysics.characterState = 3;
 	    Vector3 pos = transform.position;
           float velocity = rBody.velocity.magnitude;
 	    float startTime = Time.time;
 	    animator.CrossFadeInFixedTime("Spindash",.25f,0,0);
-        
+            enigmaPhysics.canTriggerAction = false;
 	    float time = 0;
 	    while(Input.GetKey(KeyCode.LeftShift))
 	    {
@@ -52,20 +53,31 @@ public class SpindashAction : MonoBehaviour
 
     IEnumerator Roll(float rollSpeed,float rollDecel)
     {
-        enigmaPhysics.characterState = 3;
         float activeSpeed = rollSpeed;
         rBody.velocity = enigmaPhysics.forwardReference.normalized * activeSpeed;
         animator.CrossFadeInFixedTime("Ground Spin",.25f,0,0);
         animator.SetBool("Scripted Animation",true);
-        while(enigmaPhysics.characterState == 3 && rBody.velocity.magnitude > .25f)
+	GameObject currentEffect = Instantiate(trailEffect,animator.transform.position+animator.transform.up * .25f,Quaternion.identity,animator.transform);
+	GameObject curBall = Instantiate(ballEffect,animator.transform.position+animator.transform.up * .45f,Quaternion.identity,animator.transform);
+	curBall.SetActive(true);
+	currentEffect.SetActive(true);
+	ParticleSystem particle = curBall.GetComponent<ParticleSystem>();
+	var main = particle.main;
+
+        while(enigmaPhysics.characterState == 1 && rBody.velocity.magnitude > .25f)
         {
-            if(Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                animator.SetBool("Scripted Animation",false);
-                enigmaPhysics.characterState = 1;
-                StopAllCoroutines();
-                
-            }
+	    enigmaPhysics.canTriggerAction = false;
+	    if(Input.GetKeyDown(KeyCode.LeftShift))
+	    {
+			StopAllCoroutines();
+			animator.SetBool("Scripted Animation",false);
+			enigmaPhysics.canTriggerAction = true;
+			currentEffect.GetComponent<TrailRenderer>().emitting = false;
+        		main.simulationSpace = ParticleSystemSimulationSpace.World;
+			particle.Stop();
+			Destroy(curBall,particle.duration + particle.startLifetime);
+
+	    }
             activeSpeed -= rollDecel * Time.fixedDeltaTime;
             //Add gravity
             Vector3 slopeVector = -Vector3.ProjectOnPlane(enigmaPhysics.referenceVector,enigmaPhysics.normal).normalized;
@@ -81,8 +93,12 @@ public class SpindashAction : MonoBehaviour
             yield return new WaitForFixedUpdate();
     	  }
 	  animator.SetBool("Scripted Animation", false);
-      enigmaPhysics.characterState = enigmaPhysics.grounded == true? 1 : 2;
-      StopAllCoroutines();
+	  enigmaPhysics.canTriggerAction = true;
+	  currentEffect.GetComponent<TrailRenderer>().emitting = false;
+          main.simulationSpace = ParticleSystemSimulationSpace.World;
+	  particle.Stop();
+	  Destroy(curBall,particle.duration + particle.startLifetime);
+
     }
 
     // Update is called once per frame
@@ -99,12 +115,12 @@ public class SpindashAction : MonoBehaviour
         {
             holding = false;
         }
-	  if(Time.time - startHold >= triggerTime && enigmaPhysics.characterState == 1 && holding == true)
+	  if(Time.time - startHold >= triggerTime && enigmaPhysics.characterState == 1 && holding == true && enigmaPhysics.canTriggerAction == true)
 	  {
 		StartCoroutine(Spindash());
 		holding = false;
 	  }
-      if(enigmaPhysics.grounded == false )
+      if(enigmaPhysics.characterState != 1 )
         StopAllCoroutines();
     }
 }
