@@ -74,7 +74,6 @@ public class HomingAttackAction : MonoBehaviour
 			float angle = Vector3.SignedAngle(enigmaPhysics.rBody.velocity,hitDir,crossVector);
 			enigmaPhysics.canTriggerAction = false;
 			Debug.DrawRay(col.ClosestPoint(transform.position+transform.up*.5f),-hitDir,Color.blue);
-			Debug.Log(clampedDist);
 			if(clampedDist<.8f)
 			{
 				transform.position = col.ClosestPoint(transform.position+transform.up*.5f);
