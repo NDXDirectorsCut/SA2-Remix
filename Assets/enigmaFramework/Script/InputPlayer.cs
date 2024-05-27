@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SplineMesh;
 
 public class InputPlayer : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class InputPlayer : MonoBehaviour
     public enum InputReference { Transform, TransformGrounded, Spline}
     public InputReference inputReference;
     public GameObject referenceObject;
+    public float splineExaggeration = 1;
     public Vector3 primaryAxis { get; private set;}
     float hor,ver;
 
@@ -40,7 +42,15 @@ public class InputPlayer : MonoBehaviour
                 primaryAxis = Vector3.ClampMagnitude(primaryAxis,1);
                 break;
             case InputReference.Spline:
-
+                if(referenceObject.GetComponent<Spline>() != null)
+                {
+                    Spline moveSpline = referenceObject.GetComponent<Spline>();
+                    CurveSample splineSample = moveSpline.GetProjectionSample(moveSpline.transform.InverseTransformPoint(transform.position + primaryAxis * splineExaggeration));
+                    
+                    primaryAxis = new Vector3(hor,0,ver);
+                    primaryAxis = Quaternion.Slerp(Quaternion.identity,Quaternion.FromToRotation(Vector3.forward,splineSample.tangent),splineExaggeration) * primaryAxis;
+                    primaryAxis = Vector3.ClampMagnitude(primaryAxis,1);
+                }
                 break;
         }
         enigmaPhysics.primaryAxis = primaryAxis;

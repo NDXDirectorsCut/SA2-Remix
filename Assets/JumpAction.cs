@@ -18,7 +18,7 @@ public class JumpAction : MonoBehaviour
         rBody = enigmaPhysics.rBody;
     }
 
-    void Update()
+    void LateUpdate()
     {
         //Input Handling in Update because I dont wanna input buffer
         if(Input.GetButtonDown("Jump") && enigmaPhysics.grounded == true)

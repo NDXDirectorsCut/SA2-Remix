@@ -43,9 +43,12 @@ public class RailAction : MonoBehaviour
 		{
 			enigmaPhysics.characterState = 3;
        			CurveSample railSample = rail.GetSampleAtDistance(posInRail);
-			transform.position = rail.transform.position + railSample.location;
+			//transform.position = rail.transform.InverseTransformPoint(railSample.location);
+			Debug.DrawRay(rail.transform.position + railSample.location,railSample.tangent,Color.blue);
+			Debug.DrawRay(rail.transform.position + railSample.location,railSample.up,Color.green);
+			Debug.DrawRay(rail.transform.position + railSample.location,Vector3.Cross(railSample.tangent,railSample.up),Color.red);
 			enigmaPhysics.forwardReference = railSample.tangent;
-			//posInRail += .001f * Time.deltaTime;
+			posInRail += .25f * Time.deltaTime;
 			
 		}
 	}
