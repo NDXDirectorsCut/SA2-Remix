@@ -97,13 +97,14 @@ public class EnigmaPhysics : MonoBehaviour
             }
             if(Vector3.Angle(normal,tempNormal) <= angleCutoff)
             {
+                grounded = hit.transform != null ? true : false;
                 normal = Vector3.Lerp(normal,tempNormal,1 - Mathf.Pow(1 - normalLerp, dl * 60));
                 Debug.DrawRay(hit.point,normal,Color.magenta);
             }
 
         }
 
-        grounded = hit.transform != null ? true : false;
+        grounded = hit.transform != null ? grounded : false;
 
         switch(characterState)
         {
@@ -190,7 +191,7 @@ public class EnigmaPhysics : MonoBehaviour
                 rBody.velocity += -referenceVector.normalized * weight * Time.fixedDeltaTime;
                 rBody.velocity += primaryAxis * airAcceleration * Time.deltaTime;
                 normal = Vector3.RotateTowards(normal,referenceVector,2f*Time.deltaTime,0).normalized;
-                activeRayLen = Mathf.Lerp(activeRayLen,raycastLength, 2f * Time.deltaTime);
+                activeRayLen = Mathf.Lerp(activeRayLen,raycastLength, 4f * Time.deltaTime);
 		    
                 normalForward = Vector3.ProjectOnPlane(rBody.velocity,normal);
 

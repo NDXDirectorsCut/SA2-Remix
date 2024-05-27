@@ -26,10 +26,10 @@ public class SpindashAction : MonoBehaviour
     IEnumerator Spindash()
     {
 	    Vector3 pos = transform.position;
-          float velocity = rBody.velocity.magnitude;
+        float velocity = rBody.velocity.magnitude;
 	    float startTime = Time.time;
 	    animator.CrossFadeInFixedTime("Spindash",.25f,0,0);
-            enigmaPhysics.canTriggerAction = false;
+        enigmaPhysics.canTriggerAction = false;
 	    float time = 0;
 	    while(Input.GetKey(KeyCode.LeftShift))
 	    {
@@ -37,9 +37,15 @@ public class SpindashAction : MonoBehaviour
             time = Mathf.Clamp((Time.time-startTime)/holdTime,0,1);
 
             //transform.position = Vector3.Lerp(transform.position,pos,1/3f);
-            rBody.velocity = Vector3.Lerp(rBody.velocity,Vector3.zero,.8f);
+            rBody.velocity = Vector3.Lerp(rBody.velocity,Vector3.zero,.1f);
             if(enigmaPhysics.primaryAxis.magnitude > .1f)
                 enigmaPhysics.forwardReference = enigmaPhysics.primaryAxis;
+
+            if(enigmaPhysics.grounded == false)
+            {
+                animator.SetBool("Scripted Animation",false);
+                enigmaPhysics.canTriggerAction = true;
+            }
             yield return new WaitForFixedUpdate();
 	    }
           float speed = velocity > .2f ? Mathf.Lerp(velocity,topSpeed,time) : Mathf.Lerp(minSpeed,topSpeed,time) ;
@@ -73,7 +79,8 @@ public class SpindashAction : MonoBehaviour
 			animator.SetBool("Scripted Animation",false);
 			enigmaPhysics.canTriggerAction = true;
 			currentEffect.GetComponent<TrailRenderer>().emitting = false;
-        		main.simulationSpace = ParticleSystemSimulationSpace.World;
+        	main.simulationSpace = ParticleSystemSimulationSpace.World;
+            curBall.transform.position = transform.InverseTransformPoint(transform.position);
 			particle.Stop();
 			Destroy(curBall,particle.duration + particle.startLifetime);
 
@@ -92,12 +99,13 @@ public class SpindashAction : MonoBehaviour
             rBody.velocity = enigmaPhysics.forwardReference * activeSpeed;
             yield return new WaitForFixedUpdate();
     	  }
-	  animator.SetBool("Scripted Animation", false);
-	  enigmaPhysics.canTriggerAction = true;
-	  currentEffect.GetComponent<TrailRenderer>().emitting = false;
-          main.simulationSpace = ParticleSystemSimulationSpace.World;
-	  particle.Stop();
-	  Destroy(curBall,particle.duration + particle.startLifetime);
+	    animator.SetBool("Scripted Animation", false);
+	    enigmaPhysics.canTriggerAction = true;
+	    currentEffect.GetComponent<TrailRenderer>().emitting = false;
+        main.simulationSpace = ParticleSystemSimulationSpace.World;
+        curBall.transform.position = transform.InverseTransformPoint(transform.position);
+	    particle.Stop();
+	    Destroy(curBall,particle.duration + particle.startLifetime);
 
     }
 

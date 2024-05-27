@@ -105,7 +105,26 @@ public class HomingAttackAction : MonoBehaviour
 	{
 		animator.CrossFadeInFixedTime("Spin",.25f,0,0);
 	  	animator.SetBool("Scripted Animation",true);
+		GameObject currentEffect = Instantiate(trailEffect,animator.transform.position+animator.transform.up * .5f,Quaternion.identity,animator.transform);
+		GameObject curBall = Instantiate(ballEffect,animator.transform.position+animator.transform.up * .525f,Quaternion.identity,animator.transform);
+		curBall.SetActive(true);
+		currentEffect.SetActive(true);
+		ParticleSystem particle = curBall.GetComponent<ParticleSystem>();
+		var main = particle.main;
+
 		enigmaPhysics.rBody.velocity = new Vector3(0,enigmaPhysics.rBody.velocity.y,0)	 + enigmaPhysics.forwardReference.normalized * force;
+		while(enigmaPhysics.grounded == false)
+		{
+			enigmaPhysics.canTriggerAction = false;
+			yield return new WaitForFixedUpdate();
+		}
+		currentEffect.GetComponent<TrailRenderer>().emitting = false;
+		main.simulationSpace = ParticleSystemSimulationSpace.World;
+		curBall.transform.position = transform.position;
+		particle.Stop();
+		Destroy(curBall,particle.startLifetime);
+		animator.SetBool("Scripted Animation",false);
+		enigmaPhysics.canTriggerAction = true;
 		yield return null;
 	}
     // Start is called before the first frame update
@@ -131,7 +150,7 @@ public class HomingAttackAction : MonoBehaviour
 		}
 		else
 		{
-			StopAllCoroutines();
+			//StopAllCoroutines();
 		}
     }
 }
