@@ -64,7 +64,7 @@ public class JumpAction : MonoBehaviour
                 //enigmaPhysics.activeRayLen = origRL;
                 rBody.velocity += enigmaPhysics.normal * additiveJumpForce * Time.deltaTime;
                 i++;
-                Debug.Log("Additive Jump " + i);
+                //Debug.Log("Additive Jump " + i);
             }
             yield return new WaitForFixedUpdate();
         }

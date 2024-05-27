@@ -32,6 +32,7 @@ public class EnigmaPhysics : MonoBehaviour
         public bool grounded;
 
         public int characterState = 0;
+	int characterState_copy = 0;
 
     [Header("Movement")]
         bool moved,movedStarted;
@@ -56,6 +57,7 @@ public class EnigmaPhysics : MonoBehaviour
             public float airAcceleration;
             public float airBrakeSpeed;
             public float airDeceleration;
+	    public float airSpeedPreservation;
     [System.NonSerialized]
     public Vector3 forwardReference;
     [System.NonSerialized]
@@ -105,7 +107,11 @@ public class EnigmaPhysics : MonoBehaviour
         }
 
         grounded = hit.transform != null ? grounded : false;
-
+	if(characterState != characterState_copy)
+	{
+		StartCoroutine(StateTrigger(characterState_copy));
+		characterState_copy = characterState;
+	}
         switch(characterState)
         {
             case 0: // Debug
@@ -232,8 +238,8 @@ public class EnigmaPhysics : MonoBehaviour
             case 2:
                 if(oldState == 1)
                 {
-
-                    //physBody.velocity = physBody.velocity.normalized * physBody.velocity.magnitude * groundToAirTransition + floorVelocity;
+		    Debug.Log("Air Speed");
+                    rBody.velocity = rBody.velocity.normalized * rBody.velocity.magnitude * airSpeedPreservation;// + floorVelocity;
                 }
                 break;
         }

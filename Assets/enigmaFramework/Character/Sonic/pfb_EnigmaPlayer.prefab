@@ -6712,6 +6712,7 @@ GameObject:
   - component: {fileID: 4739374752543034529}
   - component: {fileID: 8186471746170805766}
   - component: {fileID: 486620764796693052}
+  - component: {fileID: 4520530924346440178}
   m_Layer: 3
   m_Name: EnigmaCharacter
   m_TagString: Untagged
@@ -6813,7 +6814,7 @@ MonoBehaviour:
   angleCutoff: 61
   grounded: 1
   characterState: 1
-  weight: 32
+  weight: 20
   canTriggerAction: 1
   startSpeed: 0.3
   speedCap: 96
@@ -6892,6 +6893,7 @@ MonoBehaviour:
   airAcceleration: 6.96
   airBrakeSpeed: -1.02
   airDeceleration: -0.168
+  airSpeedPreservation: 0.8
 --- !u!114 &1076649840599486746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6979,6 +6981,19 @@ MonoBehaviour:
   skidDeceleration: 2.16
   requiredAngle: 120
   minSpeed: 5
+--- !u!114 &4520530924346440178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916707478080960160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0373406ea981f9646941bc09da205f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rail: {fileID: 0}
 --- !u!1 &7168443370731234454
 GameObject:
   m_ObjectHideFlags: 0
