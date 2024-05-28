@@ -25,7 +25,8 @@ public class EnigmaCamera : MonoBehaviour
     public float facingSpeed;
     public float faceTime;
     public bool useTransformForward;
-    public AnimationCurve lerpSpeed;
+    public AnimationCurve lerpCurve;
+    public float lerpForce = 1;
     [Range(0,1)]
     public float inputSmoothness;
 
@@ -53,11 +54,11 @@ public class EnigmaCamera : MonoBehaviour
         //Application.targetFrameRate = 120;
     }*/
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Application.targetFrameRate = targetFramerate;
         Vector3 prevReference = referenceVector;
-        referenceVector = Vector3.RotateTowards(referenceVector,enigmaPhysics.normal,lerpSpeed.Evaluate(Vector3.Angle(referenceVector,enigmaPhysics.normal)) * Time.deltaTime,0);
+        referenceVector = Vector3.Slerp(referenceVector,enigmaPhysics.normal,lerpCurve.Evaluate(Vector3.Angle(referenceVector,enigmaPhysics.normal)) * Time.deltaTime * lerpForce);
 
         //Turn Camera Up to Normal
         //transform.up = Quaternion.FromToRotation(prevReference,referenceVector) * transform.up;
