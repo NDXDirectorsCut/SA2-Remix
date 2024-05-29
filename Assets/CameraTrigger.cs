@@ -33,6 +33,8 @@ public class CameraTrigger : MonoBehaviour
     public ChangeType onExitValue;
     public CameraValues onExit;
 
+    void Start()
+    {}
     void OnTriggerEnter(Collider col)
     {
 		if(col.transform.parent.GetComponentInChildren<EnigmaCamera>() != null)

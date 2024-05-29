@@ -27,6 +27,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Nk.Fur.Black
+    second: {fileID: 2100000, guid: 94ee3736e856ceb4b90603fd1da1f273, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Nk.GloveCloth
     second: {fileID: 2100000, guid: 5934a9ccb36744443b4f5830286649de, type: 2}
   - first:
