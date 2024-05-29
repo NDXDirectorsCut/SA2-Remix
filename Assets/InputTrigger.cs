@@ -32,7 +32,7 @@ public class InputTrigger : MonoBehaviour
     {
 	if(col.gameObject.GetComponent<InputPlayer>() != null)
 	{
-	    //currentInput = col.gameObject.GetComponent<InputPlayer>();
+	    currentInput = col.gameObject.GetComponent<InputPlayer>();
 	    memoryHold.canMove = currentInput.canMove;
      	    memoryHold.inputReference = currentInput.inputReference;
    	    memoryHold.referenceObject = currentInput.referenceObject;

@@ -51,6 +51,8 @@ public class InputPlayer : MonoBehaviour
                     
                     primaryAxis = new Vector3(-hor,0,-ver);
                     primaryAxis = Quaternion.Slerp(Quaternion.identity,Quaternion.FromToRotation(Vector3.forward,splineSample.tangent),splineExaggeration) * primaryAxis;
+                    Vector3 toCenter = ((referenceObject.transform.position + splineSample.location) - transform.position) * primaryAxis.magnitude;
+                    primaryAxis = Vector3.Lerp(primaryAxis,toCenter,toCenter.magnitude*.125f);
                     primaryAxis = Vector3.ClampMagnitude(primaryAxis,1);
                 }
                 break;
