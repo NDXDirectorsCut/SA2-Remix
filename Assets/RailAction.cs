@@ -10,6 +10,13 @@ public class RailAction : MonoBehaviour
     public Spline rail;
     public bool attached;
     float posInRail = 0;	
+	Vector3 inputAxis;
+	[Range(-1,1)]
+	public float xAxis;
+	[Range(0,3)]
+	public float turnTime;
+	float curVelo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,13 +36,13 @@ public class RailAction : MonoBehaviour
             		float sumLength = 0;
            		for(int i=0; i<rail.curves.Count; i++)
            		{
-         		       if(rail.curves[i] == projectionSample.curve)
-          		       {
-            		    		break;
-            		       }
+         		    	if(rail.curves[i] == projectionSample.curve)
+          		    	{
+            		    	break;
+            			}
                			else
                			{
-                    			sumLength += rail.curves[i].Length;
+                    		sumLength += rail.curves[i].Length;
              			}
            		}
            		sumLength += projectionSample.distanceInCurve;
@@ -46,17 +53,36 @@ public class RailAction : MonoBehaviour
 		{
 			enigmaPhysics.characterState = 3;
 			enigmaPhysics.rBody.velocity = Vector3.zero;
-       			CurveSample railSample = rail.GetSampleAtDistance(posInRail);
-			animator.CrossFadeInFixedTime("Grind L",.25f,0,0);
+       		CurveSample railSample = rail.GetSampleAtDistance(posInRail);
+
+			inputAxis =	transform.InverseTransformDirection(enigmaPhysics.primaryAxis);
+			xAxis = Mathf.SmoothDamp(xAxis,inputAxis.x,ref curVelo,turnTime);
+
+            Debug.DrawRay(transform.position,inputAxis*2,Color.red);
+			if(xAxis > 0.05f)
+			{
+				animator.Play("Grind R",0 , Mathf.Abs(xAxis));
+			}
+			if(xAxis < 0.05f)
+			{
+				animator.Play("Grind L",0 , Mathf.Abs(xAxis));
+			}
+
+			//animator.CrossFadeInFixedTime("Grind L",.25f,0,0);
+
 			Vector3 rightVector = Vector3.Cross(railSample.tangent,railSample.up);
 			Vector3 normalVector = Vector3.Cross(rightVector,railSample.tangent);
+
 			Debug.DrawRay(rail.transform.position + railSample.location,normalVector,Color.green);
+
 			enigmaPhysics.forwardReference = railSample.tangent;
-			transform.up = normalVector;
+			transform.rotation = Quaternion.LookRotation(railSample.tangent,normalVector);
 			enigmaPhysics.normal = normalVector;
+
 			transform.position = rail.transform.position + railSample.location;// + normalVector*.5f;
-			if(enigmaPhysics.primaryAxis.magnitude > .1f)
-				posInRail = Input.GetKey(KeyCode.LeftShift) ? posInRail - 15 * Time.deltaTime : posInRail + 15 * Time.deltaTime;
+
+			//if(enigmaPhysics.primaryAxis.magnitude > .1f)
+			posInRail = posInRail + inputAxis.z * 15 * Time.deltaTime;
 			
 		}
 	}

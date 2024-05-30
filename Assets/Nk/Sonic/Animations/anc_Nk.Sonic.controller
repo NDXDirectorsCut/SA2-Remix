@@ -530,6 +530,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 8639266662052668671}
     m_Position: {x: -180, y: 50, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 9219354486431309472}
+    m_Position: {x: -200, y: -270, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 5184762138169179423}
@@ -910,6 +913,32 @@ AnimatorState:
   m_Motion: {fileID: 7400000, guid: cc322755486930340bd995c1ce5736af, type: 2}
   m_Tag: 
   m_SpeedParameter: Velocity Magnitude
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &9219354486431309472
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Grind L
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 570b2932ad68c554ebcec444bfff6996, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
