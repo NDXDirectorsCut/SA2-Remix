@@ -112,14 +112,14 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Metallic: 0.646
+    - _Metallic: 0.842
     - _Metallic_Invert: 0
     - _Mode: 0
     - _Normal_Strength: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Position_Influence: 0
-    - _Roughness: 0.191
+    - _Roughness: 0.206
     - _Roughness_Invert: 0.026
     - _Shadow_Strength: 1
     - _SmoothnessTextureChannel: 0

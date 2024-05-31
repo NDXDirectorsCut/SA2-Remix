@@ -7,6 +7,8 @@ public class RailAction : MonoBehaviour
 {
     EnigmaPhysics enigmaPhysics;
     public Animator animator;
+    public GameObject sparkEffect;
+    public float sparkSpeed;
     public Spline rail;
     public bool attached;
     float posInRail = 0;	
@@ -16,6 +18,8 @@ public class RailAction : MonoBehaviour
 	[Range(0,3)]
 	public float turnTime;
 	float curVelo;
+	public float gravityForce;
+	float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +51,7 @@ public class RailAction : MonoBehaviour
            		}
            		sumLength += projectionSample.distanceInCurve;
 			posInRail = sumLength;
+			speed = enigmaPhysics.rBody.velocity.magnitude;
 			attached = true;
 		}
 		if(attached == true)
@@ -57,7 +62,7 @@ public class RailAction : MonoBehaviour
 
 			inputAxis =	transform.InverseTransformDirection(enigmaPhysics.primaryAxis);
 			xAxis = Mathf.SmoothDamp(xAxis,inputAxis.x,ref curVelo,turnTime);
-
+				
             Debug.DrawRay(transform.position,inputAxis*2,Color.red);
 			if(xAxis > 0.05f)
 			{
@@ -80,9 +85,24 @@ public class RailAction : MonoBehaviour
 			enigmaPhysics.normal = normalVector;
 
 			transform.position = rail.transform.position + railSample.location;// + normalVector*.5f;
-
+			//Effect
+			if(Mathf.Abs(speed) > sparkSpeed && sparkEffect.GetComponent<ParticleSystem>().isPlaying == false)
+			{
+				Debug.Log("Play Effect");
+				sparkEffect.GetComponent<ParticleSystem>().Play();
+			}
+			if(Mathf.Abs(speed) < sparkSpeed)
+			{
+				sparkEffect.GetComponent<ParticleSystem>().Stop();	
+			}		
+			//Physics
+			
+			float normalAngle = Vector3.SignedAngle(normalVector,enigmaPhysics.referenceVector,rightVector);
+			speed += normalAngle * gravityForce * Time.deltaTime;
+			posInRail += speed * Time.deltaTime;
+	
 			//if(enigmaPhysics.primaryAxis.magnitude > .1f)
-			posInRail = posInRail + inputAxis.z * 15 * Time.deltaTime;
+			//posInRail = posInRail + inputAxis.z * 15 * Time.deltaTime;
 			
 		}
 	}

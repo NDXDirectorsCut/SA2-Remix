@@ -1403,13 +1403,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   intensity:
     overrideState: 1
-    value: 25
+    value: 1
   threshold:
     overrideState: 1
     value: 1
@@ -1421,7 +1421,7 @@ MonoBehaviour:
     value: 65472
   diffusion:
     overrideState: 1
-    value: 4.18
+    value: 3.83
   anamorphicRatio:
     overrideState: 1
     value: 1

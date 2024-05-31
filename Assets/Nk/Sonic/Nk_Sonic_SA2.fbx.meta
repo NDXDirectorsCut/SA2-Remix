@@ -37,13 +37,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Nk.Metal
+    second: {fileID: 2100000, guid: d0d1643e743cfbc4b88eafdd81a9e611, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Nk.Nose
     second: {fileID: 2100000, guid: 8670476a67598354494ec8f7c36f3c28, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Nk.ShoeSole
+    second: {fileID: 2100000, guid: 8ed15a8425bbc5c47bc5ee8d3e435d0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Nk.Skin
     second: {fileID: 2100000, guid: df5b37a1b751c0648a81e39466ed3553, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nk.Sonic.ShoeGlossy
+    second: {fileID: 2100000, guid: e72414433cda0944ca80d6ec4c1eeace, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
