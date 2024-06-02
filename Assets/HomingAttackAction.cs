@@ -113,7 +113,7 @@ public class HomingAttackAction : MonoBehaviour
 		var main = particle.main;
 
 		enigmaPhysics.rBody.velocity = new Vector3(0,enigmaPhysics.rBody.velocity.y,0)	 + enigmaPhysics.forwardReference.normalized * force;
-		while(enigmaPhysics.grounded == false)
+		while(enigmaPhysics.grounded == false && enigmaPhysics.characterState == 2)
 		{
 			enigmaPhysics.canTriggerAction = false;
 			yield return new WaitForFixedUpdate();

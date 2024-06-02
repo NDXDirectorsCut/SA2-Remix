@@ -53,7 +53,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: cte_metal_kd1_rail
-    second: {fileID: 2100000, guid: 3c7e20fb4056cd2479f0161541fba212, type: 2}
+    second: {fileID: 2100000, guid: cb672acf06262f84881e0b86d1087d25, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -131,7 +131,7 @@ ModelImporter:
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
+    normalSmoothingSource: 2
   referencedClips: []
   importAnimation: 1
   humanDescription:

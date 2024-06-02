@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class QualitySwitch : MonoBehaviour
 {
+    EnigmaCamera enigmaCamera;
     // Start is called before the first frame update
     void Start()
     {
-        
+        enigmaCamera = GetComponent<EnigmaCamera>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(KeyCode.Keypad0))
+        {
+            enigmaCamera.targetFramerate = 0;
+        }
         if(Input.GetKey(KeyCode.Keypad1))
         {
             QualitySettings.SetQualityLevel(0,true);

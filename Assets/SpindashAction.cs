@@ -48,12 +48,16 @@ public class SpindashAction : MonoBehaviour
             }
             yield return new WaitForFixedUpdate();
 	    }
-          float speed = velocity > .2f ? Mathf.Lerp(velocity,topSpeed,time) : Mathf.Lerp(minSpeed,topSpeed,time) ;
-	    if(Input.GetKeyUp(KeyCode.LeftShift))
-	    {
+        float speed = velocity > .2f ? Mathf.Lerp(velocity,topSpeed,time) : Mathf.Lerp(minSpeed,topSpeed,time) ;
+	    //if(Input.GetKeyUp(KeyCode.LeftShift))
+	    //{
 	        StartCoroutine(Roll(speed,rollDeceleration));
-	    }
-
+	    //}
+        //else
+        //{
+        //    animator.SetBool("Scripted Animation",false);
+        //    enigmaPhysics.canTriggerAction = true;
+        //}
         
     }
 

@@ -45,6 +45,7 @@ public class JumpAction : MonoBehaviour
         
         animator.CrossFadeInFixedTime("Spin",.25f,0,0);
 	    animator.SetBool("Scripted Animation",true);
+        enigmaPhysics.canTriggerAction = false;
 
         int i = 0;
 
@@ -63,12 +64,14 @@ public class JumpAction : MonoBehaviour
             {
                 //enigmaPhysics.activeRayLen = origRL;
                 rBody.velocity += enigmaPhysics.normal * additiveJumpForce * Time.deltaTime;
+                enigmaPhysics.canTriggerAction = true;
                 i++;
                 //Debug.Log("Additive Jump " + i);
             }
             yield return new WaitForFixedUpdate();
         }
 	  animator.SetBool("Scripted Animation", false);
+      enigmaPhysics.canTriggerAction = true;
         //yield return null;
     }
 

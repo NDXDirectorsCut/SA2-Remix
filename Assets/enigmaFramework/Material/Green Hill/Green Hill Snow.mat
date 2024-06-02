@@ -103,7 +103,7 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _Base_Blend_Strength: 5
+    - _Base_Blend_Strength: 2
     - _Base_Normal_Strength: 1
     - _Base_Parallax_Strength: 0
     - _BumpScale: 1
@@ -123,8 +123,8 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Secondary_Blend_Strength: 20
-    - _Secondary_Material_Blend: 0.5
-    - _Secondary_Material_Strength: 0.887
+    - _Secondary_Material_Blend: 1.5
+    - _Secondary_Material_Strength: 0.725
     - _Secondary_Normal_Strength: 0.43
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

@@ -103,7 +103,7 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _Base_Blend_Strength: 5
+    - _Base_Blend_Strength: 2
     - _Base_Normal_Strength: 1
     - _Base_Parallax_Strength: 0
     - _BumpScale: 1

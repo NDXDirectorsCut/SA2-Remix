@@ -169,11 +169,15 @@ public class EnigmaPhysics : MonoBehaviour
                 
 		        slopeForce = -Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)) * Time.fixedDeltaTime; 
                 rBody.velocity += slopeForce;
+
+                float airAngle = Vector3.SignedAngle(primaryAxis,rBody.velocity,normal);
+                rBody.velocity = Quaternion.AngleAxis(-airAngle * Time.fixedDeltaTime * airBrakeSpeed,normal) * rBody.velocity;
+
                 rBody.velocity = Vector3.ProjectOnPlane(rBody.velocity,normal);
                 rBody.velocity = Vector3.ClampMagnitude(rBody.velocity,speedCap);
                 //Debug.DrawRay(transform.position + -Vector3.Cross(forwardReference,normal) * .1f,-Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)), Color.red);
 
-                if(rBody.velocity.sqrMagnitude != 0)
+                if(rBody.velocity.sqrMagnitude > 0.2f)
                     forwardReference = rBody.velocity.normalized;
                 else
                     forwardReference = Vector3.ProjectOnPlane(forwardReference,normal);
@@ -197,16 +201,21 @@ public class EnigmaPhysics : MonoBehaviour
                 rBody.velocity += -referenceVector.normalized * weight * Time.fixedDeltaTime;
                 rBody.velocity += primaryAxis * airAcceleration * Time.deltaTime;
                 normal = Vector3.RotateTowards(normal,referenceVector,2f*Time.deltaTime,0).normalized;
+
+                Vector3 pos = transform.position + transform.up * 1f;
+                transform.position = (Quaternion.FromToRotation(transform.up,normal) * (transform.position-pos)) + pos;
+                transform.up = Quaternion.FromToRotation(transform.up,normal) * transform.up;
+
                 activeRayLen = Mathf.Lerp(activeRayLen,raycastLength, 4f * Time.deltaTime);
 		    
                 normalForward = Vector3.ProjectOnPlane(rBody.velocity,normal);
 
-                if(rBody.velocity.sqrMagnitude != 0 && normalForward.sqrMagnitude != 0)
+                if(normalForward.sqrMagnitude > 0.2f)
                     forwardReference = normalForward;
                 else
                     forwardReference = Vector3.ProjectOnPlane(forwardReference,normal);
 
-                rBody.transform.up = normal;
+                //rBody.transform.up = normal;
                 point = transform.position;
                 break;
             case 3: // Scripted
