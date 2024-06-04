@@ -77,7 +77,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Roughness_Texture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6ee4ef137ab37d4469516a8aacd6744e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Transmission_Texture:
@@ -105,23 +105,23 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Flip_Red_Channel: 0
-    - _Fresnel_Diffuse_Tint: 0
-    - _Fresnel_Power: 1.84
+    - _Fresnel_Diffuse_Tint: 0.289
+    - _Fresnel_Power: 0.88
     - _Fresnel_Roughness: 4
     - _Fresnel_Strength: 2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Metallic: 0.1
+    - _Metallic: 0
     - _Metallic_Invert: 0
     - _Mode: 0
     - _Normal_Strength: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Position_Influence: 0
-    - _Roughness: 0.154
-    - _Roughness_Invert: 1
-    - _Shadow_Strength: 0.9
+    - _Roughness: 0.399
+    - _Roughness_Invert: 0.354
+    - _Shadow_Strength: 0.911
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

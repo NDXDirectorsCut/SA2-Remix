@@ -92,7 +92,9 @@ public class RailAction : MonoBehaviour
 					sumLength += projectionSample.distanceInCurve;
 					posInRail = sumLength;
 					backwards = Vector3.Angle(enigmaPhysics.forwardReference,projectionSample.tangent) > 90 ? true : false;
-					speed = backwards ? -enigmaPhysics.rBody.velocity.magnitude : enigmaPhysics.rBody.velocity.magnitude;
+					float axisAlign =  1-Vector3.Angle(backwards ? -projectionSample.tangent : projectionSample.tangent, enigmaPhysics.rBody.velocity)/90;
+					Debug.Log(axisAlign);
+					speed = backwards ? -enigmaPhysics.rBody.velocity.magnitude * axisAlign : enigmaPhysics.rBody.velocity.magnitude * axisAlign;
 					attached = true;
 				}
 			}

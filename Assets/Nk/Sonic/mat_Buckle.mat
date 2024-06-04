@@ -105,22 +105,22 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Flip_Red_Channel: 0
-    - _Fresnel_Diffuse_Tint: 0.912
-    - _Fresnel_Power: 0
-    - _Fresnel_Roughness: 1
+    - _Fresnel_Diffuse_Tint: 0.847
+    - _Fresnel_Power: 0.31
+    - _Fresnel_Roughness: 1.46
     - _Fresnel_Strength: 5
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Metallic: 0.646
+    - _Metallic: 0.776
     - _Metallic_Invert: 0
     - _Mode: 0
     - _Normal_Strength: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Position_Influence: 0
-    - _Roughness: 0.191
-    - _Roughness_Invert: 0.026
+    - _Roughness: 0.142
+    - _Roughness_Invert: 0.167
     - _Shadow_Strength: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
