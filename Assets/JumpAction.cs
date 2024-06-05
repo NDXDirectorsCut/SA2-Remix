@@ -62,6 +62,7 @@ public class JumpAction : MonoBehaviour
             }
             if(Time.time - initialJumpTime > 0.1f)
             {
+                animator.SetBool("Scripted Animation",true);
                 //enigmaPhysics.activeRayLen = origRL;
                 rBody.velocity += enigmaPhysics.normal * additiveJumpForce * Time.deltaTime;
                 enigmaPhysics.canTriggerAction = true;

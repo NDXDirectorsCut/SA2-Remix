@@ -112,7 +112,7 @@ public class HomingAttackAction : MonoBehaviour
 		ParticleSystem particle = curBall.GetComponent<ParticleSystem>();
 		var main = particle.main;
 
-		enigmaPhysics.rBody.velocity = new Vector3(0,enigmaPhysics.rBody.velocity.y,0)	 + enigmaPhysics.forwardReference.normalized * force;
+		enigmaPhysics.rBody.velocity = new Vector3(enigmaPhysics.rBody.velocity.x/2,enigmaPhysics.rBody.velocity.y,enigmaPhysics.rBody.velocity.z/2)	 + enigmaPhysics.forwardReference.normalized * force;
 		while(enigmaPhysics.grounded == false && enigmaPhysics.characterState == 2)
 		{
 			enigmaPhysics.canTriggerAction = false;

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bb24beb4bd1d4a94eb44de3d505bb1d2
+guid: ca8de5084c8095648b1233df1e53bcd6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: SpringNrm
-    second: {fileID: 2100000, guid: 0a033a70e1a83db488fab3fedfec4d1a, type: 2}
+      name: cte_plant_sk_treeB02.001
+    second: {fileID: 2100000, guid: 1c734d5c43aff6948a32311f8a54fb83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_plant_ym1_treeA.001
+    second: {fileID: 2100000, guid: 448e8a47a6dd98f458b8684c830a5bc2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -37,10 +42,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.25
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -75,8 +80,8 @@ ModelImporter:
     useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
-    normalSmoothAngle: 45
-    normalImportMode: 0
+    normalSmoothAngle: 60
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
@@ -95,7 +100,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0025
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

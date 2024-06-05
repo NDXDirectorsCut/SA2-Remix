@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5545298393637480209
+--- !u!114 &-5099167427116753055
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,18 +20,20 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_Spring
+  m_Name: Mat_TreeA-Bark
   m_Shader: {fileID: -6465566751694194690, guid: cffccbcd331dd384587974d2ab37401b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _BUILTIN_ALPHATEST_ON
+  - _BUILTIN_AlphaClip
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2450
   stringTagMap:
-    RenderType: Opaque
+    RenderType: TransparentCutout
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -54,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse_Texture:
-        m_Texture: {fileID: 2800000, guid: f4431ee554de4ea4280a057da68c5b0f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 85a92d6c5c0242548bb334c075e30afe, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -74,11 +76,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metallic_Texture:
-        m_Texture: {fileID: 2800000, guid: 7c49aed883f11ab48988bfbba4aa6dee, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 2800000, guid: a438308444b08d349a76a45550d45bbe, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5933ee03b83f91a42ba4d200d70112f3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -90,7 +92,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Roughness_Texture:
-        m_Texture: {fileID: 2800000, guid: dcd97dd62ba1a1f49aa21b8d910f025a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 85a92d6c5c0242548bb334c075e30afe, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Transmission_Texture:
@@ -101,7 +103,7 @@ Material:
     m_Floats:
     - _Alpha: 1
     - _Amplitude: 0
-    - _BUILTIN_AlphaClip: 0
+    - _BUILTIN_AlphaClip: 1
     - _BUILTIN_Blend: 0
     - _BUILTIN_CullMode: 2
     - _BUILTIN_DstBlend: 0
@@ -111,29 +113,29 @@ Material:
     - _BUILTIN_Surface: 0
     - _BUILTIN_ZTest: 4
     - _BUILTIN_ZWrite: 1
-    - _BUILTIN_ZWriteControl: 0
+    - _BUILTIN_ZWriteControl: 1
     - _Blur: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Flip_Red_Channel: 0
-    - _Fresnel_Diffuse_Tint: 0
+    - _Fresnel_Diffuse_Tint: 0.452
     - _Fresnel_Power: 0
     - _Fresnel_Roughness: 4
     - _Fresnel_Strength: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Metallic: 1
-    - _Metallic_Invert: 0.589
+    - _Metallic: 0
+    - _Metallic_Invert: 0
     - _Mode: 0
-    - _Normal_Strength: 0.5
+    - _Normal_Strength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Position_Influence: 0
     - _Roughness: 1
-    - _Roughness_Invert: 0.107
+    - _Roughness_Invert: 0.553
     - _Shadow_Strength: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
