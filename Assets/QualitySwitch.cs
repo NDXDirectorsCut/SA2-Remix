@@ -5,6 +5,7 @@ using UnityEngine;
 public class QualitySwitch : MonoBehaviour
 {
     EnigmaCamera enigmaCamera;
+    public GameObject reflectionProbe;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,10 @@ public class QualitySwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+	if(Input.GetKeyDown(KeyCode.R))
+	{
+	    reflectionProbe.SetActive( !reflectionProbe.activeSelf );
+	}
         if(Input.GetKey(KeyCode.Keypad0))
         {
             enigmaCamera.targetFramerate = 0;
