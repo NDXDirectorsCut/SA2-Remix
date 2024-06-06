@@ -106,9 +106,9 @@ Material:
     - _DstBlend: 0
     - _Flip_Red_Channel: 0
     - _Fresnel_Diffuse_Tint: 0.289
-    - _Fresnel_Power: 0.88
+    - _Fresnel_Power: 0
     - _Fresnel_Roughness: 4
-    - _Fresnel_Strength: 2
+    - _Fresnel_Strength: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

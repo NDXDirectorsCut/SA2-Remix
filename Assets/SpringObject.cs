@@ -10,36 +10,51 @@ public class SpringObject : MonoBehaviour
     public float lockInputTime;
     public bool lockPosition;
     public bool additive;
+    bool canTrigger;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        canTrigger = true;
+    }
+    IEnumerator ReTrigger()
+    {
+	canTrigger = false;
+	yield return new WaitForSeconds(0.125f);
+	canTrigger = true;
     }
 
-    IEnumerator Spring(Rigidbody rBody,float force)
+    IEnumerator Spring(Collider col, float force, float time, float holdF, bool lockPos, bool add)
     {
-	    rBody.velocity = additive ? rBody.velocity + transform.up * springForce : transform.up * springForce;
-        yield return null;
-    }
-    
-    void OnTriggerEnter(Collider col)
-    {
-        if(col.GetComponent<JumpAction>() != null && col.GetComponent<EnigmaPhysics>() != null)
+	if(col.GetComponent<JumpAction>() != null && col.GetComponent<EnigmaPhysics>() != null)
         {
             JumpAction jumpScript = col.GetComponent<JumpAction>();
             EnigmaPhysics enigmaPhysics = col.GetComponent<EnigmaPhysics>();
             enigmaPhysics.canTriggerAction = false;
-            if(lockPosition == true)
+            if(lockPos == true)
+	    {
                 enigmaPhysics.rBody.position = transform.position + transform.up * .5f;
-            StartCoroutine(jumpScript.Jump(springForce,holdTime,holdForce));
+		Debug.Log("lock Position");
+	    }
+            StartCoroutine(jumpScript.Jump(force,time,holdF));
         }
         else
         {
             if(col.GetComponent<Rigidbody>() != null)
             {
-                StartCoroutine(Spring(col.GetComponent<Rigidbody>(),springForce));
+		Rigidbody rBody = col.GetComponent<Rigidbody>();
+		rBody.velocity = add ? rBody.velocity + transform.up * force : transform.up * force;
+                //StartCoroutine(Spring(col.GetComponent<Rigidbody>(),springForce));
             }
         }
+	StartCoroutine(ReTrigger());
+	    
+        yield return null;
+    }
+    
+    void OnTriggerEnter(Collider col)
+    {
+	if(canTrigger == true)
+            StartCoroutine(Spring(col,springForce,holdTime,holdForce,lockPosition,additive));
     }
 }

@@ -90,8 +90,9 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Fresnel_Power: 2
-    - _Fresnel_Strength: 3
+    - _Fresnel_Power: 1.5
+    - _Fresnel_Roughness: 4
+    - _Fresnel_Strength: 2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
