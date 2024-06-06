@@ -23,11 +23,11 @@ public class JumpAction : MonoBehaviour
         //Input Handling in Update because I dont wanna input buffer
         if(Input.GetButtonDown("Jump") && enigmaPhysics.grounded == true)
         {
-            StartCoroutine(Jump(initialJumpForce,jumpTimer,additiveJumpForce));
+            StartCoroutine(Jump(initialJumpForce,jumpTimer,additiveJumpForce,enigmaPhysics.normal));
         }
     }
 
-    public IEnumerator Jump(float iJumpForce, float jTimer,float aJumpForce)
+    public IEnumerator Jump(float iJumpForce, float jTimer,float aJumpForce, Vector3 direction)
     {
         float initialJumpTime;
         float origRL;
@@ -41,7 +41,7 @@ public class JumpAction : MonoBehaviour
         enigmaPhysics.characterState = 2; enigmaPhysics.grounded = false;
         origRL = enigmaPhysics.activeRayLen; enigmaPhysics.activeRayLen = 0.7f;
         //Debug.Log(origRL);
-        rBody.velocity += enigmaPhysics.normal * iJumpForce;
+        rBody.velocity += direction * iJumpForce;
         
         animator.CrossFadeInFixedTime("Spin",.25f,0,0);
 	    animator.SetBool("Scripted Animation",true);
@@ -53,7 +53,7 @@ public class JumpAction : MonoBehaviour
         {
             
             //Debug.Log(origRL);
-            if(Input.GetButtonUp("Jump"))
+            if(!Input.GetButton("Jump"))
             {
                 jumping = false;
                 Debug.Log("Stop Jump");

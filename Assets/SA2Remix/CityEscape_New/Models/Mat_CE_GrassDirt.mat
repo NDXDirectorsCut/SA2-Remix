@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_CE_GrassDirt
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: -6465566751694194690, guid: ccfd6185ad90b8844b89564ca833087b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,6 +23,26 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Base_Blend_Height:
+        m_Texture: {fileID: 2800000, guid: fe07f33bc28001042b7eb906a5e875eb, type: 3}
+        m_Scale: {x: 0.025, y: 0.025}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Diffuse:
+        m_Texture: {fileID: 2800000, guid: 18272a51a4d0f614f9ba980ae4b05343, type: 3}
+        m_Scale: {x: 0.025, y: 0.025}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Metallic:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 0.025, y: 0.025}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Normal:
+        m_Texture: {fileID: 2800000, guid: 9c53118ebcc99eb4c8de0d8d11e0abde, type: 3}
+        m_Scale: {x: 0.025, y: 0.025}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Roughness:
+        m_Texture: {fileID: 2800000, guid: fe07f33bc28001042b7eb906a5e875eb, type: 3}
+        m_Scale: {x: 0.025, y: 0.025}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -59,12 +79,40 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Secondary_Blend_Height:
+        m_Texture: {fileID: 2800000, guid: 6b43a6df8ab98a04c827c8d8a9f9e298, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
+    - _Secondary_Diffuse:
+        m_Texture: {fileID: 2800000, guid: b20439b64d730ad49983b7fb79c4c994, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
+    - _Secondary_Metallic:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 0.025, y: 0.025}
+        m_Offset: {x: 0, y: 0}
+    - _Secondary_Normal:
+        m_Texture: {fileID: 2800000, guid: d1a8e5c4d5f94414181c94cb14e36ac8, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
+    - _Secondary_Roughness:
+        m_Texture: {fileID: 2800000, guid: 6b43a6df8ab98a04c827c8d8a9f9e298, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BUILTIN_QueueControl: 0
+    - _BUILTIN_QueueOffset: 0
+    - _Base_Blend_Strength: 1.4
+    - _Base_Normal_Strength: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
+    - _Double_Sided: 1
     - _DstBlend: 0
+    - _Fresnel_Power: 2.39
+    - _Fresnel_Roughness: 4
+    - _Fresnel_Strength: 0.5
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -72,12 +120,38 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Secondary_Blend_Strength: 0
+    - _Secondary_Material_Blend: 2.3
+    - _Secondary_Material_Strength: 0.238
+    - _Secondary_Normal_Strength: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+    - _Base_Blend_Remap: {r: 1, g: 0, b: 0, a: 0}
+    - _Base_Metallic_Remap: {r: 0, g: 0, b: 0, a: 0}
+    - _Base_Roughness_Remap: {r: 0.5, g: 5, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Fresnel_Tint: {r: 1, g: 1, b: 1, a: 0}
+    - _Secondary_Blend_Height_Remap: {r: 0, g: 1, b: 0, a: 0}
+    - _Secondary_Material_Direction: {r: 0, g: 1, b: 0, a: 0}
+    - _Secondary_Material_Remap: {r: 5, g: 0.2, b: 0, a: 0}
+    - _Secondary_Metallic_Remap: {r: 0, g: 0, b: 0, a: 0}
+    - _Secondary_Roughness_Remap: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &3447471009934273448
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 0

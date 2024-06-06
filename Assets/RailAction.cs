@@ -133,10 +133,14 @@ public class RailAction : MonoBehaviour
 				inputAxis =	transform.InverseTransformDirection(enigmaPhysics.primaryAxis);
 				xAxis = Mathf.SmoothDamp(xAxis,inputAxis.x,ref curVelo,turnTime);
 
+				Vector3 rightVector = Vector3.Cross(railSample.tangent,railSample.up);
+				Vector3 normalVector = Vector3.Cross(rightVector,railSample.tangent);
+
 				if(Input.GetButtonDown("Jump"))
 				{
 					enigmaPhysics.rBody.velocity = railSample.tangent * speed * enigmaPhysics.airSpeedPreservation;
-					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce));
+					Vector3 jumpVector = Quaternion.AngleAxis(-xAxis*60f,railSample.tangent) * normalVector;
+					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,jumpVector));
 					StartCoroutine(ReGrind());
 					//enigmaPhysics.rBody.velocity = enigmaPhysics.rBody.velocity.normalized * enigmaPhysics.rBody.velocity.magnitude * enigmaPhysics.airSpeedPreservation;
 					attached = false;
@@ -148,8 +152,7 @@ public class RailAction : MonoBehaviour
 
 				//animator.CrossFadeInFixedTime("Grind L",.25f,0,0);
 
-				Vector3 rightVector = Vector3.Cross(railSample.tangent,railSample.up);
-				Vector3 normalVector = Vector3.Cross(rightVector,railSample.tangent);
+				
 
 				Debug.DrawRay(rail.transform.position + railSample.location,normalVector,Color.green);
 

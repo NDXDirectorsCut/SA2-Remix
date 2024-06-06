@@ -86,7 +86,7 @@ public class HomingAttackAction : MonoBehaviour
 				enigmaPhysics.rBody.velocity = Vector3.zero;
 				if(jumpScript != null)
 				{
-					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,0));
+					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,enigmaPhysics.normal));
 				}
 				//StopAllCoroutines();
 				
@@ -112,7 +112,7 @@ public class HomingAttackAction : MonoBehaviour
 		ParticleSystem particle = curBall.GetComponent<ParticleSystem>();
 		var main = particle.main;
 
-		enigmaPhysics.rBody.velocity = new Vector3(enigmaPhysics.rBody.velocity.x/2,enigmaPhysics.rBody.velocity.y,enigmaPhysics.rBody.velocity.z/2)	 + enigmaPhysics.forwardReference.normalized * force;
+		enigmaPhysics.rBody.velocity = new Vector3(enigmaPhysics.rBody.velocity.x/2,enigmaPhysics.rBody.velocity.y,enigmaPhysics.rBody.velocity.z/2) + enigmaPhysics.forwardReference.normalized * force;
 		while(enigmaPhysics.grounded == false && enigmaPhysics.characterState == 2)
 		{
 			enigmaPhysics.canTriggerAction = false;

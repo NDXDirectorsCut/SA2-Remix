@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6516638729119453668}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpringSkeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4609281101497834662}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bumper_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6296956339854220180}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2724061741806848942}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Root_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5839526672639527109}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 3681301310982364569}
   - component: {fileID: 6012700950270545335}
   - component: {fileID: 6842837390871907912}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpringObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,9 +207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b672b28618899634a9269e3ac43881d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  springForce: 15
+  springForce: 25
   holdTime: 0
   holdForce: 0
+  lockInputTime: 0
   lockPosition: 1
   additive: 0
 --- !u!95 &6012700950270545335
@@ -248,7 +249,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -263,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5051146361276193228}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8397615229923921496}
   - component: {fileID: 1088619845174749846}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpringModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
