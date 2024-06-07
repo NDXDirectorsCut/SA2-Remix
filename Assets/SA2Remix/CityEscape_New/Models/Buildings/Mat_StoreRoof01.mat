@@ -104,6 +104,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Flip_Red_Channel: 0
     - _Fresnel_Diffuse_Tint: 0.32
     - _Fresnel_Power: 1
     - _Fresnel_Roughness: 4
@@ -120,7 +121,7 @@ Material:
     - _Position_Influence: 0
     - _Roughness: 1
     - _Roughness_Invert: 1
-    - _Shadow_Strength: 0.792
+    - _Shadow_Strength: 0.901
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

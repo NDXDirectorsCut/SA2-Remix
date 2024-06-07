@@ -202,7 +202,8 @@ public class EnigmaPhysics : MonoBehaviour
                 rBody.velocity += primaryAxis * airAcceleration * Time.deltaTime;
                 
                 float brakeAngle = Vector3.SignedAngle(primaryAxis,rBody.velocity,normal);
-                rBody.velocity = Quaternion.AngleAxis(-brakeAngle * Time.fixedDeltaTime * airBrakeSpeed,normal) * rBody.velocity;
+                float reverseBrakeAngle = Vector3.SignedAngle(primaryAxis,-rBody.velocity,normal);
+                rBody.velocity = Quaternion.AngleAxis(-brakeAngle * ((180-Mathf.Abs(brakeAngle))/180) * Time.fixedDeltaTime * airBrakeSpeed,normal) * rBody.velocity;
 
                 normal = Vector3.RotateTowards(normal,referenceVector,2f*Time.deltaTime,0).normalized;
 

@@ -13,12 +13,33 @@ public class SpringObject : MonoBehaviour
     bool canTrigger;
     Animator animator;
 
+    [Header("Debug")]
+    public int arcPoints = 5;
+    public float gizmoRadius = .125f; 
+    public float previewWeight = 20;
+    public float previewDelta;
+
     // Start is called before the first frame update
     void Start()
     {
         canTrigger = true;
         animator = GetComponent<Animator>();
     }
+
+    void OnDrawGizmos()
+    {
+        Vector3 velocity = transform.up * springForce;
+        Vector3 position = transform.position + transform.up * .5f;
+        for(int i = 0; i<arcPoints; i++)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(position,gizmoRadius);
+            position += velocity * previewDelta;
+            velocity -= Vector3.up * previewWeight * previewDelta;
+        }
+    }
+
+
     IEnumerator ReTrigger()
     {
 	    canTrigger = false;
@@ -28,12 +49,17 @@ public class SpringObject : MonoBehaviour
 
     IEnumerator Spring(Collider col, float force, float time, float holdF, bool lockPos, bool add)
     {
+        yield return new WaitForFixedUpdate();
+
         animator.CrossFadeInFixedTime("Jump",.1f,0,0);
 	    if(col.GetComponent<JumpAction>() != null && col.GetComponent<EnigmaPhysics>() != null)
         {
             JumpAction jumpScript = col.GetComponent<JumpAction>();
             EnigmaPhysics enigmaPhysics = col.GetComponent<EnigmaPhysics>();
             enigmaPhysics.canTriggerAction = false;
+            float corrector = enigmaPhysics.characterState == 1 ? 1/enigmaPhysics.airSpeedPreservation : 1 ;
+            enigmaPhysics.characterState = 2;
+
             if(lockPos == true)
 	        {
                 enigmaPhysics.rBody.position = transform.position + transform.up * .5f;
@@ -41,7 +67,8 @@ public class SpringObject : MonoBehaviour
 	        }
             if(additive == false)
                 enigmaPhysics.rBody.velocity = Vector3.zero;
-            StartCoroutine(jumpScript.Jump(force,time,holdF,transform.up));
+            jumpScript.StopAllCoroutines();
+            StartCoroutine(jumpScript.Jump(force * corrector,time,holdF,transform.up));
         }
         else
         {

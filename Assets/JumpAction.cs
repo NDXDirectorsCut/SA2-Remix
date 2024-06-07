@@ -29,6 +29,7 @@ public class JumpAction : MonoBehaviour
 
     public IEnumerator Jump(float iJumpForce, float jTimer,float aJumpForce, Vector3 direction)
     {
+        yield return new WaitForFixedUpdate();
         float initialJumpTime;
         float origRL;
         bool jumping;

@@ -84,7 +84,7 @@ public class HomingAttackAction : MonoBehaviour
 				particle.Stop();
 				Destroy(curBall,particle.startLifetime);
 				enigmaPhysics.rBody.velocity = Vector3.zero;
-				if(jumpScript != null)
+				if(jumpScript != null && col.GetComponent<SpringObject>() == null)
 				{
 					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,enigmaPhysics.normal));
 				}
