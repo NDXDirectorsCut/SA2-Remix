@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_Wall15
+  m_Name: Grass01_road 1
   m_Shader: {fileID: -6465566751694194690, guid: cffccbcd331dd384587974d2ab37401b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -20,7 +20,7 @@ Material:
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _Roughness_Texture
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -41,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse_Texture:
-        m_Texture: {fileID: 2800000, guid: 064ca0b38c45d74448afe82c350047b6, type: 3}
+        m_Texture: {fileID: 2800000, guid: b20439b64d730ad49983b7fb79c4c994, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -49,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Height_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6b43a6df8ab98a04c827c8d8a9f9e298, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -65,7 +65,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 2800000, guid: a3d47ec61fefd934eb238ce7f6787581, type: 3}
+        m_Texture: {fileID: 2800000, guid: d1a8e5c4d5f94414181c94cb14e36ac8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -77,7 +77,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Roughness_Texture:
-        m_Texture: {fileID: 2800000, guid: e81ada9fdc33e1e42adfeab998712fbc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6b43a6df8ab98a04c827c8d8a9f9e298, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Transmission_Texture:
@@ -87,7 +87,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 1
-    - _Amplitude: 0
+    - _Amplitude: 1
     - _BUILTIN_AlphaClip: 0
     - _BUILTIN_Blend: 0
     - _BUILTIN_CullMode: 2
@@ -99,13 +99,13 @@ Material:
     - _BUILTIN_ZTest: 4
     - _BUILTIN_ZWrite: 1
     - _BUILTIN_ZWriteControl: 0
-    - _Blur: 0
+    - _Blur: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Flip_Red_Channel: 0
-    - _Fresnel_Diffuse_Tint: 0.6
+    - _Fresnel_Diffuse_Tint: 0
     - _Fresnel_Power: 0
     - _Fresnel_Roughness: 3
     - _Fresnel_Strength: 1
@@ -120,7 +120,7 @@ Material:
     - _Parallax: 0.02
     - _Position_Influence: 0
     - _Roughness: 1
-    - _Roughness_Invert: 0.35
+    - _Roughness_Invert: 0.584
     - _Shadow_Strength: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -135,9 +135,9 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Fresnel_Tint: {r: 1, g: 1, b: 1, a: 0}
     - _Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Texture_Tiling: {r: 0.5, g: 1, b: 0, a: 0}
+    - _Texture_Tiling: {r: 0.5, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &1604464290151404713
+--- !u!114 &8328636093350925839
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,44 +1,9 @@
 fileFormatVersion: 2
-guid: 185806316848c4144a1b5d031e7c0f5d
+guid: 5e5ee209f60f83843824ec2bc255983c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: enm_ghunter_bodyA
-    second: {fileID: 2100000, guid: ed66848592b39f24c837beb4be8f0e6f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: enm_ghunter_bodyA2
-    second: {fileID: 2100000, guid: 97ee5f2af6e18fe4680dad7aba183181, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: enm_ghunter_bodyB
-    second: {fileID: 2100000, guid: 2a01311366662994d93fa312db3100c1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: enm_ghunter_bodyB2
-    second: {fileID: 2100000, guid: 544464d95b4954442971785bdcb9caed, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: enm_ghunter_camera
-    second: {fileID: 2100000, guid: db7bfc43c8bc0ae47b4d2be9dcea0200, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: enm_ghunter_lamp
-    second: {fileID: 2100000, guid: 033fd63a086fe42468e7641893557ff9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: enm_ghunter_mark
-    second: {fileID: 2100000, guid: f51632b0695c0d74594eeee175e7d63e, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -67,12 +32,12 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1
@@ -85,8 +50,8 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    keepQuads: 1
-    weldVertices: 0
+    keepQuads: 0
+    weldVertices: 1
     bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
@@ -111,7 +76,7 @@ ModelImporter:
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
-    normalSmoothingSource: 2
+    normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
   humanDescription:

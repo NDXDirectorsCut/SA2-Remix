@@ -244,7 +244,7 @@ public class EnigmaPhysics : MonoBehaviour
                 if(oldState == 2)
                 {
                     float hitAngle = Mathf.Clamp(Vector3.Angle(-rBody.velocity,normal)*1.1f,0,90);
-                    prevFloorPos = hit.transform.position;
+                    //prevFloorPos = hit.transform.position;
                     rBody.velocity = rBody.velocity.normalized * Mathf.Clamp(hitAngle/90,0,1) * rBody.velocity.magnitude;
                 }
 
