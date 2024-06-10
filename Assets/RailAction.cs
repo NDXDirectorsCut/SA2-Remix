@@ -41,7 +41,7 @@ public class RailAction : MonoBehaviour
 	IEnumerator ReGrind()
 	{
 		canGrind = false;
-		yield return new WaitForSeconds(.25f);
+		yield return new WaitForSeconds(.5f);
 		canGrind = true;
 	}
     // Update is called once per frame
@@ -58,7 +58,8 @@ public class RailAction : MonoBehaviour
 				{
 					Spline checkRail = checkObject.GetComponent<Spline>();
 					CurveSample checkSample = checkRail.GetProjectionSample(checkRail.transform.InverseTransformPoint(transform.position));
-					float checkDistance = Vector3.Distance(transform.position,checkRail.transform.position + checkSample.location);
+					Vector3 checkPosition = checkRail.transform.TransformPoint(checkSample.location) - checkRail.transform.TransformDirection(checkSample.up) *.5f;
+					float checkDistance = Vector3.Distance(transform.position, checkPosition );
 					if(checkDistance < minDistance)
 					{
 						rail = checkRail;
@@ -71,7 +72,14 @@ public class RailAction : MonoBehaviour
 		if(rail != null)
 		{
 			CurveSample projectionSample = rail.GetProjectionSample(rail.transform.InverseTransformPoint(transform.position));
-			float distance = Vector3.Distance(transform.position,rail.transform.position + projectionSample.location - projectionSample.up *.5f);
+			//Debug.DrawRay(projectionSample.location)
+			Vector3 projectionForward = rail.transform.TransformDirection(projectionSample.tangent);
+			Vector3 projectionRight = Vector3.Cross(projectionForward,projectionSample.up);
+			Vector3 projectionUp = Vector3.Cross(projectionRight,projectionForward);
+
+			Vector3 railPosition = rail.transform.TransformPoint(projectionSample.location) - projectionUp *.5f;//rail.transform.rotation * (rail.transform.position + projectionSample.location - projectionSample.up *.5f);
+			float distance = Vector3.Distance(transform.position,railPosition);
+			Debug.DrawRay(railPosition,projectionUp,Color.blue);
 			if(attached == false && canGrind == true)
 			{
 				
@@ -91,8 +99,9 @@ public class RailAction : MonoBehaviour
 					}
 					sumLength += projectionSample.distanceInCurve;
 					posInRail = sumLength;
-					backwards = Vector3.Angle(enigmaPhysics.forwardReference,projectionSample.tangent) > 90 ? true : false;
-					float axisAlign =  1-Vector3.Angle(backwards ? -projectionSample.tangent : projectionSample.tangent, enigmaPhysics.rBody.velocity)/90;
+					//Vector3 projectionForward = rail.transform.TransformDirection(projectionSample.tangent);
+					backwards = Vector3.Angle(enigmaPhysics.forwardReference,projectionForward) > 90 ? true : false;
+					float axisAlign =  1-Vector3.Angle(backwards ? -projectionForward : projectionForward, enigmaPhysics.rBody.velocity)/90;
 					Debug.Log(axisAlign);
 					speed = backwards ? -enigmaPhysics.rBody.velocity.magnitude * axisAlign : enigmaPhysics.rBody.velocity.magnitude * axisAlign;
 					attached = true;
@@ -133,13 +142,14 @@ public class RailAction : MonoBehaviour
 				inputAxis =	transform.InverseTransformDirection(enigmaPhysics.primaryAxis);
 				xAxis = Mathf.SmoothDamp(xAxis,inputAxis.x,ref curVelo,turnTime);
 
-				Vector3 rightVector = Vector3.Cross(railSample.tangent,railSample.up);
-				Vector3 normalVector = Vector3.Cross(rightVector,railSample.tangent);
+				Vector3 forwardVector = rail.transform.TransformDirection(railSample.tangent);
+				Vector3 rightVector = Vector3.Cross(forwardVector,railSample.up);
+				Vector3 normalVector = Vector3.Cross(rightVector,forwardVector);
 
 				if(Input.GetButtonDown("Jump"))
 				{
-					enigmaPhysics.rBody.velocity = railSample.tangent * speed * enigmaPhysics.airSpeedPreservation;
-					Vector3 jumpVector = Quaternion.AngleAxis(-xAxis*60f,railSample.tangent) * normalVector;
+					enigmaPhysics.rBody.velocity = forwardVector * speed * enigmaPhysics.airSpeedPreservation;
+					Vector3 jumpVector = Quaternion.AngleAxis(-xAxis*60f,forwardVector) * normalVector;
 					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,jumpVector));
 					StartCoroutine(ReGrind());
 					//enigmaPhysics.rBody.velocity = enigmaPhysics.rBody.velocity.normalized * enigmaPhysics.rBody.velocity.magnitude * enigmaPhysics.airSpeedPreservation;
@@ -156,10 +166,10 @@ public class RailAction : MonoBehaviour
 
 				Debug.DrawRay(rail.transform.position + railSample.location,normalVector,Color.green);
 
-				enigmaPhysics.forwardReference = backwards ? -railSample.tangent : railSample.tangent;
-				transform.rotation = Quaternion.LookRotation(railSample.tangent,normalVector);
+				enigmaPhysics.forwardReference = backwards ? -forwardVector : forwardVector;
+				transform.rotation = Quaternion.LookRotation(forwardVector,normalVector);
 
-				transform.position = rail.transform.position + railSample.location;// + normalVector*.5f;
+				transform.position = rail.transform.TransformPoint(railSample.location);//rail.transform.position + railSample.location;// + normalVector*.5f;
 				//Effect
 				if(Mathf.Abs(speed) > sparkSpeed && sparkEffect.GetComponent<ParticleSystem>().isPlaying == false)
 				{
@@ -171,14 +181,14 @@ public class RailAction : MonoBehaviour
 					sparkEffect.GetComponent<ParticleSystem>().Stop();	
 				}		
 				//Physics
-				float turnAngle = Vector3.SignedAngle(railSample.tangent,oldTangent,normalVector) * 1/Time.fixedDeltaTime * 0.001f;
-				oldTangent = railSample.tangent;
+				float turnAngle = Vector3.SignedAngle(forwardVector,oldTangent,normalVector) * 1/Time.fixedDeltaTime * 0.001f;
+				oldTangent = forwardVector;
 				//Debug.Log(turnAngle);
 				balanceSway = Mathf.SmoothDamp(balanceSway,turnAngle * swaySensitivity ,ref curBalVelo,swayTime);
 
 				float sway = backwards ? -(xAxis + balanceSway) : xAxis + balanceSway;
 				sway = Mathf.Clamp(sway,-1,1);
-				//enigmaPhysics.normal = Quaternion.AngleAxis(sway*75f, railSample.tangent) * normalVector;
+				//enigmaPhysics.normal = Quaternion.AngleAxis(sway*75f, forwardVector) * normalVector;
 
 				Debug.DrawRay(transform.position,inputAxis*2,Color.red);
 				if(sway > 0)

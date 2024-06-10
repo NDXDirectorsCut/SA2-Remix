@@ -105,9 +105,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Flip_Red_Channel: 0
-    - _Fresnel_Diffuse_Tint: 0
-    - _Fresnel_Power: 2
-    - _Fresnel_Roughness: 4
+    - _Fresnel_Diffuse_Tint: 0.6
+    - _Fresnel_Power: 0
+    - _Fresnel_Roughness: 2
     - _Fresnel_Strength: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -120,7 +120,7 @@ Material:
     - _Parallax: 0.02
     - _Position_Influence: 0
     - _Roughness: 1
-    - _Roughness_Invert: 1
+    - _Roughness_Invert: 0.431
     - _Shadow_Strength: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

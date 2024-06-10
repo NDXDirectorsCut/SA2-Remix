@@ -86,7 +86,7 @@ public class HomingAttackAction : MonoBehaviour
 				enigmaPhysics.rBody.velocity = Vector3.zero;
 				if(jumpScript != null && col.GetComponent<SpringObject>() == null)
 				{
-					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,enigmaPhysics.normal));
+					//StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,enigmaPhysics.normal));
 				}
 				//StopAllCoroutines();
 				

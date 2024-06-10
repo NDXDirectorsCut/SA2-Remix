@@ -43,7 +43,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse_Texture:
-        m_Texture: {fileID: 2800000, guid: ae8100ad5baf05340b69a93e6c5ddae4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4f94fde969aeab841bd3f8219c092e4c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -108,8 +108,8 @@ Material:
     - _DstBlend: 0
     - _Flip_Red_Channel: 0
     - _Fresnel_Diffuse_Tint: 0
-    - _Fresnel_Power: 2
-    - _Fresnel_Roughness: 1
+    - _Fresnel_Power: 0
+    - _Fresnel_Roughness: 3
     - _Fresnel_Strength: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5

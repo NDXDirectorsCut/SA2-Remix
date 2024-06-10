@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Homing
+  - Rail
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,72 @@
+# Blender 4.1.1 MTL File: 'CER1.blend'
+# www.blender.org
+
+newmtl Material_#1641
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_builwall10_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_builwall10_dif.png
+
+newmtl cte_builparts_ks2_decoration02
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration02_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration02_dif.png
+
+newmtl cte_builparts_ks2_stairs05
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_stairs05_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_stairs05_dif.png
+
+newmtl cte_ground_ks2_tile09
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_tile09_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_tile09_dif.png
+
+newmtl cte_metal_kd1_pipe
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_metal_kd1_pipe_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_metal_kd1_pipe_dif.png
+
+newmtl cte_wall_ks2_wall15
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall15_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall15_dif.png
+
+newmtl cte_wall_ks2_wall17
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall17_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall17_dif.png

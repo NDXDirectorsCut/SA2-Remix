@@ -57,7 +57,7 @@ public class SpringObject : MonoBehaviour
             JumpAction jumpScript = col.GetComponent<JumpAction>();
             EnigmaPhysics enigmaPhysics = col.GetComponent<EnigmaPhysics>();
             enigmaPhysics.canTriggerAction = false;
-            float corrector = enigmaPhysics.characterState == 1 ? 1/enigmaPhysics.airSpeedPreservation : 1 ;
+            float corrector = 1;//enigmaPhysics.characterState == 1 ? 1/enigmaPhysics.airSpeedPreservation : 1 ;
             enigmaPhysics.characterState = 2;
 
             if(lockPos == true)

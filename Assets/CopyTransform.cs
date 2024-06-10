@@ -19,9 +19,9 @@ public class CopyTransform : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        obj.position = Vector3.Lerp(obj.position,target.position + posOffset,posLerp) ;
-        obj.rotation = Quaternion.Lerp(obj.rotation,target.rotation * Quaternion.Euler(rotOffset),rotLerp) ;
+        obj.position = target.position + posOffset;//Vector3.Lerp(obj.position,target.position + posOffset,posLerp) ;
+        obj.rotation = target.rotation *Quaternion.Euler(rotOffset);//Quaternion.Lerp(obj.rotation,target.rotation * Quaternion.Euler(rotOffset),rotLerp) ;
     }
 }

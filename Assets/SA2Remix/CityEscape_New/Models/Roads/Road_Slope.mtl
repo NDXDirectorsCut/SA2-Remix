@@ -1,0 +1,202 @@
+# Blender 4.1.1 MTL File: 'CER1.blend'
+# www.blender.org
+
+newmtl cte_ground_kd1_line01
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_line01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_line01_dif.png
+
+newmtl cte_ground_kd1_line01.026
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_line01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_line01_dif.png
+
+newmtl cte_ground_kd1_line01.038
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_line01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_line01_dif.png
+
+newmtl cte_ground_kd1_line01.039
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_line01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_line01_dif.png
+
+newmtl cte_ground_kd1_roada1_blend
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+
+newmtl cte_ground_kd1_roada1_blend.025
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+
+newmtl cte_ground_kd1_roada1_blend.037
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+
+newmtl cte_ground_kd1_roada1_blend.038
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+
+newmtl cte_ground_kd1_roada4_blend
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roada4_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roada2_dif.png
+
+newmtl cte_ground_kd1_roada4_blend.026
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roada4_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roada2_dif.png
+
+newmtl cte_ground_kd1_roada4_blend.038
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roada4_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roada2_dif.png
+
+newmtl cte_ground_kd1_roada4_blend.039
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roada4_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roada2_dif.png
+
+newmtl cte_ground_kd1_roadc1
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadc1_dif.PNG
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadc1_dif.png
+
+newmtl cte_ground_kd1_roadc1.026
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadc1_dif.PNG
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadc1_dif.png
+
+newmtl cte_ground_kd1_roadc1.038
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadc1_dif.PNG
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadc1_dif.png
+
+newmtl cte_ground_kd1_roadc1.039
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadc1_dif.PNG
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadc1_dif.png
+
+newmtl cte_ground_kd1_roadd1
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadd1_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadd1_dif.png
+
+newmtl cte_ground_kd1_roadd1.026
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadd1_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadd1_dif.png
+
+newmtl cte_ground_kd1_roadd1.038
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadd1_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadd1_dif.png
+
+newmtl cte_ground_kd1_roadd1.039
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadd1_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_kd1_roadd1_dif.png
