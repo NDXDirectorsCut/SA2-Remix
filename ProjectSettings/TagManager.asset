@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Homing
   - Rail
+  - Enemy
   layers:
   - Default
   - TransparentFX
