@@ -12,6 +12,7 @@ public class HunterAI : MonoBehaviour
     public float projectileLife;
     public float projectileSpeed;
     public float projectileGravity;
+    public float projectileRadius;
     public GameObject Projectile;
     public GameObject MuzzleFlash;
     float turnRate;
@@ -34,6 +35,10 @@ public class HunterAI : MonoBehaviour
         {
             projectile.transform.position += velocity * Time.deltaTime;
             velocity += -Vector3.up * Time.deltaTime * projectileGravity;
+	    if(Physics.CheckSphere(projectile.transform.position,projectileRadius))
+	    {
+		Destroy(projectile);
+	    }
             yield return new WaitForFixedUpdate();
         }
     }
@@ -48,7 +53,7 @@ public class HunterAI : MonoBehaviour
                 break;
             Debug.Log(turnRate);
             MuzzleFlash.GetComponent<ParticleSystem>().Play();
-	        GameObject shot = Instantiate(Projectile,MuzzleFlash.transform.position,Quaternion.identity);
+	    GameObject shot = Instantiate(Projectile,MuzzleFlash.transform.position,Quaternion.identity);
             animator.CrossFadeInFixedTime("Shoot",.125f,0,0);
             //yield return new WaitForSeconds(.15f);
             StartCoroutine(ProjectileBehavior(shot,-(MuzzleFlash.transform.position - (target.position + target.up*.75f)) * projectileSpeed));
@@ -65,10 +70,17 @@ public class HunterAI : MonoBehaviour
         float minDist = range+1;
         foreach(GameObject potentialTarget in potentialTargets)
         {
-            if(Vector3.Distance(transform.position,potentialTarget.transform.position) < range && Vector3.Distance(transform.position,potentialTarget.transform.position) < minDist)
+	    float dist = Vector3.Distance(transform.position,potentialTarget.transform.position);
+
+            if(dist < range && dist < minDist)
             {
-                minDist = Vector3.Distance(transform.position,potentialTarget.transform.position);
-                tempTarget = potentialTarget.transform;
+		RaycastHit testHit;
+		Physics.Raycast(transform.position+transform.up*1.5f, -(transform.position - potentialTarget.transform.position), out testHit, dist,LayerMask.GetMask("Default"));
+		if(testHit.transform == null)
+		{
+                    minDist = Vector3.Distance(transform.position,potentialTarget.transform.position);
+               	    tempTarget = potentialTarget.transform;
+		}
             }
         }
 
@@ -102,7 +114,8 @@ public class HunterAI : MonoBehaviour
 	        animator.SetFloat("TurnRate",turnRate);
         }
 
-        transform.forward = Vector3.MoveTowards(transform.forward,targetDir,turnSpeed * Time.deltaTime); 
+        transform.rotation = Quaternion.RotateTowards(Quaternion.LookRotation(transform.forward,normal)
+ , Quaternion.LookRotation(targetDir,normal) ,turnSpeed * Time.deltaTime );//Vector3.MoveTowards(transform.forward,targetDir,turnSpeed * Time.deltaTime); 
 
     }
 }

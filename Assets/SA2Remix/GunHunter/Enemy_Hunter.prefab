@@ -72,12 +72,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3672161699258196314}
-  range: 15
-  turnSpeed: 2
+  range: 22.5
+  turnSpeed: 45
   shootDelay: 2
   projectileLife: 2
   projectileSpeed: 5
-  projectileGravity: 0
+  projectileGravity: 1
   Projectile: {fileID: 1757668392618613685, guid: a91d3fde24a41a144b4dfab2f10cbd58, type: 3}
   MuzzleFlash: {fileID: 3238678543761230022}
 --- !u!1 &1926371965998863415
