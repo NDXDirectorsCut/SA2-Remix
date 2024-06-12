@@ -9,6 +9,9 @@ public class HunterAI : MonoBehaviour
     public float range;
     public float turnSpeed;
     public float shootDelay;
+    public float projectileLife;
+    public float projectileSpeed;
+    public float projectileGravity;
     public GameObject Projectile;
     public GameObject MuzzleFlash;
     float turnRate;
@@ -23,22 +26,42 @@ public class HunterAI : MonoBehaviour
         normal = Vector3.up;
     }
 
+    IEnumerator ProjectileBehavior(GameObject projectile, Vector3 startVelocity)
+    {
+        Destroy(projectile,projectileLife);
+        Vector3 velocity = startVelocity;
+        while(projectile != null)
+        {
+            projectile.transform.position += velocity * Time.deltaTime;
+            velocity += -Vector3.up * Time.deltaTime * projectileGravity;
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
     IEnumerator Shoot()
     {
-	while(target != null)
-	{
-	    shooting = true;
-	    yield return new WaitForSeconds(shootDelay);
-	    GameObject shot = Instantiate(Projectile,MuzzleFlash.transform.position,Quaternion.identity);
-	}
-	yield return null;
+	    while(target != null && Mathf.Abs(turnRate) < .5f)
+	    {
+	        shooting = true;
+	        yield return new WaitForSeconds(shootDelay);
+            if(Mathf.Abs(turnRate) > .5f || target == null)
+                break;
+            Debug.Log(turnRate);
+            MuzzleFlash.GetComponent<ParticleSystem>().Play();
+	        GameObject shot = Instantiate(Projectile,MuzzleFlash.transform.position,Quaternion.identity);
+            animator.CrossFadeInFixedTime("Shoot",.125f,0,0);
+            //yield return new WaitForSeconds(.15f);
+            StartCoroutine(ProjectileBehavior(shot,-(MuzzleFlash.transform.position - (target.position + target.up*.75f)) * projectileSpeed));
+	    }
+	    yield return null;
+        shooting = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         GameObject[] potentialTargets = GameObject.FindGameObjectsWithTag("Player");
-	Transform tempTarget = null;
+	    Transform tempTarget = null;
         float minDist = range+1;
         foreach(GameObject potentialTarget in potentialTargets)
         {
@@ -49,8 +72,11 @@ public class HunterAI : MonoBehaviour
             }
         }
 
-	target = tempTarget;	
-	animator.SetBool("Target",tempTarget != null);
+	    target = tempTarget;	
+	    animator.SetBool("Target",tempTarget != null);
+
+        turnRate = Vector3.SignedAngle(transform.forward,targetDir,transform.up);
+	    
 
         if(Physics.Raycast(transform.position + transform.up * 1.5f,-transform.up,out hit,2f))
         {
@@ -58,26 +84,25 @@ public class HunterAI : MonoBehaviour
             transform.position = hit.point;
             if(target != null)
             {
-
+                Debug.Log(turnRate);
                 targetDir = Vector3.ProjectOnPlane((transform.position - target.position).normalized,normal);
-		if(shooting == false)
-			StartCoroutine(Shoot());
-	    }
-	    else
-	    {
-		targetDir = transform.forward;
-	    }
+                if(shooting == false && Mathf.Abs(turnRate) < .5f)
+                {
+                    StartCoroutine(Shoot());
+                }
+            }
+            else
+	        {
+                targetDir = transform.forward;
+            }
             transform.rotation = Quaternion.LookRotation(transform.forward,normal);
-            Debug.Log("Hit");
-            Debug.DrawRay(hit.point,normal,Color.blue);
+            //Debug.Log("Hit");
+            //Debug.DrawRay(hit.point,normal,Color.blue);
+            grounded = hit.transform == null ? false : true;
+	        animator.SetFloat("TurnRate",turnRate);
         }
-        grounded = hit.transform == null ? false : true;
-	
-	turnRate = Vector3.SignedAngle(transform.forward,targetDir,transform.up);
 
-	transform.forward = Vector3.MoveTowards(transform.forward,targetDir,turnSpeed * Time.deltaTime); 
-        
+        transform.forward = Vector3.MoveTowards(transform.forward,targetDir,turnSpeed * Time.deltaTime); 
 
-	animator.SetFloat("TurnRate",turnRate);
     }
 }
