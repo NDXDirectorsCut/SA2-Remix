@@ -104,6 +104,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Flip_Red_Channel: 0
+    - _Fresnel_Diffuse_Tint: 0.6
     - _Fresnel_Power: 2
     - _Fresnel_Roughness: 1
     - _Fresnel_Strength: 1

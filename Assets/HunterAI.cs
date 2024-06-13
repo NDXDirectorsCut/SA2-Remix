@@ -35,11 +35,11 @@ public class HunterAI : MonoBehaviour
         {
             projectile.transform.position += velocity * Time.deltaTime;
             velocity += -Vector3.up * Time.deltaTime * projectileGravity;
-	    if(Physics.CheckSphere(projectile.transform.position,projectileRadius))
-	    {
-		Destroy(projectile);
-	    }
-            yield return new WaitForFixedUpdate();
+	        if(Physics.CheckSphere(projectile.transform.position,projectileRadius))
+	        {
+		        Destroy(projectile);
+	        }
+            yield return new WaitForEndOfFrame();
         }
     }
 
@@ -53,7 +53,7 @@ public class HunterAI : MonoBehaviour
                 break;
             Debug.Log(turnRate);
             MuzzleFlash.GetComponent<ParticleSystem>().Play();
-	    GameObject shot = Instantiate(Projectile,MuzzleFlash.transform.position,Quaternion.identity);
+	        GameObject shot = Instantiate(Projectile,MuzzleFlash.transform.position,Quaternion.identity);
             animator.CrossFadeInFixedTime("Shoot",.125f,0,0);
             //yield return new WaitForSeconds(.15f);
             StartCoroutine(ProjectileBehavior(shot,-(MuzzleFlash.transform.position - (target.position + target.up*.75f)) * projectileSpeed));
