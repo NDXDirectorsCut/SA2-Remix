@@ -5,6 +5,7 @@ using UnityEngine;
 public class RingObject : MonoBehaviour
 {
     public int ringValue = 1;
+    public bool canPickup = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class RingObject : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-	if(col.GetComponent<RingAction>() != null)
+	if(col.GetComponent<RingAction>() != null && canPickup == true)
 	{
 	    RingAction ringScript = col.GetComponent<RingAction>();
 	    ringScript.ringCount += ringValue;

@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 5750115414667363261}
   - component: {fileID: 3751448682355088038}
   - component: {fileID: 8294094154948201861}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11617,7 +11617,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2878
+  m_VersionIndex: 2890
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -11717,7 +11717,8 @@ GameObject:
   - component: {fileID: 5583917377829538280}
   - component: {fileID: 4904184671554126602}
   - component: {fileID: 1287877713197123694}
-  m_Layer: 0
+  - component: {fileID: 737775875904519421}
+  m_Layer: 2
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11774,3 +11775,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringValue: 1
+--- !u!114 &737775875904519421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931188300197002113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766d5ab6ce8027b4b8635227901dc114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sinPos: {x: 0, y: 0.06666666, z: 0}
+  additivePos: 0
+  posSpeed: 1
+  swayRot: {x: 0, y: 180, z: 0}
+  swaySpeed: 1
+  randomRange: 10

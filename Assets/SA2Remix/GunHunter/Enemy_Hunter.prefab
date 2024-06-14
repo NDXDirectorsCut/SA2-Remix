@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1615960927083084418}
   m_Layer: 2
   m_Name: ModelHolder
-  m_TagString: Untagged
+  m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,6 +78,7 @@ MonoBehaviour:
   projectileLife: 2
   projectileSpeed: 5
   projectileGravity: 1
+  projectileRadius: 0.2
   Projectile: {fileID: 1757668392618613685, guid: a91d3fde24a41a144b4dfab2f10cbd58, type: 3}
   MuzzleFlash: {fileID: 3238678543761230022}
 --- !u!1 &1926371965998863415

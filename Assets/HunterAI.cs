@@ -35,10 +35,18 @@ public class HunterAI : MonoBehaviour
         {
             projectile.transform.position += velocity * Time.deltaTime;
             velocity += -Vector3.up * Time.deltaTime * projectileGravity;
-	        if(Physics.CheckSphere(projectile.transform.position,projectileRadius))
-	        {
-		        Destroy(projectile);
-	        }
+	    Collider[] projHit = Physics.OverlapSphere(projectile.transform.position,projectileRadius);
+	    for(int i = 0; i< projHit.Length; i++)
+	    {
+		if(projHit[i].GetComponent<DamageAction>() != null)
+		{
+		    DamageAction dmgScript = projHit[i].GetComponent<DamageAction>();
+		    projectile.transform.position = projHit[i].transform.position + projHit[i].transform.up * .5f;
+		    StartCoroutine(dmgScript.TakeDamage());
+		}
+	    }
+	    if(projHit.Length > 0)
+		Destroy(projectile,.1f);
             yield return new WaitForEndOfFrame();
         }
     }
