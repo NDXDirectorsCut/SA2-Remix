@@ -63,7 +63,7 @@ public class SpringObject : MonoBehaviour
             if(lockPos == true)
 	        {
                 enigmaPhysics.rBody.position = transform.position + transform.up * .5f;
-		        Debug.Log("lock Position");
+		        //Debug.Log("lock Position");
 	        }
             if(additive == false)
                 enigmaPhysics.rBody.velocity = Vector3.zero;

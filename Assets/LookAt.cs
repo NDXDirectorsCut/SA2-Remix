@@ -5,6 +5,7 @@ using UnityEngine;
 public class LookAt : MonoBehaviour
 {
 	public Transform target;
+    public Vector3 rotOffset;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,6 @@ public class LookAt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.LookRotation(target.position,transform.up);
+        transform.forward = -(transform.position - target.position);
     }
 }

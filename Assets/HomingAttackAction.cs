@@ -32,15 +32,28 @@ public class HomingAttackAction : MonoBehaviour
 			float hitAngle = Vector3.Angle(hitDir,enigmaPhysics.primaryAxis);
 			if(hitAngle<maxAngle)
 			{
-				Debug.Log(hitCol.transform + " " + hitAngle);
+				//Debug.Log(hitCol.transform + " " + hitAngle);
 				target = hitCol.transform;
 				maxAngle = hitAngle;
 			}
 		    }
        	}
+
+		if(target != null)
+		{
+			Vector3 targetDir = -(transform.position - target.position).normalized; 
+			float dist = Vector3.Distance(transform.position,target.position);
+			RaycastHit testHit;
+			Physics.Raycast(transform.position+transform.up*.5f,targetDir, out testHit, dist,LayerMask.GetMask("Default"));
+			if(testHit.transform != null)
+			{
+				target = null;
+			}
+		}
+
 		if(target == null)
 		{
-			Debug.Log("No targets in range");
+			//Debug.Log("No targets in range");
 			StartCoroutine(AirDash(airDashForce));
 			yield return null;
 		}
@@ -49,7 +62,7 @@ public class HomingAttackAction : MonoBehaviour
 			//target.position += Vector3.up*2;
 			enigmaPhysics.rBody.velocity = Vector3.zero;
 			StartCoroutine(HomeIn(target,homingForce,homingTurn));
-			Debug.Log(target);
+			//Debug.Log(target);
 		}
 		yield return null;
 	}
@@ -68,15 +81,17 @@ public class HomingAttackAction : MonoBehaviour
 		while(target != null)
 		{
 			Collider col = target.GetComponent<Collider>();
-			float clampedDist = Mathf.Clamp(Vector3.Distance(transform.position,col.ClosestPoint(transform.position+transform.up*.5f)),0,1);
 			Vector3 hitDir = -(transform.position - target.position).normalized;
+			Vector3 targetPos = col.ClosestPoint(transform.position+transform.up*.5f);// + hitDir*.5f;
+			float clampedDist = Mathf.Clamp(Vector3.Distance(transform.position,targetPos),0,1);
+
 			Vector3 crossVector = Vector3.Cross(enigmaPhysics.rBody.velocity,hitDir);
 			float angle = Vector3.SignedAngle(enigmaPhysics.rBody.velocity,hitDir,crossVector);
 			enigmaPhysics.canTriggerAction = false;
 			Debug.DrawRay(col.ClosestPoint(transform.position+transform.up*.5f),-hitDir,Color.blue);
 			if(clampedDist<.8f)
 			{
-				transform.position = col.ClosestPoint(transform.position+transform.up*.5f);
+				transform.position = targetPos;//col.ClosestPoint(transform.position+transform.up*.5f);
 				target = null;
 				animator.SetBool("Scripted Animation",false);
 				enigmaPhysics.canTriggerAction = true;
@@ -84,8 +99,14 @@ public class HomingAttackAction : MonoBehaviour
 				particle.Stop();
 				Destroy(curBall,particle.startLifetime);
 				enigmaPhysics.rBody.velocity = Vector3.zero;
-				if(jumpScript != null && col.GetComponent<SpringObject>() == null)
+				if(col.GetComponentInChildren<EnemyDamageAction>())
 				{
+					EnemyDamageAction enmDmgScript = col.GetComponentInChildren<EnemyDamageAction>();
+					StartCoroutine(enmDmgScript.EnemyDamage());
+				}
+				if(jumpScript != null && col.transform.parent.GetComponentInChildren<SpringObject>() == null)
+				{
+					Debug.Log("Not a Spring");
 					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,enigmaPhysics.normal));
 				}
 				//StopAllCoroutines();

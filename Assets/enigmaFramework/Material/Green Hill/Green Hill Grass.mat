@@ -125,10 +125,11 @@ Material:
     - _Secondary_Blend_Strength: 20
     - _Secondary_Material_Blend: 1.5
     - _Secondary_Material_Strength: 0.725
-    - _Secondary_Normal_Strength: 0.43
+    - _Secondary_Normal_Strength: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Test: 0
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
@@ -146,6 +147,7 @@ Material:
     - _Secondary_Material_Remap: {r: 9, g: -0.2, b: 0, a: 0}
     - _Secondary_Metallic_Remap: {r: 0, g: 0, b: 0, a: 0}
     - _Secondary_Roughness_Remap: {r: 1, g: 1, b: 0, a: 0}
+    - _Test: {r: 90, g: 180, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &229134298719274915
 MonoBehaviour:

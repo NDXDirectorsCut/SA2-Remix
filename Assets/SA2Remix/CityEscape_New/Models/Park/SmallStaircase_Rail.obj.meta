@@ -3,7 +3,12 @@ guid: 9778fd24771cc814291f48a17cc4f95e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cte_metal_kd1_pipe
+    second: {fileID: 2100000, guid: 5dd88a6c85e10374da6c5cd01345dbbb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

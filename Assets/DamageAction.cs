@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class DamageAction : MonoBehaviour
 {
     RingAction ringScript;
+    public bool canTakeDamage = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,9 +42,9 @@ public class DamageAction : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
-	if(coll.gameObject.tag == "Damage")
-	{
-	    StartCoroutine(TakeDamage());
-	}
+        if(coll.gameObject.tag == "Damage" && canTakeDamage == true)
+        {
+            StartCoroutine(TakeDamage());
+        }
     }
 }

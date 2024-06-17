@@ -113,14 +113,14 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 1
-    - _Metallic_Invert: 0.269
+    - _Metallic_Invert: 0.264
     - _Mode: 0
     - _Normal_Strength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Position_Influence: 0
     - _Roughness: 1
-    - _Roughness_Invert: 0.35
+    - _Roughness_Invert: 0.413
     - _Shadow_Strength: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

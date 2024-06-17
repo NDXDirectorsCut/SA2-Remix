@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_Flowerz04
-  m_Shader: {fileID: -6465566751694194690, guid: aa1269484d3e2ec48b45f7e611726f32, type: 3}
-  m_Parent: {fileID: 0}
+  m_Shader: {fileID: -6465566751694194690, guid: cffccbcd331dd384587974d2ab37401b, type: 3}
+  m_Parent: {fileID: 2100000, guid: 297d571779282944bb46771b4815b371, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _BUILTIN_ALPHATEST_ON
@@ -26,129 +26,24 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _Diffuse_Texture:
         m_Texture: {fileID: 2800000, guid: 10c2b7e53cf49f2429f9c58885579a29, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Height_Map:
-        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 10c2b7e53cf49f2429f9c58885579a29, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Metallic_Texture:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Normal_Map:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _Roughness_Texture:
         m_Texture: {fileID: 2800000, guid: 44c5b4826d373814395e8d323c719469, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Transmission_Texture:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _Alpha: 1
-    - _Amplitude: 0
-    - _BUILTIN_AlphaClip: 1
-    - _BUILTIN_Blend: 0
-    - _BUILTIN_CullMode: 2
-    - _BUILTIN_DstBlend: 0
-    - _BUILTIN_QueueControl: 0
-    - _BUILTIN_QueueOffset: 0
-    - _BUILTIN_SrcBlend: 1
-    - _BUILTIN_Surface: 0
-    - _BUILTIN_ZTest: 4
-    - _BUILTIN_ZWrite: 1
-    - _BUILTIN_ZWriteControl: 1
-    - _Blur: 0
-    - _BumpScale: 1
-    - _Cos_Speed: 0
-    - _Cos_Strength: 0
-    - _Cutoff: 0.678
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _Flip_Red_Channel: 0
-    - _Fresnel_Diffuse_Tint: 1
-    - _Fresnel_Power: 2
-    - _Fresnel_Roughness: 4
-    - _Fresnel_Strength: 0.5
-    - _GlossMapScale: 1
-    - _Glossiness: 0
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Metallic_Invert: 0
-    - _Mode: 1
-    - _Normal_Strength: -2
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _Position_Influence: 0
-    - _Roughness: 1
-    - _Roughness_Invert: 1
-    - _Shadow_Strength: 0.803
-    - _Sin_Speed: 0
-    - _Sin_Strength: 0
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _Steps: 5
-    - _Transmission: 0
-    - _UVSec: 0
-    - _ZWrite: 1
+    m_Floats: []
     m_Colors:
     - _Base_Bend: {r: 0, g: 1, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Cos_Direction: {r: 0, g: 1, b: 0, a: 0}
-    - _Cos_Origin: {r: 0, g: 0, b: 0, a: 0}
-    - _Cos_Remap: {r: 0, g: 0, b: 0, a: 0}
-    - _Diffuse_Color: {r: 1, g: 1, b: 1, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Fresnel_Tint: {r: 1, g: 1, b: 1, a: 0}
     - _Sin_Direction: {r: 0, g: 1, b: 0, a: 0}
-    - _Sin_Origin: {r: 0, g: 0, b: 0, a: 0}
-    - _Sin_Remap: {r: 0, g: 0, b: 0, a: 0}
-    - _Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2397462043379872857
 MonoBehaviour:

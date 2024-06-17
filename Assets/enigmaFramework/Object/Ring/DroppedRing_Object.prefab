@@ -20,6 +20,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DroppedRing_Object
       objectReference: {fileID: 0}
+    - target: {fileID: 1287877713197123694, guid: 396c619cf62025344abc54f6ca1aa1f6, type: 3}
+      propertyPath: canPickup
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904184671554126602, guid: 396c619cf62025344abc54f6ca1aa1f6, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7963663363987442999, guid: 396c619cf62025344abc54f6ca1aa1f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.354423

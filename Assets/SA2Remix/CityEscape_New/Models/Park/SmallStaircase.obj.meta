@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: cte_builparts_ks2_decoration02
+    second: {fileID: 2100000, guid: 6730550dee423aa4098fbc3d365587a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: cte_builparts_ks2_stairs05
     second: {fileID: 2100000, guid: 138807208ff090546b5a9a3d91d91ba4, type: 2}
   - first:

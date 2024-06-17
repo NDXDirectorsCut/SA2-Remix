@@ -1,0 +1,362 @@
+# Blender 4.1.1 MTL File: 'CER2.blend'
+# www.blender.org
+
+newmtl cte_builparts_ks2_decoration01.004
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration01_dif.png
+
+newmtl cte_builparts_ks2_decoration01.005
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration01_dif.png
+
+newmtl cte_builparts_ks2_decoration01.006
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration01_dif.png
+
+newmtl cte_builparts_ks2_decoration02.005
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration02_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration02_dif.png
+
+newmtl cte_builparts_ks2_decoration02.006
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration02_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration02_dif.png
+
+newmtl cte_builparts_ks2_decoration02.007
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration02_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration02_dif.png
+
+newmtl cte_builparts_ks2_decoration03.004
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration03_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration03_dif.png
+
+newmtl cte_builparts_ks2_decoration03.005
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration03_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration03_dif.png
+
+newmtl cte_builparts_ks2_decoration03.006
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration03_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration03_dif.png
+
+newmtl cte_builparts_ks2_decoration04.004
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration04_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration04_dif.png
+
+newmtl cte_builparts_ks2_decoration04.005
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration04_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration04_dif.png
+
+newmtl cte_builparts_ks2_decoration04.006
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration04_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_builparts_ks2_decoration04_dif.png
+
+newmtl cte_ground_ks2_grass.004
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_grass02_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_grass02_dif.png
+
+newmtl cte_ground_ks2_grass.005
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_grass02_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_grass02_dif.png
+
+newmtl cte_ground_ks2_grass.006
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_grass02_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_grass02_dif.png
+
+newmtl cte_ground_ks2_grassb.004
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_grass03_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_grass03_dif.png
+
+newmtl cte_ground_ks2_grassb.005
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_grass03_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_grass03_dif.png
+
+newmtl cte_ground_ks2_grassb.006
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_grass03_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_grass03_dif.png
+
+newmtl cte_ground_ks2_tile07.004
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_tile07_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_tile07_dif.png
+
+newmtl cte_ground_ks2_tile07.005
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_tile07_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_tile07_dif.png
+
+newmtl cte_ground_ks2_tile07.006
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_tile07_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_ground_ks2_tile07_dif.png
+
+newmtl cte_wall_ay1_concreat01.004
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ay1_concreat01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ay1_concreat01_dif.png
+
+newmtl cte_wall_ay1_concreat01.005
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ay1_concreat01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ay1_concreat01_dif.png
+
+newmtl cte_wall_ay1_concreat01.006
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ay1_concreat01_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ay1_concreat01_dif.png
+
+newmtl cte_wall_ks2_brick05.004
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_brick05_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_brick05_dif.png
+
+newmtl cte_wall_ks2_brick05.005
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_brick05_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_brick05_dif.png
+
+newmtl cte_wall_ks2_brick05.006
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_brick05_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_brick05_dif.png
+
+newmtl cte_wall_ks2_wall12.004
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall12_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall12_dif.png
+
+newmtl cte_wall_ks2_wall12.005
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall12_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall12_dif.png
+
+newmtl cte_wall_ks2_wall12.006
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall12_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall12_dif.png
+
+newmtl cte_wall_ks2_wall15.005
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall15_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall15_dif.png
+
+newmtl cte_wall_ks2_wall15.006
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall15_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall15_dif.png
+
+newmtl cte_wall_ks2_wall15.007
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall15_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall15_dif.png
+
+newmtl cte_wall_ks2_wall16.004
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall16_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall16_dif.png
+
+newmtl cte_wall_ks2_wall16.005
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall16_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall16_dif.png
+
+newmtl cte_wall_ks2_wall16.006
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall16_dif.png
+map_d C:/Users/rares/Downloads/CityEscape/textures/cte_wall_ks2_wall16_dif.png
