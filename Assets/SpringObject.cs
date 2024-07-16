@@ -68,7 +68,9 @@ public class SpringObject : MonoBehaviour
             if(additive == false)
                 enigmaPhysics.rBody.velocity = Vector3.zero;
             jumpScript.StopAllCoroutines();
-	    StartCoroutine(jumpScript.Jump(force * corrector,time,holdF,transform.up));
+            //enigmaPhysics.normal = transform.up;
+            GetComponent<AudioSource>().Play();
+	        StartCoroutine(jumpScript.Jump(force * corrector,time,holdF,transform.up,false));
         }
         else
         {

@@ -120,8 +120,8 @@ Material:
     - _Flip_Red_Channel: 0
     - _Fresnel_Diffuse_Tint: 0
     - _Fresnel_Power: 0.61
-    - _Fresnel_Roughness: 2.72
-    - _Fresnel_Strength: 2
+    - _Fresnel_Roughness: 6
+    - _Fresnel_Strength: 1.5
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -132,7 +132,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Position_Influence: 0
-    - _Roughness: 0.452
+    - _Roughness: 0.664
     - _Roughness_Invert: 0
     - _Shadow_Strength: 1
     - _SmoothnessTextureChannel: 0

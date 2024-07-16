@@ -6,7 +6,7 @@ public class SpindashAction : MonoBehaviour
 {
     EnigmaPhysics enigmaPhysics;
     Rigidbody rBody;
-    public Animator animator;
+    Animator animator;
     public GameObject trailEffect;
     public GameObject ballEffect;
     public float triggerTime;
@@ -15,12 +15,30 @@ public class SpindashAction : MonoBehaviour
     public float minSpeed;
     public float rollDeceleration;
     bool holding; float startHold;
+    [Header("Sounds")]
+    public AudioClip chargeStart;
+    public AudioClip chargeLoop;
+    public AudioClip release;
+    [Range(0,1)]
+    public float volume = 0.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         enigmaPhysics = GetComponent<EnigmaPhysics>();
+        animator = transform.root.GetComponentInChildren<Animator>();
         rBody = enigmaPhysics.rBody;
+    }
+
+    IEnumerator SpindashSound(AudioSource sound)
+    {
+        yield return new WaitForSeconds(chargeStart.length - 0.05f);
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            sound.clip = chargeLoop;
+            sound.loop = true;
+            sound.Play();
+        }
     }
 
     IEnumerator Spindash()
@@ -31,6 +49,13 @@ public class SpindashAction : MonoBehaviour
 	    animator.CrossFadeInFixedTime("Spindash",.25f,0,0);
         enigmaPhysics.canTriggerAction = false;
 	    float time = 0;
+
+        AudioSource chargeSound = animator.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+        chargeSound.clip = chargeStart;
+        chargeSound.volume = volume;
+        chargeSound.Play();
+        StartCoroutine(SpindashSound(chargeSound));
+
 	    while(Input.GetKey(KeyCode.LeftShift))
 	    {
             animator.SetBool("Scripted Animation",true);
@@ -41,14 +66,20 @@ public class SpindashAction : MonoBehaviour
             if(enigmaPhysics.primaryAxis.magnitude > .1f)
                 enigmaPhysics.forwardReference = enigmaPhysics.primaryAxis;
 
-            if(enigmaPhysics.grounded == false)
+            if(enigmaPhysics.characterState != 1)
             {
                 animator.SetBool("Scripted Animation",false);
                 enigmaPhysics.canTriggerAction = true;
+                Destroy(chargeSound);
+                StopAllCoroutines();
             }
             yield return new WaitForFixedUpdate();
 	    }
-        float speed = velocity > .2f ? Mathf.Lerp(velocity,topSpeed,time) : Mathf.Lerp(minSpeed,topSpeed,time) ;
+        float speed = velocity > .2f ? Mathf.Lerp(velocity,topSpeed,time) : Mathf.Lerp(minSpeed,topSpeed,time);
+        chargeSound.clip = release;
+        chargeSound.loop = false;
+        chargeSound.Play();
+        Destroy(chargeSound,release.length + 2.5f);
 	    //if(Input.GetKeyUp(KeyCode.LeftShift))
 	    //{
 	        StartCoroutine(Roll(speed,rollDeceleration));

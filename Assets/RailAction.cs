@@ -7,7 +7,7 @@ public class RailAction : MonoBehaviour
 {
     EnigmaPhysics enigmaPhysics;
 	JumpAction jumpScript;
-    public Animator animator;
+    Animator animator;
     public GameObject sparkEffect;
     public float sparkSpeed;
     public Spline rail;
@@ -30,12 +30,25 @@ public class RailAction : MonoBehaviour
 	bool backwards;
 	bool canGrind = true;
 	Vector3 oldTangent;
+	[Header("Sounds")]
+	public AudioClip landSound;
+	public AudioClip grindSound;
+	public AudioClip fastGrindSound;
+	public float volume;
+	AudioSource grindLoop;
+	AudioSource fastLoop;
 
     // Start is called before the first frame update
     void Start()
     {
         enigmaPhysics = GetComponent<EnigmaPhysics>();
+		animator = transform.root.GetComponentInChildren<Animator>();
 		jumpScript = GetComponent<JumpAction>();
+		
+		grindLoop = animator.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+		fastLoop = animator.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;	
+		grindLoop.loop = true; fastLoop.loop = true;
+		grindLoop.clip = grindSound; fastLoop.clip = fastGrindSound;
     }
 
 	IEnumerator ReGrind()
@@ -77,13 +90,13 @@ public class RailAction : MonoBehaviour
 			Vector3 projectionRight = Vector3.Cross(projectionForward,projectionSample.up);
 			Vector3 projectionUp = Vector3.Cross(projectionRight,projectionForward);
 
-			Vector3 railPosition = rail.transform.TransformPoint(projectionSample.location) - projectionUp *.5f;//rail.transform.rotation * (rail.transform.position + projectionSample.location - projectionSample.up *.5f);
+			Vector3 railPosition = rail.transform.TransformPoint(projectionSample.location);// - projectionUp *.5f;//rail.transform.rotation * (rail.transform.position + projectionSample.location - projectionSample.up *.5f);
 			float distance = Vector3.Distance(transform.position,railPosition);
 			Debug.DrawRay(railPosition,projectionUp,Color.blue);
 			if(attached == false && canGrind == true)
 			{
 				
-				if(distance < 1f)
+				if(distance < 2/3f)
 				{
 					float sumLength = 0;
 					for(int i=0; i<rail.curves.Count; i++)
@@ -111,11 +124,29 @@ public class RailAction : MonoBehaviour
 			{
 				animator.SetBool("Scripted Animation" , true);
 				//sparkEffect.GetComponent<ParticleSystem>().Play();	
+
+				if(canGrind == true)
+				{
+					AudioSource landSource = animator.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+					landSource.clip = landSound;
+					landSource.volume = volume;
+					landSource.Play();
+					grindLoop.Play(); fastLoop.Play();
+					Destroy(landSource,landSound.length+15);
+				}
 				canGrind = false;
+				float absSpeed = Mathf.Abs(speed);
+
+				//Debug.Log( Mathf.Clamp(speed/sparkSpeed,0,1) );
+				grindLoop.volume = Mathf.Lerp(1 * volume * Mathf.Clamp(absSpeed/2,0,1),0, Mathf.Clamp((absSpeed/2f)/sparkSpeed,0,1) );
+				fastLoop.volume = Mathf.Lerp(0,1 * volume, Mathf.Clamp((absSpeed/2f)/sparkSpeed,0,1));
+
+
 				//Rail Fall
 				if((posInRail > rail.Length || posInRail < 0) && rail.IsLoop == false)
 				{
 					attached = false;
+					grindLoop.Stop(); fastLoop.Stop();
 					enigmaPhysics.characterState = 2;
 					
 					if(posInRail > rail.Length)
@@ -150,10 +181,11 @@ public class RailAction : MonoBehaviour
 				{
 					enigmaPhysics.rBody.velocity = forwardVector * speed * enigmaPhysics.airSpeedPreservation;
 					Vector3 jumpVector = Quaternion.AngleAxis(-xAxis*60f,forwardVector) * normalVector;
-					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,jumpVector));
+					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,jumpVector,true));
 					StartCoroutine(ReGrind());
 					//enigmaPhysics.rBody.velocity = enigmaPhysics.rBody.velocity.normalized * enigmaPhysics.rBody.velocity.magnitude * enigmaPhysics.airSpeedPreservation;
 					attached = false;
+					grindLoop.Stop(); fastLoop.Stop();
 					enigmaPhysics.characterState = 2;
 					rail = null;
 					//transform.position += enigmaPhysics.normal.normalized * .75f;
@@ -188,7 +220,7 @@ public class RailAction : MonoBehaviour
 
 				float sway = backwards ? -(xAxis + balanceSway) : xAxis + balanceSway;
 				sway = Mathf.Clamp(sway,-1,1);
-				//enigmaPhysics.normal = Quaternion.AngleAxis(sway*75f, forwardVector) * normalVector;
+				enigmaPhysics.normal = enigmaPhysics.referenceVector;
 
 				Debug.DrawRay(transform.position,inputAxis*2,Color.red);
 				if(sway > 0)
@@ -200,7 +232,7 @@ public class RailAction : MonoBehaviour
 					animator.Play("Grind L",0 , Mathf.Abs(sway));
 				}
 
-				float normalAngle = Vector3.SignedAngle(normalVector,enigmaPhysics.referenceVector,rightVector);
+				float normalAngle = Vector3.SignedAngle( Vector3.ProjectOnPlane(normalVector,rightVector) , Vector3.ProjectOnPlane(enigmaPhysics.referenceVector,rightVector) , rightVector);
 				speed += normalAngle * gravityForce * Time.deltaTime;
 				speed -= Mathf.Sign(speed) * swayDeceleration * Mathf.Abs(sway) * Time.deltaTime; 
 				posInRail += speed * Time.deltaTime;

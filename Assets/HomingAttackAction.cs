@@ -6,9 +6,13 @@ public class HomingAttackAction : MonoBehaviour
 {
 	EnigmaPhysics enigmaPhysics;
 	JumpAction jumpScript;
-	public Animator animator;
+	Animator animator;
+	CharacterVoice voice;
 	public GameObject trailEffect;
 	public GameObject ballEffect;
+	public AudioClip dashSound;
+	[Range(0,1)]
+	public float volume = 0.5f;
 	public float airDashForce;
 	public float homingForce;
 	public float homingTurn;
@@ -64,6 +68,19 @@ public class HomingAttackAction : MonoBehaviour
 			StartCoroutine(HomeIn(target,homingForce,homingTurn));
 			//Debug.Log(target);
 		}
+
+		AudioSource voiceSource = voice.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+		AudioClip sound = voice.heavyGruntSounds[Random.Range(0, voice.heavyGruntSounds.Length-1 )];
+		voiceSource.clip = sound;
+		voiceSource.Play();
+		AudioSource effectSource = voice.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+		effectSource.clip = dashSound;
+		effectSource.volume = volume;
+		effectSource.Play();
+
+		Destroy(voiceSource,sound.length+5);
+        Destroy(effectSource,dashSound.length+5);
+
 		yield return null;
 	}
 
@@ -103,11 +120,13 @@ public class HomingAttackAction : MonoBehaviour
 				{
 					EnemyDamageAction enmDmgScript = col.GetComponentInChildren<EnemyDamageAction>();
 					StartCoroutine(enmDmgScript.EnemyDamage());
+					if(GetComponent<ScoreSystem>() != null)
+						GetComponent<ScoreSystem>().score += 100;
 				}
-				if(jumpScript != null && col.transform.parent.GetComponentInChildren<SpringObject>() == null)
+				if(jumpScript != null && col.transform.root.GetComponentInChildren<SpringObject>() == null)
 				{
 					Debug.Log("Not a Spring");
-					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,enigmaPhysics.normal));
+					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,enigmaPhysics.normal,false));
 				}
 				//StopAllCoroutines();
 				
@@ -152,6 +171,8 @@ public class HomingAttackAction : MonoBehaviour
     void Start()
     {
         enigmaPhysics = GetComponent<EnigmaPhysics>();
+		animator = transform.root.GetComponentInChildren<Animator>();
+		voice = transform.root.GetComponentInChildren<CharacterVoice>();
 		jumpScript = GetComponent<JumpAction>();
     }
 

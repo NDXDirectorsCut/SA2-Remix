@@ -48,6 +48,11 @@ Material:
     m_Floats:
     - _Detail_Size_X: 0.9
     - _Detail_Size_Y: 0.9
+    - _Eye_X: 0
+    - _Fresnel_Diffuse_Tint: 1
+    - _Fresnel_Power: 0.1
+    - _Fresnel_Roughness: 3
+    - _Fresnel_Strength: 1
     - _Normal_Strength: 0.7
     - _Rotation: 0
     - _Shine_Strength: 2

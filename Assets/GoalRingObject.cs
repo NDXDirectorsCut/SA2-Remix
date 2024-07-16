@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class GoalRingObject : MonoBehaviour
 {
-    // Start is called before the first frame update
+    LevelEnd endScript;
+    Animator animator;
+    bool canTrigger = true;
+
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
+        endScript = GetComponent<LevelEnd>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(endScript.triggered == true && canTrigger == true)
+        {
+            canTrigger = false;
+            StartCoroutine(TouchAnim());
+        }
+    }
+
+    IEnumerator TouchAnim()
+    {
+        animator.CrossFadeInFixedTime("Touch",0,0,0);
+        yield return null;
     }
 }

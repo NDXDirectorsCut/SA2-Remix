@@ -107,8 +107,8 @@ Material:
     - _Flip_Red_Channel: 0
     - _Fresnel_Diffuse_Tint: 0
     - _Fresnel_Power: 0.21
-    - _Fresnel_Roughness: 2.38
-    - _Fresnel_Strength: 1
+    - _Fresnel_Roughness: 4
+    - _Fresnel_Strength: 1.5
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

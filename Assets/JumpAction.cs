@@ -8,13 +8,19 @@ public class JumpAction : MonoBehaviour
     public float jumpTimer;
     public float additiveJumpForce;
     EnigmaPhysics enigmaPhysics;
-    public Animator animator;
+    Animator animator;
+    CharacterVoice voice;
     Rigidbody rBody;
+    public AudioClip jumpSound;
+    [Range(0,1)]
+    public float volume = 0.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         enigmaPhysics = GetComponent<EnigmaPhysics>();
+        animator = transform.root.GetComponentInChildren<Animator>();
+        voice = transform.root.GetComponentInChildren<CharacterVoice>();
         rBody = enigmaPhysics.rBody;
     }
 
@@ -23,11 +29,11 @@ public class JumpAction : MonoBehaviour
         //Input Handling in Update because I dont wanna input buffer
         if(Input.GetButtonDown("Jump") && enigmaPhysics.grounded == true)
         {
-            StartCoroutine(Jump(initialJumpForce,jumpTimer,additiveJumpForce,enigmaPhysics.normal));
+            StartCoroutine(Jump(initialJumpForce,jumpTimer,additiveJumpForce,enigmaPhysics.normal,true));
         }
     }
 
-    public IEnumerator Jump(float iJumpForce, float jTimer,float aJumpForce, Vector3 direction)
+    public IEnumerator Jump(float iJumpForce, float jTimer,float aJumpForce, Vector3 direction,bool playSound)
     {
         yield return new WaitForFixedUpdate();
         float initialJumpTime;
@@ -46,6 +52,21 @@ public class JumpAction : MonoBehaviour
         
         animator.CrossFadeInFixedTime("Spin",.25f,0,0);
 	    animator.SetBool("Scripted Animation",true);
+
+        if(playSound == true)
+        {
+            AudioSource voiceSource = voice.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+		    AudioClip sound = voice.smallGruntSounds[Random.Range(0, voice.smallGruntSounds.Length-1 )];
+		    voiceSource.clip = sound;
+            voiceSource.Play();
+            AudioSource effectSource = voice.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+            effectSource.clip = jumpSound;
+            effectSource.volume = volume;
+            effectSource.Play();
+		    Destroy(voiceSource,sound.length+20);
+            Destroy(effectSource,jumpSound.length+20);
+        }
+
         enigmaPhysics.canTriggerAction = false;
 
         int i = 0;
@@ -72,8 +93,8 @@ public class JumpAction : MonoBehaviour
             }
             yield return new WaitForFixedUpdate();
         }
-	  animator.SetBool("Scripted Animation", false);
-      enigmaPhysics.canTriggerAction = true;
+	    animator.SetBool("Scripted Animation", false);
+        enigmaPhysics.canTriggerAction = true;
         //yield return null;
     }
 

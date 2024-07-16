@@ -103,6 +103,10 @@ public class EnigmaPhysics : MonoBehaviour
                 normal = Vector3.Lerp(normal,tempNormal,1 - Mathf.Pow(1 - normalLerp, dl * 60));
                 Debug.DrawRay(hit.point,normal,Color.magenta);
             }
+            else
+            {
+                grounded = false;
+            }
 
         }
 
@@ -199,7 +203,7 @@ public class EnigmaPhysics : MonoBehaviour
                     goto case 1;
                 }
                 rBody.velocity += -referenceVector.normalized * weight * Time.fixedDeltaTime;
-                rBody.velocity += primaryAxis * airAcceleration * Time.deltaTime;
+                rBody.velocity += primaryAxis * airAcceleration * Mathf.Clamp((rBody.velocity.magnitude/airAcceleration),0,1) * Time.deltaTime;
                 
                 float brakeAngle = Vector3.SignedAngle(primaryAxis,rBody.velocity,normal);
                 float reverseBrakeAngle = Vector3.SignedAngle(primaryAxis,-rBody.velocity,normal);
