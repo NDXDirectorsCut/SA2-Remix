@@ -2,8 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class Rank 
+{
+    public string name;
+    public Sprite rankGraphic;
+    public int requiredScore;
+}
+
+
 public class LevelEnd : MonoBehaviour
 {
+    [Header("Ranks")]
+    public Rank[] ranks = new Rank[5];
+
+
     public Transform LevelEndPos;
     public Transform CameraPos;
     public float delay;
@@ -13,6 +26,8 @@ public class LevelEnd : MonoBehaviour
     EnigmaPhysics enigmaPhysics;
     EnigmaCamera camScript;
     GameObject resultsScreen;
+    int totalRings;
+    
 
     IEnumerator EndSequence()
     {
@@ -39,14 +54,22 @@ public class LevelEnd : MonoBehaviour
         camObject.position = CameraPos.position;
         camObject.forward = CameraPos.forward;
 
-        foreach (Transform child in camObject.GetComponentsInChildren<Transform>()) 
+        ResultLogic results = camObject.GetComponentInChildren<ResultLogic>(true);
+        results.totalRings = totalRings;
+        results.gameObject.SetActive(true);
+        StartCoroutine(results.UpdateValues());
+
+        for(int i = 0; i < ranks.Length; i++)
         {
-            if(child.Find("ResultScreen") != null)
+            if(results.totalScore > ranks[i].requiredScore)
             {
-                resultsScreen = child.Find("ResultScreen").gameObject;
+                results.rankImage.sprite = ranks[i].rankGraphic;
                 break;
             }
         }
+        
+        TimerLogic timer = camObject.GetComponentInChildren<TimerLogic>();
+        timer.running = false;
 
         if(CameraPos.GetComponent<Animator>() != null)
         {
@@ -93,7 +116,8 @@ public class LevelEnd : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        var foundRings = FindObjectsOfType<RingObject>();
+        totalRings = foundRings.Length;
     }
 
     // Update is called once per frame
