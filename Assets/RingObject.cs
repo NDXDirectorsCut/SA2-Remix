@@ -10,7 +10,7 @@ public class RingObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sound = transform.root.GetComponentInChildren<AudioSource>();
+        sound = transform.parent.GetComponentInChildren<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class RingObject : MonoBehaviour
             ringScript.ringCount += ringValue;
             sound.Play();
             Destroy(gameObject);
-            Destroy(transform.root.gameObject,2.5f);
+            Destroy(transform.parent.gameObject,2.5f);
             
         }
     }

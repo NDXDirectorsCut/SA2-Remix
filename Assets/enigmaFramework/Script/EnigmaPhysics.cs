@@ -49,19 +49,22 @@ public class EnigmaPhysics : MonoBehaviour
             public AnimationCurve accelerationCurve;
             public float groundDeceleration;
             public float turnRate;
-            public float turnCoefficient;
+            public float turnDeceleration;
             [Space(5)]
             public float brakeSpeed;
 
         [Header("Air")]
             public float airAcceleration;
-            public float airBrakeSpeed;
+            public float airTurnSpeed;
             public float airDeceleration;
+            public float airTurnDeceleration;
 	    public float airSpeedPreservation;
     [System.NonSerialized]
     public Vector3 forwardReference;
     [System.NonSerialized]
     public Vector3 slopeForce;
+    [System.NonSerialized]
+    public Vector3 linearSlopeForce;
     Vector3 prevFloorPos;
 
     // Start is called before the first frame update
@@ -158,7 +161,12 @@ public class EnigmaPhysics : MonoBehaviour
                 //Debug.DrawRay(transform.position,primaryAxis.normalized * groundAcceleration * accelRatio * Time.fixedDeltaTime * accelerationCurve.Evaluate(rBody.velocity.magnitude/finalCap),Color.green);
 
                 float turnAngle = Vector3.SignedAngle(primaryAxis,rBody.velocity,normal);
-                rBody.velocity = Quaternion.AngleAxis(-turnAngle * Time.fixedDeltaTime * turnRate,normal) * rBody.velocity;
+                float finalTurnAngle = -turnAngle * Time.fixedDeltaTime * turnRate;
+                finalTurnAngle = Mathf.Abs(finalTurnAngle) > Mathf.Abs(turnAngle) ? turnAngle : finalTurnAngle;
+                //Debug.Log(turnAngle + " " + finalTurnAngle);w 
+
+                rBody.velocity = Quaternion.AngleAxis(finalTurnAngle, normal) * rBody.velocity;
+                rBody.velocity -= rBody.velocity * turnDeceleration * Mathf.Abs(turnAngle/360) * Time.fixedDeltaTime;
 
                 if(moved == false)
                 {
@@ -172,10 +180,11 @@ public class EnigmaPhysics : MonoBehaviour
                 }
                 
 		        slopeForce = -Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)) * Time.fixedDeltaTime; 
+                linearSlopeForce = -Vector3.ProjectOnPlane(referenceVector,normal).normalized * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)) * Time.fixedDeltaTime; 
                 rBody.velocity += slopeForce;
 
-                float airAngle = Vector3.SignedAngle(primaryAxis,rBody.velocity,normal);
-                rBody.velocity = Quaternion.AngleAxis(-airAngle * Time.fixedDeltaTime * airBrakeSpeed,normal) * rBody.velocity;
+                //float airAngle = Vector3.SignedAngle(primaryAxis,rBody.velocity,normal);
+                //rBody.velocity = Quaternion.AngleAxis(-airAngle * Time.fixedDeltaTime * airTurnSpeed,normal) * rBody.velocity;
 
                 rBody.velocity = Vector3.ProjectOnPlane(rBody.velocity,normal);
                 rBody.velocity = Vector3.ClampMagnitude(rBody.velocity,speedCap);
@@ -202,12 +211,25 @@ public class EnigmaPhysics : MonoBehaviour
                     characterState = 1;
                     goto case 1;
                 }
+
+                Vector3 projectedVelo = Vector3.ProjectOnPlane(rBody.velocity,normal);
+
                 rBody.velocity += -referenceVector.normalized * weight * Time.fixedDeltaTime;
                 rBody.velocity += primaryAxis * airAcceleration * Mathf.Clamp((rBody.velocity.magnitude/airAcceleration),0,1) * Time.deltaTime;
                 
-                float brakeAngle = Vector3.SignedAngle(primaryAxis,rBody.velocity,normal);
-                float reverseBrakeAngle = Vector3.SignedAngle(primaryAxis,-rBody.velocity,normal);
-                rBody.velocity = Quaternion.AngleAxis(-brakeAngle * ((180-Mathf.Abs(brakeAngle))/180) * Time.fixedDeltaTime * airBrakeSpeed,normal) * rBody.velocity;
+                float brakeAngle = Vector3.SignedAngle(primaryAxis,projectedVelo,normal);
+                float finalBrakeAngle = -brakeAngle * Time.fixedDeltaTime * airTurnSpeed;
+                finalBrakeAngle = Mathf.Abs(finalBrakeAngle) > Mathf.Abs(brakeAngle) ? brakeAngle : finalBrakeAngle;
+
+                rBody.velocity = Quaternion.AngleAxis( finalBrakeAngle ,normal) * rBody.velocity;
+                rBody.velocity -= projectedVelo * airTurnDeceleration * Mathf.Abs(brakeAngle/360) * Time.fixedDeltaTime;
+
+                moved = primaryAxis.sqrMagnitude != 0 ? true : false;
+                if(moved == false)
+                {
+                    rBody.velocity += projectedVelo * airDeceleration * Time.fixedDeltaTime * Mathf.Clamp(projectedVelo.magnitude,0,1);
+                }
+
 
                 normal = Vector3.RotateTowards(normal,referenceVector,2f*Time.deltaTime,0).normalized;
 
@@ -241,7 +263,7 @@ public class EnigmaPhysics : MonoBehaviour
 
     IEnumerator StateTrigger(float oldState)
     {
-        Debug.Log("Switched from Character State " + oldState + " to " + characterState  );
+        //Debug.Log("Switched from Character State " + oldState + " to " + characterState  );
         switch(characterState)
         {
             case 1:
@@ -256,7 +278,7 @@ public class EnigmaPhysics : MonoBehaviour
             case 2:
                 if(oldState == 1)
                 {
-		    Debug.Log("Air Speed");
+		    //Debug.Log("Air Speed");
                     rBody.velocity = rBody.velocity.normalized * rBody.velocity.magnitude * airSpeedPreservation;// + floorVelocity;
                 }
                 break;
@@ -268,7 +290,7 @@ public class EnigmaPhysics : MonoBehaviour
     {
         if(moved == false && primaryAxis.magnitude != 0 && rBody.velocity.magnitude < 0.2f)
         {
-            Debug.Log("Start Speed!");
+            //Debug.Log("Start Speed!");
             rBody.velocity = primaryAxis.normalized * startSpeed;
 
 

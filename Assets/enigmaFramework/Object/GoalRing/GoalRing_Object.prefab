@@ -25,12 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2750101904777726385}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7372774, z: -0, w: 0.67559016}
-  m_LocalPosition: {x: 8.369, y: -2.68, z: 3.369}
+  m_LocalRotation: {x: -0, y: -0.9848078, z: -0, w: 0.1736481}
+  m_LocalPosition: {x: -0.662, y: 0.82, z: 1.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7782746612432687499}
+  m_Father: {fileID: 7308844416059567300}
   m_LocalEulerAnglesHint: {x: 0, y: -95, z: 0}
 --- !u!95 &5650901443368006659
 Animator:
@@ -172,6 +172,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862ff1d4166d6a349ba5837bad4cc96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ranks:
+  - name: A Rank
+    rankGraphic: {fileID: 21300000, guid: 465952c7fc1dfe04facc5d86ecc4835f, type: 3}
+    requiredScore: 15000
+  - name: B Rank
+    rankGraphic: {fileID: 21300000, guid: b481e3d27cd3e4844a960df2768e26d3, type: 3}
+    requiredScore: 8000
+  - name: C Rank
+    rankGraphic: {fileID: 21300000, guid: afaa79d30f0a89a42af7e9c0b01fa305, type: 3}
+    requiredScore: 6000
+  - name: D Rank
+    rankGraphic: {fileID: 21300000, guid: 517bf5bc5b1c2b0429597dbb949a28f9, type: 3}
+    requiredScore: 3000
+  - name: E Rank
+    rankGraphic: {fileID: 21300000, guid: b3c0e07e8868d82439eab7d86832635f, type: 3}
+    requiredScore: 1500
   LevelEndPos: {fileID: 7308844416059567300}
   CameraPos: {fileID: 6038491392120471876}
   delay: 1
@@ -222,14 +238,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f6a107971985977469b1b40a5082e25e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0.1
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -266,7 +282,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.8
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -337,7 +353,6 @@ Transform:
   m_Children:
   - {fileID: 3904597950294332642}
   - {fileID: 7308844416059567300}
-  - {fileID: 6038491392120471876}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7527837947612001341
@@ -368,7 +383,8 @@ Transform:
   m_LocalPosition: {x: 7, y: -3.5, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6038491392120471876}
   m_Father: {fileID: 7782746612432687499}
   m_LocalEulerAnglesHint: {x: 0, y: 65, z: 0}
 --- !u!1001 &5439267753672252114

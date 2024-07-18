@@ -105,28 +105,47 @@ public class HomingAttackAction : MonoBehaviour
 			Vector3 crossVector = Vector3.Cross(enigmaPhysics.rBody.velocity,hitDir);
 			float angle = Vector3.SignedAngle(enigmaPhysics.rBody.velocity,hitDir,crossVector);
 			enigmaPhysics.canTriggerAction = false;
+			enigmaPhysics.rBody.velocity = enigmaPhysics.rBody.velocity.normalized * force;
 			Debug.DrawRay(col.ClosestPoint(transform.position+transform.up*.5f),-hitDir,Color.blue);
+
+			/*
+			if(target == null || enigmaPhysics.characterState != 2)
+			{
+				animator.SetBool("Scripted Animation",false);
+				enigmaPhysics.canTriggerAction = true;
+				currentEffect.GetComponent<TrailRenderer>().emitting = false;
+				particle.Stop();
+				Destroy(curBall,particle.startLifetime);
+				StopAllCoroutines();
+				//enigmaPhysics.rBody.velocity = Vector3.zero;
+				yield return null;
+
+			}*/
+
 			if(clampedDist<.8f)
 			{
-				transform.position = targetPos;//col.ClosestPoint(transform.position+transform.up*.5f);
+				Debug.Log("Target Hit");
 				target = null;
+
+				transform.position = targetPos;//col.ClosestPoint(transform.position+transform.up*.5f);
 				animator.SetBool("Scripted Animation",false);
 				enigmaPhysics.canTriggerAction = true;
 				currentEffect.GetComponent<TrailRenderer>().emitting = false;
 				particle.Stop();
 				Destroy(curBall,particle.startLifetime);
 				enigmaPhysics.rBody.velocity = Vector3.zero;
+
+				if(jumpScript != null && col.transform.root.GetComponentInChildren<SpringObject>() == null)
+				{
+           	    	Debug.Log("Jump");
+					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,enigmaPhysics.normal,false));
+				}
+
 				if(col.GetComponentInChildren<EnemyDamageAction>())
 				{
 					EnemyDamageAction enmDmgScript = col.GetComponentInChildren<EnemyDamageAction>();
-					StartCoroutine(enmDmgScript.EnemyDamage());
-					if(GetComponent<ScoreSystem>() != null)
-						GetComponent<ScoreSystem>().score += 100;
-				}
-				if(jumpScript != null && col.transform.root.GetComponentInChildren<SpringObject>() == null)
-				{
-					Debug.Log("Not a Spring");
-					StartCoroutine(jumpScript.Jump(jumpScript.initialJumpForce,jumpScript.jumpTimer,jumpScript.additiveJumpForce,enigmaPhysics.normal,false));
+					//enmDmgScript.canTakeDamage = false;
+					StartCoroutine(enmDmgScript.EnemyDamage(gameObject));
 				}
 				//StopAllCoroutines();
 				
@@ -138,7 +157,9 @@ public class HomingAttackAction : MonoBehaviour
 			
 			yield return new WaitForFixedUpdate();
 		}
+
 		yield return null;
+
 	}
 
 	IEnumerator AirDash(float force)

@@ -59,7 +59,7 @@ public class HunterAI : MonoBehaviour
 	        yield return new WaitForSeconds(shootDelay);
             if(Mathf.Abs(turnRate) > .5f || target == null)
                 break;
-            Debug.Log(turnRate);
+            //Debug.Log(turnRate);
             MuzzleFlash.GetComponent<ParticleSystem>().Play();
 	        GameObject shot = Instantiate(Projectile,MuzzleFlash.transform.position,Quaternion.identity);
             animator.CrossFadeInFixedTime("Shoot",.125f,0,0);
@@ -104,7 +104,7 @@ public class HunterAI : MonoBehaviour
             transform.position = hit.point;
             if(target != null)
             {
-                Debug.Log(turnRate);
+                //Debug.Log(turnRate);
                 targetDir = Vector3.ProjectOnPlane((transform.position - target.position).normalized,normal);
                 if(shooting == false && Mathf.Abs(turnRate) < .5f)
                 {

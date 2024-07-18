@@ -62,7 +62,7 @@ public class EyeAnimation : MonoBehaviour
         rightEye.SetFloat("_Eye_X", rightXRot * eyeSensitivity);
         rightEye.SetFloat("_Eye_Y", -rightYRot * eyeSensitivity);
 
-        Debug.Log(leftXRot);
+        //Debug.Log(leftXRot);
         /*
         leftEye.SetFloat("_Eye_X",Mathf.Sin(Time.time)*eyeSensitivity);
         leftEye.SetFloat("_Eye_Y",Mathf.Cos(Time.time)*eyeSensitivity);

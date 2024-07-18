@@ -115,8 +115,8 @@ GameObject:
   - component: {fileID: 161956093292235087}
   - component: {fileID: 5917038647167138397}
   - component: {fileID: 5183723944674938486}
-  - component: {fileID: 3346439300043948561}
   - component: {fileID: 7527913212765277353}
+  - component: {fileID: 5941993572554536863}
   m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
@@ -194,60 +194,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3346439300043948561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8767204632762746287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10cc6ba5654bb404a9aa91a4948bf009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationList:
-  - name: 
-    offset: 0
-    startWithRandomOffset: 1
-    sinPosition: {x: 0, y: 0.125, z: 0}
-    sinPosSpeed: 2
-    cosPosition: {x: 0, y: 0, z: 0}
-    cosPosSpeed: 0
-    rotOrigin: {x: 0, y: -0.5, z: 0}
-    sinRotation: {x: 0, y: 0, z: 0}
-    sinRotSpeed: 1
-    cosRotation: {x: 6, y: 0, z: 0}
-    cosRotSpeed: 2
-    bendOrigin: {x: 0, y: 0, z: 0}
-    affectedOrigin: 0
-    baseBend: {x: 0, y: 0, z: 0}
-    sinBending: {x: 0, y: 0, z: 0}
-    sinBendSpeed: 0
-    cosBending: {x: 0, y: 0, z: 0}
-    cosBendSpeed: 0
-    distanceMultiplier: 0
-  - name: 
-    offset: 0
-    startWithRandomOffset: 1
-    sinPosition: {x: 0, y: 0, z: 0}
-    sinPosSpeed: 0
-    cosPosition: {x: 0, y: 0, z: 0}
-    cosPosSpeed: 0
-    rotOrigin: {x: 0, y: 0, z: 0}
-    sinRotation: {x: 4, y: 0, z: 0}
-    sinRotSpeed: 1
-    cosRotation: {x: 0, y: 0, z: 4}
-    cosRotSpeed: 1
-    bendOrigin: {x: 0, y: 0, z: 0}
-    affectedOrigin: 0
-    baseBend: {x: 0, y: 0, z: 0}
-    sinBending: {x: 0, y: 0, z: 0}
-    sinBendSpeed: 0
-    cosBending: {x: 0, y: 0, z: 0}
-    cosBendSpeed: 0
-    distanceMultiplier: 0
-  useFixedUpdate: 0
 --- !u!114 &7527913212765277353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,3 +206,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8254481bd1c0ccf48bf26dcc5dcaca32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5941993572554536863
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767204632762746287}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a50aee0ab3c13c4184829d0d20886f6, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

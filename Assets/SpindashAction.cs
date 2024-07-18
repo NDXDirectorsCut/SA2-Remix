@@ -9,6 +9,7 @@ public class SpindashAction : MonoBehaviour
     Animator animator;
     public GameObject trailEffect;
     public GameObject ballEffect;
+    public float slopeForce = 1;
     public float triggerTime;
     public float holdTime;
     public float topSpeed;
@@ -127,8 +128,8 @@ public class SpindashAction : MonoBehaviour
             float veloRatio = Mathf.Clamp(Vector3.SignedAngle(rightVector,slopeVector,enigmaPhysics.normal)/90,-1,1);
             //Debug.Log(veloRatio);
             Debug.DrawRay(transform.position,rightVector,Color.blue);
-            Debug.DrawRay(transform.position,slopeVector * enigmaPhysics.slopeForce.magnitude * veloRatio,Color.red);
-            activeSpeed -= enigmaPhysics.slopeForce.magnitude * veloRatio;
+            Debug.DrawRay(transform.position,slopeVector * enigmaPhysics.linearSlopeForce.magnitude * slopeForce * veloRatio,Color.red);
+            activeSpeed -= enigmaPhysics.linearSlopeForce.magnitude * slopeForce * veloRatio;
             //Debug.Log(veloRatio);
 
             rBody.velocity = enigmaPhysics.forwardReference * activeSpeed;

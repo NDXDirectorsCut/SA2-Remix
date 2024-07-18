@@ -40,7 +40,7 @@ public class JumpAction : MonoBehaviour
         float origRL;
         bool jumping;
 
-        //Debug.Log("Initial Jump");
+        Debug.Log("Initial Jump");
 
         initialJumpTime = Time.time;
         jumping = true;
@@ -78,7 +78,7 @@ public class JumpAction : MonoBehaviour
             if(!Input.GetButton("Jump"))
             {
                 jumping = false;
-                //Debug.Log("Stop Jump");
+                Debug.Log("Stop Jump");
                 enigmaPhysics.activeRayLen = origRL;
                 break;
             }

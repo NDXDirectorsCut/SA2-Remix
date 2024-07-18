@@ -7,15 +7,15 @@ public class EnemyDamageAction : MonoBehaviour
     public GameObject root;
     public bool canTakeDamage;
     public int health;
+    public int killPoints = 100;
     public GameObject deathEffect;
     public AudioClip deathSound;
-    ScoreSystem scoreSys;
+    //ScoreSystem scoreSys;
     [Range(0,1)]
     public float soundVolume = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
-        scoreSys = GetComponent<ScoreSystem>();
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class EnemyDamageAction : MonoBehaviour
         
     }
 
-    public IEnumerator EnemyDamage()
+    public IEnumerator EnemyDamage(GameObject touch)
     {
         //Debug.Log("Collided");
         if(canTakeDamage == true)
@@ -32,10 +32,18 @@ public class EnemyDamageAction : MonoBehaviour
 
         if(health <1)
         {
+            if(touch.GetComponent<ScoreSystem>() != null)
+					touch.GetComponent<ScoreSystem>().score += killPoints;
+
+            JumpAction jumpScript = touch.GetComponent<JumpAction>();
+            EnigmaPhysics enigmaPhysics = touch.GetComponent<EnigmaPhysics>();
+            
+
             GameObject effect = Instantiate(deathEffect,transform.position,Quaternion.identity);
             AudioSource sound = effect.AddComponent(typeof(AudioSource)) as AudioSource;
             sound.clip = deathSound;
             sound.volume = soundVolume;
+            
             sound.Play();
 
             Destroy(effect,2.5f);
@@ -47,7 +55,8 @@ public class EnemyDamageAction : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        StartCoroutine(EnemyDamage());
+        //if(col.gameObject.GetComponent<EnigmaPhysics>().canTriggerAction == true)
+            //StartCoroutine(EnemyDamage(col.gameObject));
     }
 
 }

@@ -68,12 +68,12 @@ public class EnigmaCamera : MonoBehaviour
 
             //Mouse Input
             float dl = Time.fixedDeltaTime;
-            if(mouseX != mouseX || mouseY != mouseY)
-            {
-                mouseX = Input.GetAxisRaw("Mouse Y"); mouseY = Input.GetAxisRaw("Mouse X");
-            }
+            //if(mouseX != mouseX || mouseY != mouseY)
+            //{
+            //mouseX = Input.GetAxisRaw("Mouse Y"); mouseY = Input.GetAxisRaw("Mouse X");
+            //}
 
-            mouseX = Mathf.Lerp(mouseX,Input.GetAxisRaw("Mouse X")/ deltaDeviance,1-inputSmoothness); mouseY = Mathf.Lerp(mouseY,Input.GetAxisRaw("Mouse Y")/ deltaDeviance,1-inputSmoothness) ;
+            mouseX = Mathf.Lerp(mouseX,Input.GetAxisRaw("Mouse X"),1-inputSmoothness); mouseY = Mathf.Lerp(mouseY,Input.GetAxisRaw("Mouse Y"),1-inputSmoothness) ;
             Vector3 orbitPos = orbitTarget.position + orbitTarget.right * offset.x + orbitTarget.up * offset.y + orbitTarget.forward * offset.z;
             Vector3 lookPos = lookTarget.position + lookTarget.right * offset.x + lookTarget.up * offset.y + lookTarget.forward * offset.z;
 
@@ -106,14 +106,20 @@ public class EnigmaCamera : MonoBehaviour
             }
             //transform.up =transform.up;
             //Turn camera to where the player is facing
+            Vector3 projForward = Vector3.ProjectOnPlane(transform.forward,referenceVector);
+            Vector3 projForwardRef = Vector3.ProjectOnPlane(enigmaPhysics.forwardReference,referenceVector);
+
             float xAngle = useTransformForward ? Vector3.SignedAngle(transform.forward,lookTarget.forward,referenceVector)
-                            : Vector3.SignedAngle(transform.forward,enigmaPhysics.forwardReference,referenceVector);
+                            : Vector3.SignedAngle(projForward,projForwardRef,referenceVector);
             if(mouseX < 0.01f && mouseX > -0.01f)
             {
-                float clampedSpeed = Mathf.Lerp(0,facingSpeed,Mathf.Clamp(Mathf.Abs(xAngle)/15,0,1));
-                //Debug.Log(clampedSpeed + " " + Mathf.Clamp(Mathf.Abs(xAngle)/15,0,1));
-                transform.position = (Quaternion.AngleAxis(xAngle*clampedSpeed*Time.deltaTime,referenceVector) * (transform.position-lookPos)) + lookPos;
-                transform.forward = Quaternion.AngleAxis(xAngle*clampedSpeed*Time.deltaTime,referenceVector) * transform.forward;
+                //float clampedSpeed = Mathf.Lerp(0,facingSpeed,Mathf.Clamp(Mathf.Abs(xAngle)/15,0,1));
+                float finalTurnAngle = xAngle * Time.fixedDeltaTime * facingSpeed;
+                finalTurnAngle = Mathf.Abs(finalTurnAngle) > Mathf.Abs(xAngle) ? xAngle : finalTurnAngle;
+                Debug.Log(finalTurnAngle + " " + xAngle);
+
+                transform.position = (Quaternion.AngleAxis(finalTurnAngle,referenceVector) * (transform.position-lookPos)) + lookPos;
+                transform.forward = Quaternion.AngleAxis(finalTurnAngle,referenceVector) * transform.forward;
             }
 
             /*

@@ -10,6 +10,7 @@ public class BoardControl : MonoBehaviour
     public float turningRate;
     public float airTurnRate;
     public float gravityForce;
+    public float slopeForce;
     public float recoveryTime;
     public bool on;
     public bool brake;
@@ -48,7 +49,7 @@ public class BoardControl : MonoBehaviour
             {
                 // Grounded
                 float normalDeviance = Mathf.Clamp(Vector3.Angle(enigmaPhysics.referenceVector,enigmaPhysics.normal)/90,0,1);
-                rBody.velocity += -enigmaPhysics.referenceVector * gravityForce * Time.deltaTime * normalDeviance * Mathf.Clamp(rBody.velocity.magnitude/100,1,100);
+                rBody.velocity += enigmaPhysics.linearSlopeForce * slopeForce * Time.fixedDeltaTime;
 
                 Vector3 normalRight = Vector3.Cross(enigmaPhysics.normal,rBody.velocity.normalized).normalized;
                 Vector3 normalForward = Vector3.Cross(normalRight,enigmaPhysics.normal).normalized;

@@ -5203,6 +5203,7 @@ MonoBehaviour:
   health: 1
   deathEffect: {fileID: 2163981578924548118, guid: 98f8ce3f42d1a4a4a8ac5ce6e7980b1c, type: 3}
   deathSound: {fileID: 8300000, guid: 324d61bf1f2dfdc4bb3fbfdfcae97c43, type: 3}
+  soundVolume: 0.5
 --- !u!1 &7142144341636130631
 GameObject:
   m_ObjectHideFlags: 0
@@ -5596,7 +5597,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 57a25c1ed36b0a04fb1822ff81b6ecbf, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0

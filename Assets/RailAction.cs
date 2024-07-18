@@ -213,7 +213,9 @@ public class RailAction : MonoBehaviour
 					sparkEffect.GetComponent<ParticleSystem>().Stop();	
 				}		
 				//Physics
-				float turnAngle = Vector3.SignedAngle(forwardVector,oldTangent,normalVector) * 1/Time.fixedDeltaTime * 0.001f;
+				Vector3 pForward = Vector3.ProjectOnPlane(forwardVector,normalVector); Vector3 pForwardOld = Vector3.ProjectOnPlane(oldTangent,normalVector);
+
+				float turnAngle = Vector3.SignedAngle(pForward,pForwardOld,normalVector) * 1/Time.fixedDeltaTime * 0.001f;
 				oldTangent = forwardVector;
 				//Debug.Log(turnAngle);
 				balanceSway = Mathf.SmoothDamp(balanceSway,turnAngle * swaySensitivity ,ref curBalVelo,swayTime);

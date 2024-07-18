@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Glass.Unity
     guid: 0743dca3fdf899c40bc463ace256f612
+  - enabled: 1
+    path: Assets/enigmaFramework/Stage/RankTest/RankTestStage.unity
+    guid: aeba1e6f257e00a488c546b6d01bfec5
   m_configObjects: {}
