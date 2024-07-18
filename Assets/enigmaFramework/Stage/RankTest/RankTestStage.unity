@@ -9044,6 +9044,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4520530924346440178, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
+      propertyPath: swaySensitivity
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4813988435086820475, guid: fdb878757282c3043b5d38dbafcc821e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -48,12 +48,13 @@ public class EnigmaCamera : MonoBehaviour
         referenceVector = Vector3.up;
         //Application.targetFrameRate = 120;
     }
-    /*
+    
     void Update()
     {
         deltaDeviance = Time.deltaTime / Time.fixedDeltaTime;
         //Application.targetFrameRate = 120;
-    }*/
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -73,7 +74,7 @@ public class EnigmaCamera : MonoBehaviour
             //mouseX = Input.GetAxisRaw("Mouse Y"); mouseY = Input.GetAxisRaw("Mouse X");
             //}
 
-            mouseX = Mathf.Lerp(mouseX,Input.GetAxisRaw("Mouse X"),1-inputSmoothness); mouseY = Mathf.Lerp(mouseY,Input.GetAxisRaw("Mouse Y"),1-inputSmoothness) ;
+            mouseX = Mathf.Lerp(mouseX,Input.GetAxisRaw("Mouse X")/deltaDeviance ,1-inputSmoothness); mouseY = Mathf.Lerp(mouseY,Input.GetAxisRaw("Mouse Y")/deltaDeviance ,1-inputSmoothness) ;
             Vector3 orbitPos = orbitTarget.position + orbitTarget.right * offset.x + orbitTarget.up * offset.y + orbitTarget.forward * offset.z;
             Vector3 lookPos = lookTarget.position + lookTarget.right * offset.x + lookTarget.up * offset.y + lookTarget.forward * offset.z;
 

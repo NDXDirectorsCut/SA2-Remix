@@ -96,7 +96,7 @@ public class RailAction : MonoBehaviour
 			if(attached == false && canGrind == true)
 			{
 				
-				if(distance < 2/3f)
+				if(distance < 1)
 				{
 					float sumLength = 0;
 					for(int i=0; i<rail.curves.Count; i++)
