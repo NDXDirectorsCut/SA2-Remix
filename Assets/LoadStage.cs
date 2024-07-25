@@ -20,12 +20,15 @@ public class LoadStage : MonoBehaviour
 
     IEnumerator Load()
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSecondsRealtime(delay);
+        Time.timeScale = 1;
+        Debug.Log("LoadingStage");
         SceneManager.LoadScene(stageName, LoadSceneMode.Single);
     }
 
     void OnClick()
     {
+        Debug.Log("Clicked");
         StartCoroutine(Load());
     }
 

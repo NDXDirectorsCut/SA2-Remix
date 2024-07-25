@@ -1,0 +1,11 @@
+1011,stx_newspin.png,64x64
+1041,so_lvup00.png,32x32
+1095,mstx_ref0.png,32x32
+1117,soitem00.png,64x64
+1118,soitem01.png,64x64
+1119,soitemx.png,64x64
+1120,sonic_soapshoes.png,128x128
+1121,stx_00.png,64x64
+1122,stx_01.png,64x64
+1123,stx_ref00.png,32x32
+1131,s_wind.png,64x64

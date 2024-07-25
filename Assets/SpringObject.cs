@@ -12,6 +12,7 @@ public class SpringObject : MonoBehaviour
     public bool additive;
     bool canTrigger;
     Animator animator;
+    InputPlayer inputPlayer;
 
     [Header("Debug")]
     public int arcPoints = 5;
@@ -52,11 +53,13 @@ public class SpringObject : MonoBehaviour
         yield return new WaitForFixedUpdate();
 
         animator.CrossFadeInFixedTime("Jump",.1f,0,0);
+        StartCoroutine(inputPlayer.InputLock(lockInputTime));
 	    if(col.GetComponent<JumpAction>() != null && col.GetComponent<EnigmaPhysics>() != null)
         {
             JumpAction jumpScript = col.GetComponent<JumpAction>();
             EnigmaPhysics enigmaPhysics = col.GetComponent<EnigmaPhysics>();
             enigmaPhysics.canTriggerAction = false;
+            
             float corrector = 1;//enigmaPhysics.characterState == 1 ? 1/enigmaPhysics.airSpeedPreservation : 1 ;
             enigmaPhysics.characterState = 2;
 
@@ -89,6 +92,9 @@ public class SpringObject : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
 	    if(canTrigger == true)
+        {
+            inputPlayer = col.GetComponent<InputPlayer>();
             StartCoroutine(Spring(col,springForce,holdTime,holdForce,lockPosition,additive));
+        }
     }
 }

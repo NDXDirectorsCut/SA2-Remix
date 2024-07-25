@@ -36,6 +36,7 @@ namespace SplineMesh {
         public float scale = 1, scaleRange = 0;
         public float spacing = 1, spacingRange = 0;
         public float offset = 0, offsetRange = 0;
+        public float verticalOffset;
         public bool isRandomYaw = false;
         public int randomSeed = 0;
 
@@ -101,7 +102,7 @@ namespace SplineMesh {
                 var localOffset = offset + UnityEngine.Random.Range(0, offsetRange * Math.Sign(offset));
                 localOffset *=  sample.scale.x;
                 binormal *= localOffset;
-                go.transform.position += binormal;
+                go.transform.position += binormal + sample.up * verticalOffset;
 
                 distance += spacing + UnityEngine.Random.Range(0, spacingRange);
             }

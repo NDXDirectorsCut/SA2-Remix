@@ -213,15 +213,16 @@ public class EnigmaPhysics : MonoBehaviour
                 }
 
                 Vector3 projectedVelo = Vector3.ProjectOnPlane(rBody.velocity,normal);
+                Vector3 correctedAxis = Quaternion.FromToRotation(normal,referenceVector) * primaryAxis;
 
                 rBody.velocity += -referenceVector.normalized * weight * Time.fixedDeltaTime;
-                rBody.velocity += primaryAxis * airAcceleration * Mathf.Clamp((rBody.velocity.magnitude/airAcceleration),0,1) * Time.deltaTime;
+                rBody.velocity += correctedAxis * airAcceleration * Mathf.Clamp((rBody.velocity.magnitude/airAcceleration),0,1) * Time.deltaTime;
                 
-                float brakeAngle = Vector3.SignedAngle(primaryAxis,projectedVelo,normal);
+                float brakeAngle = Vector3.SignedAngle(correctedAxis,projectedVelo,normal);
                 float finalBrakeAngle = -brakeAngle * Time.fixedDeltaTime * airTurnSpeed;
                 finalBrakeAngle = Mathf.Abs(finalBrakeAngle) > Mathf.Abs(brakeAngle) ? brakeAngle : finalBrakeAngle;
 
-                rBody.velocity = Quaternion.AngleAxis( finalBrakeAngle ,normal) * rBody.velocity;
+                rBody.velocity = Quaternion.AngleAxis( finalBrakeAngle ,referenceVector) * rBody.velocity;
                 rBody.velocity -= projectedVelo * airTurnDeceleration * Mathf.Abs(brakeAngle/360) * Time.fixedDeltaTime;
 
                 moved = primaryAxis.sqrMagnitude != 0 ? true : false;
@@ -231,7 +232,7 @@ public class EnigmaPhysics : MonoBehaviour
                 }
 
 
-                normal = Vector3.RotateTowards(normal,referenceVector,2f*Time.deltaTime,0).normalized;
+                normal = Vector3.RotateTowards(normal,referenceVector,3f*Time.deltaTime,0).normalized;
 
                 Vector3 pos = transform.position + transform.up * 1f;
                 transform.position = (Quaternion.FromToRotation(transform.up,normal) * (transform.position-pos)) + pos;

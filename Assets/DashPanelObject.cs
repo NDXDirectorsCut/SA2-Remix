@@ -11,6 +11,7 @@ public class DashPanelObject : MonoBehaviour
     public float lockInputTime = 0.5f;
     EnigmaPhysics enigmaPhysics;
     InputPlayer inputPlayer;
+    AudioSource sound;
 
     IEnumerator InputLock(InputPlayer inputPlayer)
     {
@@ -21,6 +22,10 @@ public class DashPanelObject : MonoBehaviour
 
     IEnumerator DashPanel(EnigmaPhysics enigmaPhysics, InputPlayer inputPlayer)
     {
+        sound.Play();
+        enigmaPhysics.grounded = true;
+        enigmaPhysics.characterState = 1;
+        enigmaPhysics.forwardReference = transform.forward;
         if(additive == false)
         {
             enigmaPhysics.rBody.velocity = transform.forward*speed;
@@ -37,7 +42,12 @@ public class DashPanelObject : MonoBehaviour
 
         if(lockInput == true && inputPlayer.canMove == true)
         {
-            StartCoroutine(InputLock(inputPlayer));
+            StartCoroutine(inputPlayer.InputLock(lockInputTime));
+            while(inputPlayer.canMove == false)
+            {
+                enigmaPhysics.primaryAxis = Quaternion.FromToRotation(transform.up,enigmaPhysics.normal) * transform.forward;
+                yield return new WaitForFixedUpdate();
+            }
         }
 
         yield return null;
@@ -57,7 +67,7 @@ public class DashPanelObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

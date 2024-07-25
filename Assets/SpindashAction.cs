@@ -34,7 +34,7 @@ public class SpindashAction : MonoBehaviour
     IEnumerator SpindashSound(AudioSource sound)
     {
         yield return new WaitForSeconds(chargeStart.length - 0.05f);
-        if(Input.GetKey(KeyCode.LeftShift))
+        if(Input.GetButton("Fire3"))
         {
             sound.clip = chargeLoop;
             sound.loop = true;
@@ -57,7 +57,7 @@ public class SpindashAction : MonoBehaviour
         chargeSound.Play();
         StartCoroutine(SpindashSound(chargeSound));
 
-	    while(Input.GetKey(KeyCode.LeftShift))
+	    while(Input.GetButton("Fire3"))
 	    {
             animator.SetBool("Scripted Animation",true);
             time = Mathf.Clamp((Time.time-startTime)/holdTime,0,1);
@@ -109,7 +109,7 @@ public class SpindashAction : MonoBehaviour
         while(enigmaPhysics.characterState == 1 && rBody.velocity.magnitude > .25f)
         {
             enigmaPhysics.canTriggerAction = false;
-            if(Input.GetKeyDown(KeyCode.LeftShift))
+            if(Input.GetButtonDown("Fire3"))
             {
                 StopAllCoroutines();
                 animator.SetBool("Scripted Animation",false);
@@ -149,25 +149,28 @@ public class SpindashAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	    if(holding == false)
-		    startHold = Time.time;
-    
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(enigmaPhysics.characterState == 1)
         {
-            holding = true;
-	        startHold = Time.time;
-        }
-	    
-        if(Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            holding = false;
-        }
+            if(holding == false)
+                startHold = Time.time;
+        
+            if(Input.GetButtonDown("Fire3"))
+            {
+                holding = true;
+                startHold = Time.time;
+            }
+            
+            if(Input.GetButtonUp("Fire3"))
+            {
+                holding = false;
+            }
 
-	  if(Time.time - startHold >= triggerTime && enigmaPhysics.characterState == 1 && holding == true && enigmaPhysics.canTriggerAction == true)
-	  {
-		StartCoroutine(Spindash());
-		holding = false;
-	  }
+            if(Time.time - startHold >= triggerTime && enigmaPhysics.characterState == 1 && holding == true && enigmaPhysics.canTriggerAction == true)
+            {
+                StartCoroutine(Spindash());
+                holding = false;
+            }
+      }
       //if(enigmaPhysics.characterState != 1 )
       //  StopAllCoroutines();
     }

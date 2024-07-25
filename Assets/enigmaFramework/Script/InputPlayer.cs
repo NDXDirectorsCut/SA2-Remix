@@ -22,13 +22,20 @@ public class InputPlayer : MonoBehaviour
         enigmaPhysics = GetComponent<EnigmaPhysics>();
     }
 
+    public IEnumerator InputLock(float lockInputTime)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(lockInputTime);
+        canMove = true;
+    }
+
     void Update()
     {
 	if(canMove == true) 
 	{
         hor = Input.GetAxisRaw("Horizontal");
         ver = Input.GetAxisRaw("Vertical");
-      }
+    }
 	else
 	{
 	  hor = 0; ver = 0;
@@ -36,7 +43,8 @@ public class InputPlayer : MonoBehaviour
         switch(inputReference)
         {
             case InputReference.Transform:
-
+                primaryAxis = new Vector3(hor,0,ver);
+                primaryAxis = referenceObject.transform.TransformDirection(primaryAxis);
                 break;
             case InputReference.TransformGrounded:
                 primaryAxis = new Vector3(hor,0,ver);
