@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Menu.unity
+    path: Assets/SA2Remix/Menu/TitleScreen/Menu.unity
     guid: ee8ac6f63d2037b419840771c6edeefb
   - enabled: 1
-    path: Assets/Glass.Unity
+    path: Assets/enigmaFramework/Stage/TestStage/TestStage.Unity
     guid: 0743dca3fdf899c40bc463ace256f612
   - enabled: 1
-    path: Assets/enigmaFramework/Stage/RankTest/RankTestStage.unity
+    path: Assets/enigmaFramework/Stage/DemoStage/RankTestStage.unity
     guid: aeba1e6f257e00a488c546b6d01bfec5
   m_configObjects: {}
