@@ -6857,6 +6857,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DashPanel_Object (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4993372607955163177, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
+      propertyPath: lockInputTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6839192545031135204, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -6913,6 +6917,10 @@ PrefabInstance:
     - target: {fileID: 4733643599978323556, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_Name
       value: DashPanel_Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993372607955163177, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
+      propertyPath: lockInputTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6839192545031135204, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7339,6 +7347,10 @@ PrefabInstance:
     - target: {fileID: 4733643599978323556, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_Name
       value: DashPanel_Object (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993372607955163177, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
+      propertyPath: lockInputTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6839192545031135204, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9670,6 +9682,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DashPanel_Object (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4993372607955163177, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
+      propertyPath: lockInputTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6839192545031135204, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -9726,6 +9742,10 @@ PrefabInstance:
     - target: {fileID: 4733643599978323556, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_Name
       value: DashPanel_Object (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993372607955163177, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
+      propertyPath: lockInputTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6839192545031135204, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11608,74 +11628,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 407f1b4062520dae08721e196c948730, type: 3}
---- !u!1 &779963540
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 779963543}
-  - component: {fileID: 779963542}
-  - component: {fileID: 779963541}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &779963541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779963540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &779963542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779963540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &779963543
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779963540}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &785549070
 GameObject:
   m_ObjectHideFlags: 0
@@ -13937,6 +13889,10 @@ PrefabInstance:
     - target: {fileID: 4733643599978323556, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_Name
       value: DashPanel_Object (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993372607955163177, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
+      propertyPath: lockInputTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6839192545031135204, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25765,6 +25721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DashPanel_Object (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4993372607955163177, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
+      propertyPath: lockInputTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6839192545031135204, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -26126,6 +26086,10 @@ PrefabInstance:
     - target: {fileID: 4733643599978323556, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_Name
       value: DashPanel_Object (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993372607955163177, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
+      propertyPath: lockInputTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6839192545031135204, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30467,6 +30431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DashPanel_Object (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4993372607955163177, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
+      propertyPath: lockInputTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6839192545031135204, guid: ad73ddd615836444ca899e737702ccc0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -31316,7 +31284,6 @@ SceneRoots:
   - {fileID: 1593799716}
   - {fileID: 1726650820}
   - {fileID: 267549375}
-  - {fileID: 779963543}
   - {fileID: 349042085}
   - {fileID: 1225273669}
   - {fileID: 1658243397}

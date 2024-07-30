@@ -29,6 +29,7 @@ public class SpringObject : MonoBehaviour
 
     void OnDrawGizmos()
     {
+        // draw arc 
         Vector3 velocity = transform.up * springForce;
         Vector3 position = transform.position + transform.up * .5f;
         for(int i = 0; i<arcPoints; i++)
@@ -60,19 +61,24 @@ public class SpringObject : MonoBehaviour
             EnigmaPhysics enigmaPhysics = col.GetComponent<EnigmaPhysics>();
             enigmaPhysics.canTriggerAction = false;
             
-            float corrector = 1;//enigmaPhysics.characterState == 1 ? 1/enigmaPhysics.airSpeedPreservation : 1 ;
+            float corrector = 1;
             enigmaPhysics.characterState = 2;
 
+            // set a consistent position for the player
             if(lockPos == true)
 	        {
                 enigmaPhysics.rBody.position = transform.position + transform.up * .5f;
-		        //Debug.Log("lock Position");
 	        }
+
+            // add onto the player velocity rather than setting it
             if(additive == false)
                 enigmaPhysics.rBody.velocity = Vector3.zero;
+
+            // stop any other jumps
             jumpScript.StopAllCoroutines();
-            //enigmaPhysics.normal = transform.up;
+
             GetComponent<AudioSource>().Play();
+            //actually launch the player
 	        StartCoroutine(jumpScript.Jump(force * corrector,time,holdF,transform.up,false));
         }
         else

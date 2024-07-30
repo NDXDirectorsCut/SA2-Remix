@@ -42,55 +42,46 @@ public class EnigmaCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // load settings
         speed = PlayerPrefs.GetFloat("CameraSensitivity");
-        //transform.position = (lookTarget.position - transform.position).normalized * distance;
+
         enigmaPhysics = transform.parent.Find("EnigmaCharacter").GetComponent<EnigmaPhysics>();
         Cursor.lockState = CursorLockMode.Locked;
         referenceVector = Vector3.up;
-        //Application.targetFrameRate = 120;
     }
     
     void Update()
     {
         deltaDeviance = Time.deltaTime / Time.fixedDeltaTime;
         speed = PlayerPrefs.GetFloat("CameraSensitivity");
-        //Application.targetFrameRate = 120;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         Application.targetFrameRate = targetFramerate;
-        if(scripted == false)
+        if(scripted == false) // use normal behavior
         {
             Vector3 prevReference = referenceVector;
             referenceVector = Vector3.Slerp(referenceVector,enigmaPhysics.normal,lerpCurve.Evaluate(Vector3.Angle(referenceVector,enigmaPhysics.normal)) * Time.deltaTime * lerpForce);
 
-            //Turn Camera Up to Normal
-            //transform.up = Quaternion.FromToRotation(prevReference,referenceVector) * transform.up;
-
-            //Mouse Input
+            // mouse Input
             float dl = Time.fixedDeltaTime;
-            //if(mouseX != mouseX || mouseY != mouseY)
-            //{
-            //mouseX = Input.GetAxisRaw("Mouse Y"); mouseY = Input.GetAxisRaw("Mouse X");
-            //}
-
             mouseX = Mathf.Lerp(mouseX,Input.GetAxisRaw("Mouse X")/1 ,1-inputSmoothness); mouseY = Mathf.Lerp(mouseY,Input.GetAxisRaw("Mouse Y")/1 ,1-inputSmoothness) ;
+            
+            // offset positions of targets
             Vector3 orbitPos = orbitTarget.position + orbitTarget.right * offset.x + orbitTarget.up * offset.y + orbitTarget.forward * offset.z;
             Vector3 lookPos = lookTarget.position + lookTarget.right * offset.x + lookTarget.up * offset.y + lookTarget.forward * offset.z;
 
+            //rotate camera around a pivot
             transform.position = (Quaternion.AngleAxis(mouseX*speed*Time.fixedDeltaTime,referenceVector) * (transform.position-lookPos)) + lookPos;
             transform.forward = Quaternion.AngleAxis(mouseX*speed*Time.fixedDeltaTime,referenceVector) * transform.forward;
-            //Debug.DrawRay(transform.position,transform.forward,Color.magenta);
-            //Debug.DrawRay(transform.position,Vector3.ProjectOnPlane(transform.forward,referenceVector),Color.blue);
 
-            //Vertical Handling
+            // normal handling
             Vector3 planeForward = Vector3.ProjectOnPlane(transform.forward,referenceVector).normalized;
-            Debug.DrawRay(transform.position,planeForward,Color.blue);
-            Debug.DrawRay(transform.position,Quaternion.AngleAxis(angleCutoff,transform.right) * planeForward,Color.red);
-            Debug.DrawRay(transform.position,Quaternion.AngleAxis(-angleCutoff,transform.right) * planeForward,Color.green);
+
             float yAngle = Vector3.SignedAngle(transform.forward,planeForward,transform.right);
+            //clamp camera angle
             if( Mathf.Abs(yAngle) <= angleCutoff)
             {
                 transform.position = (Quaternion.AngleAxis(mouseY*speed*Time.deltaTime,transform.right) * (transform.position-lookPos)) + lookPos;
@@ -98,7 +89,7 @@ public class EnigmaCamera : MonoBehaviour
             }
             else
             {
-                    if(yAngle > 0)
+                if(yAngle > 0)
                 {
                     transform.forward = Vector3.RotateTowards(transform.forward,Quaternion.AngleAxis(angleCutoff,transform.right) * planeForward,.2f*Time.deltaTime,0);
                 }
@@ -107,8 +98,8 @@ public class EnigmaCamera : MonoBehaviour
                     transform.forward = Vector3.RotateTowards(transform.forward,Quaternion.AngleAxis(-angleCutoff,transform.right) * planeForward,.2f*Time.deltaTime,0);
                 }
             }
-            //transform.up =transform.up;
-            //Turn camera to where the player is facing
+
+            // turn camera to where the player is facing
             Vector3 projForward = Vector3.ProjectOnPlane(transform.forward,referenceVector);
             Vector3 projForwardRef = Vector3.ProjectOnPlane(enigmaPhysics.forwardReference,referenceVector);
 
@@ -116,32 +107,14 @@ public class EnigmaCamera : MonoBehaviour
                             : Vector3.SignedAngle(projForward,projForwardRef,referenceVector);
             if(mouseX < 0.01f && mouseX > -0.01f && enigmaPhysics.rBody.velocity.magnitude > 0.5f)
             {
-                //float clampedSpeed = Mathf.Lerp(0,facingSpeed,Mathf.Clamp(Mathf.Abs(xAngle)/15,0,1));
                 float finalTurnAngle = xAngle * Time.fixedDeltaTime * facingSpeed;
                 finalTurnAngle = Mathf.Abs(finalTurnAngle) > Mathf.Abs(xAngle) ? xAngle : finalTurnAngle;
-                //Debug.Log(finalTurnAngle + " " + xAngle);
 
                 transform.position = (Quaternion.AngleAxis(finalTurnAngle,referenceVector) * (transform.position-lookPos)) + lookPos;
                 transform.forward = Quaternion.AngleAxis(finalTurnAngle,referenceVector) * transform.forward;
             }
 
-            /*
-            verticalV3 += new Vector3(-mouseY*speed,0,0);
-            if(verticalV3.x >= angleCutoff.y)
-            {
-                verticalV3.x = Mathf.Lerp(verticalV3.x,angleCutoff.y,.5f);
-            }
-            if(verticalV3.x <= angleCutoff.x)
-            {
-                verticalV3.x = Mathf.Lerp(verticalV3.x,angleCutoff.x,.5f);
-            }
-            verticalV3.x = Mathf.Clamp(verticalV3.x,-90,90);
-            horizontalV3 += new Vector3(0,mouseX*speed,0);
-
-            Quaternion horizontalQ = Quaternion.Euler(horizontalV3); Quaternion verticalQ = Quaternion.Euler(verticalV3);
-            Quaternion finalRot = horizontalQ * verticalQ;
-            transform.rotation = finalRot;
-            */
+            // camera collision
             RaycastHit hit;
 
             if(Physics.Raycast(orbitPos,-transform.forward,out hit,distance,layers))
@@ -154,6 +127,8 @@ public class EnigmaCamera : MonoBehaviour
                 transform.position = orbitPos - transform.forward * distance;
                 currentBuffer = 0;
             }
+
+            // final camera rotation
             transform.rotation = Quaternion.LookRotation( Quaternion.FromToRotation(prevReference,referenceVector) * (lookPos - transform.position).normalized,referenceVector);
         }
     }

@@ -44,6 +44,7 @@ public class SpindashAction : MonoBehaviour
 
     IEnumerator Spindash()
     {
+        // initialize variables and animator
 	    Vector3 pos = transform.position;
         float velocity = rBody.velocity.magnitude;
 	    float startTime = Time.time;
@@ -51,22 +52,26 @@ public class SpindashAction : MonoBehaviour
         enigmaPhysics.canTriggerAction = false;
 	    float time = 0;
 
+        //sound handling
         AudioSource chargeSound = animator.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
         chargeSound.clip = chargeStart;
         chargeSound.volume = volume;
         chargeSound.Play();
         StartCoroutine(SpindashSound(chargeSound));
 
+        //charge the ability
 	    while(Input.GetButton("Fire3"))
 	    {
             animator.SetBool("Scripted Animation",true);
             time = Mathf.Clamp((Time.time-startTime)/holdTime,0,1);
 
-            //transform.position = Vector3.Lerp(transform.position,pos,1/3f);
+            // slow down the player
             rBody.velocity = Vector3.Lerp(rBody.velocity,Vector3.zero,.1f);
+
             if(enigmaPhysics.primaryAxis.magnitude > .1f)
                 enigmaPhysics.forwardReference = enigmaPhysics.primaryAxis;
 
+            // cancel the ability
             if(enigmaPhysics.characterState != 1)
             {
                 animator.SetBool("Scripted Animation",false);
@@ -76,25 +81,23 @@ public class SpindashAction : MonoBehaviour
             }
             yield return new WaitForFixedUpdate();
 	    }
+
+        // determine speed
         float speed = velocity > .2f ? Mathf.Lerp(velocity,topSpeed,time) : Mathf.Lerp(minSpeed,topSpeed,time);
+        
+        // release sound logic
         chargeSound.clip = release;
         chargeSound.loop = false;
         chargeSound.Play();
         Destroy(chargeSound,release.length + 2.5f);
-	    //if(Input.GetKeyUp(KeyCode.LeftShift))
-	    //{
-	        StartCoroutine(Roll(speed,rollDeceleration));
-	    //}
-        //else
-        //{
-        //    animator.SetBool("Scripted Animation",false);
-        //    enigmaPhysics.canTriggerAction = true;
-        //}
-        
+
+        //start the next phase of the ability
+	    StartCoroutine(Roll(speed,rollDeceleration));
     }
 
     IEnumerator Roll(float rollSpeed,float rollDecel)
     {
+        // initialization of variables and effects
         float activeSpeed = rollSpeed;
         rBody.velocity = enigmaPhysics.forwardReference.normalized * activeSpeed;
         animator.CrossFadeInFixedTime("Ground Spin",.25f,0,0);
@@ -106,9 +109,12 @@ public class SpindashAction : MonoBehaviour
 	    ParticleSystem particle = curBall.GetComponent<ParticleSystem>();
 	    var main = particle.main;
 
+        // roll logic
         while(enigmaPhysics.characterState == 1 && rBody.velocity.magnitude > .25f)
         {
             enigmaPhysics.canTriggerAction = false;
+
+            // cancel the ability
             if(Input.GetButtonDown("Fire3"))
             {
                 StopAllCoroutines();
@@ -121,20 +127,24 @@ public class SpindashAction : MonoBehaviour
                 Destroy(curBall,particle.duration + particle.startLifetime);
 
             }
+
+            //decelerate player over time
             activeSpeed -= rollDecel * Time.fixedDeltaTime;
-            //Add gravity
+
+            // add gravity
             Vector3 slopeVector = -Vector3.ProjectOnPlane(enigmaPhysics.referenceVector,enigmaPhysics.normal).normalized;
             Vector3 rightVector = Vector3.Cross(enigmaPhysics.normal,enigmaPhysics.forwardReference);
-            float veloRatio = Mathf.Clamp(Vector3.SignedAngle(rightVector,slopeVector,enigmaPhysics.normal)/90,-1,1);
-            //Debug.Log(veloRatio);
+
+            float veloRatio = Mathf.Clamp(Vector3.SignedAngle(rightVector,slopeVector,enigmaPhysics.normal)/90,-1,1); // determine if player is facing the slope
             Debug.DrawRay(transform.position,rightVector,Color.blue);
             Debug.DrawRay(transform.position,slopeVector * enigmaPhysics.linearSlopeForce.magnitude * slopeForce * veloRatio,Color.red);
             activeSpeed -= enigmaPhysics.linearSlopeForce.magnitude * slopeForce * veloRatio;
-            //Debug.Log(veloRatio);
 
             rBody.velocity = enigmaPhysics.forwardReference * activeSpeed;
             yield return new WaitForFixedUpdate();
     	}
+
+        //return back to normal
         Debug.Log("Spindash Stop");
 	    animator.SetBool("Scripted Animation", false);
 	    enigmaPhysics.canTriggerAction = true;
@@ -149,6 +159,7 @@ public class SpindashAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //input handing
         if(enigmaPhysics.characterState == 1)
         {
             if(holding == false)
@@ -171,7 +182,5 @@ public class SpindashAction : MonoBehaviour
                 holding = false;
             }
       }
-      //if(enigmaPhysics.characterState != 1 )
-      //  StopAllCoroutines();
     }
 }

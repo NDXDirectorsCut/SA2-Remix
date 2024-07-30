@@ -32,7 +32,7 @@ public class EnigmaPhysics : MonoBehaviour
         public bool grounded;
 
         public int characterState = 0;
-	int characterState_copy = 0;
+    	int characterState_copy = 0;
 
     [Header("Movement")]
         bool moved,movedStarted;
@@ -70,8 +70,8 @@ public class EnigmaPhysics : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        normal = referenceVector;
-        normalForward = transform.forward;
+        normal = referenceVector; // set default normal to be the base up direction
+        normalForward = transform.forward; 
         normalRight = Vector3.Cross(normal,normalForward);
         point = transform.position;
         forwardReference = transform.forward;
@@ -88,22 +88,21 @@ public class EnigmaPhysics : MonoBehaviour
 
         Vector3 tempNormal = referenceVector;
         float dl = Time.fixedDeltaTime;
-        // /nnDebug.DrawRay(transform.position+transform.up*col.center.y*1.75f+transform.forward*.05f,-transform.up * col.center.y*2*raycastLength,Color.magenta);
+        // Raycast to get surface information
         if(Physics.Raycast(rBody.position+transform.up*col.center.y*1.75f,-transform.up,out hit,col.center.y*2*activeRayLen,raycastLayers) != false)
         {
-
             if(interpolateNormals == true)
             {
-                tempNormal = InterpolateNormal(hit).normalized;
+                tempNormal = InterpolateNormal(hit).normalized; // use barycentric coordinates to make a smoothed normal
             }
             else
             {
-                tempNormal = hit.normal;
+                tempNormal = hit.normal; // use default raycast normal
             }
             if(Vector3.Angle(normal,tempNormal) <= angleCutoff)
             {
-                grounded = hit.transform != null ? true : false;
-                normal = Vector3.Lerp(normal,tempNormal,1 - Mathf.Pow(1 - normalLerp, dl * 60));
+                grounded = hit.transform != null ? true : false; // determine whether the player is on the ground or not
+                normal = Vector3.Lerp(normal,tempNormal,1 - Mathf.Pow(1 - normalLerp, dl * 60)); // interpolate the normal
                 Debug.DrawRay(hit.point,normal,Color.magenta);
             }
             else
@@ -114,64 +113,71 @@ public class EnigmaPhysics : MonoBehaviour
         }
 
         grounded = hit.transform != null ? grounded : false;
-	if(characterState != characterState_copy)
-	{
-		StartCoroutine(StateTrigger(characterState_copy));
-		characterState_copy = characterState;
-	}
+
+        //handle state transitions
+        if(characterState != characterState_copy)
+        {
+            StartCoroutine(StateTrigger(characterState_copy));
+            characterState_copy = characterState;
+        }
+
+        //state machine
         switch(characterState)
         {
             case 0: // Debug
                 rBody.isKinematic = true;
                 float speed = Input.GetKey(KeyCode.LeftShift) ? 25 : 2.5f;
                 transform.position += primaryAxis * Time.fixedDeltaTime *speed;
-                //rBody.position += debugInput * dl;
                 break;
             case 1: // Grounded
+
+                // switch to next state
                 if(grounded == false)
                 {
                     characterState = 2;
                     goto case 2;
                 }
 
-                float slopeAngle = Vector3.SignedAngle(referenceVector,normal,-Vector3.Cross(forwardReference,normal));
-                float slopeCap =  (Mathf.Abs(slopeAngle) * 0.106f + 2.3f);
-                activeRayLen = Mathf.Lerp(activeRayLen,raycastLength,.1f * Time.deltaTime);
+                // get slope angle
+                float slopeAngle = Vector3.SignedAngle(referenceVector,normal,-Vector3.Cross(forwardReference,normal)); 
+                float slopeCap = (Mathf.Abs(slopeAngle) * 0.106f + 2.3f); // Max speed gravity can affect the player at
+                activeRayLen = Mathf.Lerp(activeRayLen,raycastLength,.1f * Time.deltaTime); // return raycast length to normal
 
-                //Debug.Log(slopeCap + " " + slopeAngle);
                 float finalCap = accelCap;
-
                 float accelRatio = Mathf.Clamp(Vector3.Angle(forwardReference,referenceVector)/90,0,1);
-                //Debug.Log(accelRatio);
-                //Debug.Log(slopeCap+accelCap);
 
+                // begin the player with some speed rather than 0
                 StartCoroutine(StartSpeed());
                 moved = primaryAxis.sqrMagnitude != 0 ? true : false;
                 movedStarted = primaryAxis.sqrMagnitude > .1f && rBody.velocity.sqrMagnitude < .1f ? true : false;
 
+                // determine the position the player should be at
                 point = Vector3.Lerp(point,hit.point,Mathf.Clamp(1 - Mathf.Pow(1 - pointLerp, dl * 60 ),0,1));
                 Vector3 localPoint = rBody.transform.InverseTransformPoint(point); localPoint.x = 0; localPoint.z = 0;
                 point = rBody.transform.TransformPoint(localPoint);
 
+                // accelerate the player if they push the stick more than halfway 
                 rBody.velocity += primaryAxis.normalized * groundAcceleration * accelRatio * Time.fixedDeltaTime * accelerationCurve.Evaluate(rBody.velocity.magnitude/finalCap);
+                
+                // decelerate the player when they go over the max accel speed
                 if(rBody.velocity.magnitude/finalCap > 1)
                 {
                     rBody.velocity -= rBody.velocity * groundAcceleration * accelRatio * Time.fixedDeltaTime * .125f;
                 }
-                //Debug.DrawRay(transform.position,primaryAxis.normalized * groundAcceleration * accelRatio * Time.fixedDeltaTime * accelerationCurve.Evaluate(rBody.velocity.magnitude/finalCap),Color.green);
 
+                // turn handling
                 float turnAngle = Vector3.SignedAngle(primaryAxis,rBody.velocity,normal);
                 float finalTurnAngle = -turnAngle * Time.fixedDeltaTime * turnRate;
                 finalTurnAngle = Mathf.Abs(finalTurnAngle) > Mathf.Abs(turnAngle) ? turnAngle : finalTurnAngle;
-                //Debug.Log(turnAngle + " " + finalTurnAngle);w 
 
                 rBody.velocity = Quaternion.AngleAxis(finalTurnAngle, normal) * rBody.velocity;
-                rBody.velocity -= rBody.velocity * turnDeceleration * Mathf.Abs(turnAngle/360) * Time.fixedDeltaTime;
+                rBody.velocity -= rBody.velocity * turnDeceleration * Mathf.Abs(turnAngle/360) * Time.fixedDeltaTime; // decelerate the player when turning quickly
 
+                // decelerate the player when not moving
                 if(moved == false)
                 {
                     rBody.velocity += rBody.velocity * groundDeceleration * Time.fixedDeltaTime * Mathf.Clamp(rBody.velocity.magnitude,0,1);
-                    if(rBody.velocity.sqrMagnitude<1f)
+                    if(rBody.velocity.sqrMagnitude<.25f)
                             rBody.velocity = Vector3.Lerp(rBody.velocity,Vector3.zero,0.3f*accelRatio);
                         if(rBody.velocity.sqrMagnitude<0.05f && Mathf.Abs(slopeAngle) < 45f)
                         {
@@ -179,25 +185,26 @@ public class EnigmaPhysics : MonoBehaviour
                         }
                 }
                 
+                // push the player down based on the slope
 		        slopeForce = -Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)) * Time.fixedDeltaTime; 
                 linearSlopeForce = -Vector3.ProjectOnPlane(referenceVector,normal).normalized * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)) * Time.fixedDeltaTime; 
                 rBody.velocity += slopeForce;
 
-                //float airAngle = Vector3.SignedAngle(primaryAxis,rBody.velocity,normal);
-                //rBody.velocity = Quaternion.AngleAxis(-airAngle * Time.fixedDeltaTime * airTurnSpeed,normal) * rBody.velocity;
-
+                // keep the player velocity perpendicular to the normal
                 rBody.velocity = Vector3.ProjectOnPlane(rBody.velocity,normal);
                 rBody.velocity = Vector3.ClampMagnitude(rBody.velocity,speedCap);
-                //Debug.DrawRay(transform.position + -Vector3.Cross(forwardReference,normal) * .1f,-Vector3.ProjectOnPlane(referenceVector,normal).normalized * slopeIntensity.Evaluate(Mathf.Abs(slopeAngle)) * accelerationCurve.Evaluate(rBody.velocity.magnitude/(slopeCap*6)), Color.red);
 
-                if(rBody.velocity.sqrMagnitude > 0.2f)
+                // set the forward direction if above a minimum speed
+                if(rBody.velocity.sqrMagnitude > .2f)
                     forwardReference = rBody.velocity.normalized;
                 else
                     forwardReference = Vector3.ProjectOnPlane(forwardReference,normal);
 
+                // correct the character controller position and rotation
                 rBody.position = point;
                 rBody.transform.up = normal;
 
+                // kick the player off the ground when they're not moving fast enough
                 if(Mathf.Abs(slopeAngle) > 85 && rBody.velocity.magnitude<5)
                 {
                     grounded = false; characterState = 2;
@@ -206,6 +213,8 @@ public class EnigmaPhysics : MonoBehaviour
 
                 break;
             case 2: // Airborne
+
+                // switch to next state
                 if(grounded == true)
                 {
                     characterState = 1;
@@ -215,31 +224,37 @@ public class EnigmaPhysics : MonoBehaviour
                 Vector3 projectedVelo = Vector3.ProjectOnPlane(rBody.velocity,normal);
                 Vector3 correctedAxis = Quaternion.FromToRotation(normal,referenceVector) * primaryAxis;
 
+                // apply gravity
                 rBody.velocity += -referenceVector.normalized * weight * Time.fixedDeltaTime;
                 rBody.velocity += correctedAxis * airAcceleration * Mathf.Clamp((rBody.velocity.magnitude/airAcceleration),0,1) * Time.deltaTime;
                 
+                // turn logic
                 float brakeAngle = Vector3.SignedAngle(correctedAxis,projectedVelo,normal);
                 float finalBrakeAngle = -brakeAngle * Time.fixedDeltaTime * airTurnSpeed;
                 finalBrakeAngle = Mathf.Abs(finalBrakeAngle) > Mathf.Abs(brakeAngle) ? brakeAngle : finalBrakeAngle;
 
                 rBody.velocity = Quaternion.AngleAxis( finalBrakeAngle ,referenceVector) * rBody.velocity;
-                rBody.velocity -= projectedVelo * airTurnDeceleration * Mathf.Abs(brakeAngle/360) * Time.fixedDeltaTime;
+                rBody.velocity -= projectedVelo * airTurnDeceleration * Mathf.Abs(brakeAngle/360) * Time.fixedDeltaTime; // decelerate the player when turning quickly
 
+                // decelerate the player when not actively moving
                 moved = primaryAxis.sqrMagnitude != 0 ? true : false;
                 if(moved == false)
                 {
                     rBody.velocity += projectedVelo * airDeceleration * Time.fixedDeltaTime * Mathf.Clamp(projectedVelo.magnitude,0,1);
                 }
 
-
+                // transition normal to up direction
                 normal = Vector3.RotateTowards(normal,referenceVector,3f*Time.deltaTime,0).normalized;
 
-                Vector3 pos = transform.position + transform.up * 1f;
+                // rotate the player around their center
+                Vector3 pos = transform.position + transform.up * .5f;
                 transform.position = (Quaternion.FromToRotation(transform.up,normal) * (transform.position-pos)) + pos;
                 transform.up = Quaternion.FromToRotation(transform.up,normal) * transform.up;
 
+                // correct ray length
                 activeRayLen = Mathf.Lerp(activeRayLen,raycastLength, 4f * Time.deltaTime);
 		    
+                //determine forward direction perpendicular to the up direction
                 normalForward = Vector3.ProjectOnPlane(rBody.velocity,normal);
 
                 if(normalForward.sqrMagnitude > 0.2f)
@@ -247,31 +262,23 @@ public class EnigmaPhysics : MonoBehaviour
                 else
                     forwardReference = Vector3.ProjectOnPlane(forwardReference,normal);
 
-                //rBody.transform.up = normal;
                 point = transform.position;
                 break;
             case 3: // Scripted
-
+                // state behaviour is determined by an external source
                 break;
         }
-
-        //Debug.DrawRay(point,normalForward,Color.blue);
-        //Debug.DrawRay(point,rBody.velocity,Color.cyan);
-        //Debug.DrawRay(point,normal,Color.green);
-        //Debug.DrawRay(point,normalRight,Color.red);
-
     }
 
     IEnumerator StateTrigger(float oldState)
     {
-        //Debug.Log("Switched from Character State " + oldState + " to " + characterState  );
         switch(characterState)
         {
             case 1:
                 if(oldState == 2)
                 {
+                    // speed preservation handling
                     float hitAngle = Mathf.Clamp(Vector3.Angle(-rBody.velocity,normal)*1.1f,0,90);
-                    //prevFloorPos = hit.transform.position;
                     rBody.velocity = rBody.velocity.normalized * Mathf.Clamp(hitAngle/90,0,1) * rBody.velocity.magnitude;
                 }
 
@@ -279,7 +286,7 @@ public class EnigmaPhysics : MonoBehaviour
             case 2:
                 if(oldState == 1)
                 {
-		    //Debug.Log("Air Speed");
+                    // remove some of the player's speed when becoming airborne
                     rBody.velocity = rBody.velocity.normalized * rBody.velocity.magnitude * airSpeedPreservation;// + floorVelocity;
                 }
                 break;
@@ -291,10 +298,7 @@ public class EnigmaPhysics : MonoBehaviour
     {
         if(moved == false && primaryAxis.magnitude != 0 && rBody.velocity.magnitude < 0.2f)
         {
-            //Debug.Log("Start Speed!");
             rBody.velocity = primaryAxis.normalized * startSpeed;
-
-
         }
         yield return null;
     }
@@ -320,14 +324,6 @@ public class EnigmaPhysics : MonoBehaviour
         int[] triangles = mesh.triangles;
 
         Vector3 scale = iHit.transform.lossyScale;
-        //float maxVal = Mathf.Max(Mathf.Max(scale.x, scale.y), scale.z);
-        //scale = new Vector3(scale.x/maxVal,scale.y/maxVal,scale.z/maxVal);
-        //scale = new Vector3(1/Mathf.Abs(scale.x),1/Mathf.Abs(scale.y),1/Mathf.Abs(scale.z)); //create vector to "correct" for scale
-        //Vector3 scaleFull = new Vector3(1/scale.x,1/scale.y,1/scale.z);
-        //This is only a bandaid solution and gets less accurate the more you skew a mesh, if you know how to get the actual normals after scaling please contact me at
-        // n.dx on Discord or NDXDirectorsCut on Twitter
-
-        //Debug.Log(scale);
 
         // Extract local space normals of the triangle we hit
         Vector3 n0 = normals[triangles[iHit.triangleIndex * 3 + 0]];
@@ -335,11 +331,6 @@ public class EnigmaPhysics : MonoBehaviour
         Vector3 n2 = normals[triangles[iHit.triangleIndex * 3 + 2]];
 
         Vector3 scaleAlt = new Vector3(1/scale.x,1/scale.y,1/scale.z);
-        //Debug.Log(triangles[iHit.triangleIndex * 3 + 0]);
-        //Debug.DrawRay(Vector3.Scale(mesh.vertices[triangles[iHit.triangleIndex * 3 + 0]],iHit.transform.lossyScale) + iHit.transform.position,Vector3.Scale(n0.normalized,scaleAlt).normalized,Color.red);
-        //Debug.DrawRay(Vector3.Scale(mesh.vertices[triangles[iHit.triangleIndex * 3 + 1]],iHit.transform.lossyScale) + iHit.transform.position,Vector3.Scale(n0.normalized,scaleAlt).normalized,Color.green);
-        //Debug.DrawRay(Vector3.Scale(mesh.vertices[triangles[iHit.triangleIndex * 3 + 2]],iHit.transform.lossyScale) + iHit.transform.position,Vector3.Scale(n0.normalized,scaleAlt).normalized,Color.blue);
-
         // interpolate using the barycentric coordinate of the hitpoint
         Vector3 baryCenter = iHit.barycentricCoordinate;
 
@@ -347,14 +338,8 @@ public class EnigmaPhysics : MonoBehaviour
         n1 = Vector3.Scale(n1,scaleAlt);
         n2 = Vector3.Scale(n2,scaleAlt);
 
-        //Debug.DrawRay(iHit.point,n0,Color.red);
-        //Debug.DrawRay(iHit.point,n1,Color.green);
-        //Debug.DrawRay(iHit.point,n2,Color.blue);
-
-        //baryCenter = Vector3.Scale(baryCenter,scaleAlt);
         // Use barycentric coordinate to interpolate normal
         Vector3 interpolatedNormal = n0 * baryCenter.x + n1 * baryCenter.y + n2 * baryCenter.z;
-        //interpolatedNormal = Vector3.Scale(interpolatedNormal,scale);
 
         // normalize the interpolated normal
         interpolatedNormal = interpolatedNormal.normalized;

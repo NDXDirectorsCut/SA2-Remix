@@ -31,27 +31,27 @@ public class InputPlayer : MonoBehaviour
 
     void Update()
     {
-	if(canMove == true) 
-	{
-        hor = Input.GetAxisRaw("Horizontal");
-        ver = Input.GetAxisRaw("Vertical");
-    }
-	else
-	{
-	  hor = 0; ver = 0;
-	}
+        if(canMove == true) 
+        {
+            hor = Input.GetAxisRaw("Horizontal");
+            ver = Input.GetAxisRaw("Vertical");
+        }
+        else
+        {
+            hor = 0; ver = 0;
+        }
         switch(inputReference)
         {
-            case InputReference.Transform:
+            case InputReference.Transform: // make input vector relative to the reference object
                 primaryAxis = new Vector3(hor,0,ver);
                 primaryAxis = referenceObject.transform.TransformDirection(primaryAxis);
                 break;
-            case InputReference.TransformGrounded:
+            case InputReference.TransformGrounded: // make input vector relative to the reference object but align it to the normal
                 primaryAxis = new Vector3(hor,0,ver);
                 primaryAxis = Quaternion.FromToRotation(referenceObject.transform.up,enigmaPhysics.normal) * referenceObject.transform.TransformDirection(primaryAxis);
                 primaryAxis = Vector3.ClampMagnitude(primaryAxis,1);
                 break;
-            case InputReference.Spline:
+            case InputReference.Spline: // make input vector aligned to a spline
                 if(referenceObject.GetComponent<Spline>() != null)
                 {
                     Spline moveSpline = referenceObject.GetComponent<Spline>();
@@ -65,27 +65,10 @@ public class InputPlayer : MonoBehaviour
                 }
                 break;
         }
+        // transfer the primaryAxis over to main physics script
         enigmaPhysics.primaryAxis = primaryAxis;
         Debug.DrawRay(transform.position,primaryAxis,Color.yellow);
 
     }
     
-    /*
-    void FixedUpdate()
-    {
-        
-
-        switch(enigmaPhysics.characterState)
-        {
-            case 0: //Debug
-                break;
-            case 1: //Grounded
-                break;
-            case 2: //Airborne
-                break;
-            case 3: //Scripted
-                break;
-        }
-    }*/
-
 }
